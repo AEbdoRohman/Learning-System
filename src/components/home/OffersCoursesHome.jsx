@@ -1,8 +1,7 @@
-import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import "../../../../src/index.css";
+import "../../../src/index.css";
 import { Link } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
 <FaCartShopping />;
@@ -55,19 +54,24 @@ const OffersCoursesHome = () => {
             {[1, 2, 3, 4].map((_, index) => (
               <div
                 key={index}
-                className="flex items-center justify-center h-full mb-[30px]"
+                className="flex items-center justify-center gap-2 h-full mb-[30px]"
               >
-                <div className="flex flex-col items-center justify-center w-[18rem] min-h-[440px] border-[1px] border-gray-700 rounded-lg mx-auto">
-                  <img
-                    src="/src/assets/images/AI_spesialCourse.jpg"
-                    className="rounded-tl-[0.5rem] rounded-tr-[0.5rem]"
-                    style={{
-                      height: "312px",
-                      width: "100%",
-                      objectFit: "cover",
-                    }}
-                    alt="course"
-                  />
+                <div className="flex flex-col items-center justify-center  min-h-[440px] rounded-lg mx-4 shadow-lg">
+                  <Link
+                    to="/course"
+                    className="overflow-hidden rounded-tl-xl rounded-tr-xl"
+                  >
+                    <img
+                      src="/src/assets/images/AI_spesialCourse.jpg"
+                      className="rounded-tl-[0.5rem] rounded-tr-[0.5rem] hover:scale-125 transition-all duration-500 ease-out  cursor-pointer"
+                      style={{
+                        height: "100%",
+                        width: "100%",
+                        objectFit: "cover",
+                      }}
+                      alt="course"
+                    />
+                  </Link>
                   <h1 className="px-[10px] mt-[5px] mb-[10px] font-bold text-center">
                     دورة علم البيانات و الذكاء الاصطناعي
                   </h1>
@@ -75,8 +79,8 @@ const OffersCoursesHome = () => {
                     الذكاء الاصطناعي يلعب دورا بارزا ف تحويل العالم و شكل
                     المستقبل
                   </p>
-                  <div className="bg-gray-400 mb-[10px] mt-[5px] mx-auto h-[1px] w-[90%]"></div>
-                  <div className="px-[20px] flex items-center justify-between w-full pb-[10px]">
+                  {/* <div className="bg-gray-400 mb-[10px] mt-[5px] mx-auto h-[1px] w-[90%]"></div> */}
+                  <div className="px-4 py-2 my-4 flex items-center justify-between w-full pb-[10px] border-t-2 mx-4">
                     <p>
                       <Link
                         to={""}

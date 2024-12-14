@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 import { RiFileList3Line } from "react-icons/ri";
@@ -10,13 +9,13 @@ const MainCourses = () => {
       <div className="container mx-auto px-4">
         <div className="my-[30px]">
           <div className="element-center flex-col my-[30px]">
-            <h1 className="font-bold text-[2.3rem] md:text-[2.9rem] mb-[15px] text-mainColor">
+            <h1 className="font-bold sm:text-[2rem] text-[2.3rem] md:text-[2.9rem] mb-[15px] text-mainColor">
               الدورات المميزة التي لدينا
             </h1>
             <p className=" text-center w-75 md:w-[60%] font-semibold text-[1.1rem] md:text-[1.5rem] mb-[15px] ">
-              نقدم لك دورات و كورسات مع أفضل المدربين ف جميع المجالات التي
-              لدينا حتي تتمكن من الاستفادة الصحيحة من و تحصل علي الخبرة الكاملة
-              التي تؤهلك الي سوق العمل وانت علي أتم استعداد
+              نقدم لك دورات و كورسات مع أفضل المدربين ف جميع المجالات التي لدينا
+              حتي تتمكن من الاستفادة الصحيحة من و تحصل علي الخبرة الكاملة التي
+              تؤهلك الي سوق العمل وانت علي أتم استعداد
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] place-items-center">
@@ -69,9 +68,12 @@ const MainCourses = () => {
                       <div>
                         {[1, 2, 3, 4, 5].map((item) => {
                           return (
-                            <FaStar className="inline my-[2px] mb-[5px] text-yellow-800" />
+                            <FaStar
+                              key={item}
+                              className="inline my-[2px] mb-[5px] text-yellow-800"
+                            />
                           );
-                        })}{" "}
+                        })}
                         <span className="mx-[2px]">(5.4)</span>
                       </div>
                     </div>

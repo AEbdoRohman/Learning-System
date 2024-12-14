@@ -1,7 +1,5 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import PhoneInput from "react-phone-input-2";
 import Select from "react-select";
 
 const Register = () => {
@@ -115,12 +113,36 @@ const Register = () => {
   const [selectedCountry, setSelectedCountry] = useState(countries[0]);
   const [phone, setPhone] = useState("");
   const arabicNationalites = [
-    "مصر", "السعودية", "الإمارات", "الكويت", "قطر", 
-    "عمان", "البحرين", "الأردن", "فلسطين", "لبنان", 
-    "المغرب", "الجزائر", "تونس", "ليبيا", "السودان", 
-    "اليمن", "موريتانيا", "جيبوتي", "الصومال", "سوريا", 
-    "العراق", "فلسطين", "الأردن", "السعودية", "الكويت", 
-    "الجزائر", "لبنان", "الإمارات", "قطر", "البحرين"
+    "مصر",
+    "السعودية",
+    "الإمارات",
+    "الكويت",
+    "قطر",
+    "عمان",
+    "البحرين",
+    "الأردن",
+    "فلسطين",
+    "لبنان",
+    "المغرب",
+    "الجزائر",
+    "تونس",
+    "ليبيا",
+    "السودان",
+    "اليمن",
+    "موريتانيا",
+    "جيبوتي",
+    "الصومال",
+    "سوريا",
+    "العراق",
+    "فلسطين",
+    "الأردن",
+    "السعودية",
+    "الكويت",
+    "الجزائر",
+    "لبنان",
+    "الإمارات",
+    "قطر",
+    "البحرين",
   ];
   return (
     <div className="mt-[100px]">
@@ -167,14 +189,17 @@ const Register = () => {
                     options={countries}
                     getOptionLabel={(e) => (
                       <div className="flex items-center gap-2">
-                        <img src={e.flag} alt={e.label} className="w-[50px] h-6" />
+                        <img
+                          src={e.flag}
+                          alt={e.label}
+                          className="w-[50px] h-6"
+                        />
                         <span>{e.label}</span>
                       </div>
                     )}
                     value={selectedCountry}
                     onChange={setSelectedCountry}
                     className="w-[70%] border-none p-0"
-                    
                   />
                   <input
                     type="text"
@@ -199,32 +224,37 @@ const Register = () => {
                 className="px-[10px] text-right border-[1px]  border-gray-400  w-full h-[40px] rounded-[10px] bg-gray-100 focus:border-[#525fe1] focus:outline-none"
                 id="password"
               />
-
-
             </div>
             <div className="flex flex-col w-full ">
-              <label htmlFor="nationality" className="block text-right mb-[8px] ">
-                 الجنسية
+              <label
+                htmlFor="nationality"
+                className="block text-right mb-[8px] "
+              >
+                الجنسية
               </label>
-              <select 
+              <select
                 required
                 type="text"
                 className="px-[10px] text-right border-[1px]  border-gray-400  w-full h-[40px] rounded-[10px] bg-gray-100 focus:border-[#525fe1] focus:outline-none"
                 id="nationality"
               >
-                    <option value="">قم بأختيار جنسية</option>
-                    {arabicNationalites.map((item)=>{
-                        return <option value={item}>{item}</option>
-                    })}
+                <option value="">قم بأختيار جنسية</option>
+                {arabicNationalites.map((item) => {
+                  return <option value={item}>{item}</option>;
+                })}
               </select>
             </div>
             <div className="flex justify-between mt-[8px]">
+              <div></div>
               <div>
-                
-              </div>
-              <div >
-                <label htmlFor="remember" className="text-[14px]">.بالضغط على التسجيل أنا أوافق على شروط الخدمة و سياسة الخصوصية</label>
-                <input type="checkbox" id="remember" className="mx-[5px] mt-[10px]" />
+                <label htmlFor="remember" className="text-[14px]">
+                  .بالضغط على التسجيل أنا أوافق على شروط الخدمة و سياسة الخصوصية
+                </label>
+                <input
+                  type="checkbox"
+                  id="remember"
+                  className="mx-[5px] mt-[10px]"
+                />
               </div>
             </div>
             <div className="flex items-center">

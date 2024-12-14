@@ -17,20 +17,12 @@ import {
   Bars3Icon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import {
-  Bars4Icon,
-  GlobeAmericasIcon,
-  NewspaperIcon,
-  PhoneIcon,
-  RectangleGroupIcon,
-  SquaresPlusIcon,
-  SunIcon,
-  TagIcon,
-  UserGroupIcon,
-} from "@heroicons/react/24/solid";
+
 import { CiSearch } from "react-icons/ci";
 import { FaCartShopping } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import LanguageSwitcher from "../components/language/LanguageSwitcher";
+
 const navListMenuItems = [
   {
     title: "خدمات الدراسة بالخارج",
@@ -243,7 +235,7 @@ export default function Header() {
             className="w-[160px] h-[40px] border-[1px] text-pColor mx-auto pt-[4px]  hover:bg-hoverColor hover:text-white bg-opacity-5 transition-all duration-500 border-pColor text-[18.5px]"
             variant="text"
           >
-           <Link to={"/login"}> تسجيل الدخول</Link>
+            <Link to={"/login"}> تسجيل الدخول</Link>
           </Button>
           <Button className="bg-pColor bg-opacity-10 mx-2 mb-[-5px] text-pColor rounded-[50%] p-3">
             <CiSearch className="text-[22px]" />
@@ -265,10 +257,17 @@ export default function Header() {
           variant="h6"
           className="mr-4 cursor-pointer py-1.5 lg:ml-2 flex justify-center items-center"
         >
-          <Link className="flex justify-center items-center"><img src="/src/assets/images/logo-2.png" alt="" /> 
-          <span className="text-[35px] text-[#525fe1] font-semibold">IAC</span></Link>
+          <Link className="flex justify-center items-center">
+            <img
+              src="/src/assets/images/logo-2.png"
+              alt="logo"
+              className="w-12"
+            />
+            <span className="text-2xl text-[#525fe1] font-semibold">IAC</span>
+          </Link>
         </Typography>
       </div>
+      <LanguageSwitcher />
 
       <Collapse open={openNav} className="">
         <NavList />
@@ -277,7 +276,7 @@ export default function Header() {
             className="w-[160px] h-[40px] border-[1px] text-pColor pt-[4px] hover:bg-hoverColor hover:text-white bg-opacity-5 transition-all duration-500 border-pColor text-[18.5px]"
             variant="text"
           >
-           <Link to={"/login"}> تسجيل الدخول</Link>
+            <Link to={"/login"}> تسجيل الدخول</Link>
           </Button>
           <Button className="bg-pColor bg-opacity-10 text-pColor rounded-[50%] p-3">
             <CiSearch className="text-[22px]" />

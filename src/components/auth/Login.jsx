@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 const Login = () => {
   return (
@@ -24,7 +23,7 @@ const Login = () => {
           </div>
           <div className="flex flex-col w-full mt-[5px]">
             <label htmlFor="password" className="block text-right mb-[8px] ">
-              كلمة المرور{" "}
+              كلمة المرور
             </label>
             <input
               required
