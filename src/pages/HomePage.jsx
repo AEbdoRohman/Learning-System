@@ -9,7 +9,6 @@ import WhyIACHome from "../components/home/WhyIACHome";
 
 const HomePage = () => {
   return (
-    // <Fragment>
     <section>
       <div className='h-[95vh] flex bg-[url("/src/assets/images/background.png")] bg-cover bg-center'>
         <div className="w-[92%] md:w-[97.5%] pt-[40px] md:pt-[100px]">
@@ -38,7 +37,7 @@ const HomePage = () => {
         <Blog />
       </div>
     </section>
-    /* </Fragment> */
+
   );
 };
 
