@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import "./App.css";
 import HomePage from "./pages/HomePage";
 import CoursePage from "./pages/CoursePage";
+import Footer from "./shared/Footer";
 
 function App() {
   const { i18n } = useTranslation();
@@ -28,6 +29,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/course" element={<CoursePage />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
