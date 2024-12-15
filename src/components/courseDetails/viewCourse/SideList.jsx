@@ -22,7 +22,7 @@ const SideList = ({
 }) => {
   return (
     <div
-      className={`sticky top-[90px] bg-blue-gray-50 rounded-lg shadow-md px-4 py-6 mt-4 overflow-auto scrollbar-thin z-10 ${
+      className={`sticky top-80 bg-blue-gray-50 rounded-lg shadow-md px-4 py-6 mt-4 overflow-auto scrollbar-thin z-10 ${
         isModalOpen ? "translate-x-0" : "-translate-x-full"
       }`}
       style={{
