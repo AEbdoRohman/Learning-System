@@ -13,26 +13,26 @@ const BLogHome = () => {
         <h3 className="text-[1.2rem] font-bold">اقرأ في المدونة</h3>
       </div>
             <div className='mt-[2.5rem] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-[1.5rem]'>
-                <div className='rounded-lg cursor-pointer w-[85%] relative transition-all duration-300 group'>
+                <Link to={'/blog'} className='rounded-lg cursor-pointer w-[85%] relative transition-all duration-300 group'>
                     <img src="/src/assets/images/modawana.jpg" className='rounded-lg w-100' alt="" />
                     <div className='absolute bg-black bg-opacity-50 w-[100%] h-[100%] top-0 left-0 rounded-lg flex items-center justify-center text-white text-center p-[5%] opacity-0 transition-all duration-300 group-hover:opacity-100'>
                         <div className='border-[1px] border-white w-[100%] h-[100%] font-semibold flex items-center justify-center rounded-lg'>بعض النصائح التي سوف تفيدك و تطور من مهاراتك الدراسية و الفنية و العملية </div>
                     </div>
-                </div>
+                </Link>
 
-                <div className='rounded-lg cursor-pointer w-[85%] relative transition-all duration-300 group'>
+                <Link to={'/blog'} className='rounded-lg cursor-pointer w-[85%] relative transition-all duration-300 group'>
                     <img src="/src/assets/images/modawana.jpg" className='rounded-lg w-100' alt="" />
                     <div className='absolute bg-black bg-opacity-50 w-[100%] h-[100%] top-0 left-0 rounded-lg flex items-center justify-center text-white text-center p-[5%] opacity-0 transition-all duration-300 group-hover:opacity-100'>
                     <div className='border-[1px] border-white w-[100%] h-[100%] font-semibold flex items-center justify-center rounded-lg'>بعض النصائح التي سوف تفيدك و تطور من مهاراتك الدراسية و الفنية و العملية </div>
                     </div>
-                </div>
+                </Link>
 
-                <div className='rounded-lg cursor-pointer w-[85%] relative transition-all duration-300 group'>
+                <Link to={'/blog'} className='rounded-lg cursor-pointer w-[85%] relative transition-all duration-300 group'>
                     <img src="/src/assets/images/modawana.jpg" className='rounded-lg w-100' alt="" />
                     <div className=' absolute bg-black bg-opacity-50 w-[100%] h-[100%] top-0 left-0 rounded-lg flex items-center justify-center text-white text-center p-[5%] opacity-0 transition-all duration-300 group-hover:opacity-100'>
                     <div className='border-[1px] border-white w-[100%] h-[100%] font-semibold flex items-center justify-center rounded-lg'>بعض النصائح التي سوف تفيدك و تطور من مهاراتك الدراسية و الفنية و العملية </div>
                     </div>
-                </div>
+                </Link>
             </div>
         </div>
     </section>
