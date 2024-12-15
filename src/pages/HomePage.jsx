@@ -10,8 +10,8 @@ import WhyIACHome from "../components/home/WhyIACHome";
 
 const HomePage = () => {
   return (
-    <section>
-      <div className="fixed right-[.2%] top-[15%]">
+    <section >
+      <div className="fixed right-[.2%] top-[30%]">
           <SocialIcons />
       </div>
       <div className='h-[95vh] flex bg-[url("/src/assets/images/background.png")] bg-cover bg-center'>
@@ -34,9 +34,6 @@ const HomePage = () => {
       <div className="mb-[50px] md:mb-[100px]">
         <GetStarted />
       </div>
-      {/* <div className="mb-[50px] md:mb-[100px]">
-        <Blog />
-      </div> */}
       <div className="mb-[50px] md:mb-[100px]">
         <BLogHome />
       </div>

@@ -87,7 +87,7 @@ function NavListMenu() {
         <MenuHandler>
           <Typography as="div" variant="small" className="font-medium">
             <ListItem
-              className="flex items-center gap-2 py-2 pr-4 text-gray-900 text-[14px] font-semibold justify-center text-center hover:text-pColor hover:bg-opacity-0"
+              className="flex items-center gap-2 py-2 pr-4 text-gray-900 text-[17.5px] font-semibold justify-center text-center hover:text-pColor hover:bg-opacity-0"
               selected={isMenuOpen || isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((cur) => !cur)}
             >
@@ -131,7 +131,7 @@ function NavList() {
         color="blue-gray"
         className=""
       >
-        <ListItem className="flex items-center gap-2 py-2 pr-4 text-[14px] font-semibold hover:text-pColor hover:bg-opacity-0">
+        <ListItem className="flex items-center gap-2 py-2 pr-4 text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
           ماجيستير مصغر
         </ListItem>
       </Typography>
@@ -142,7 +142,7 @@ function NavList() {
         color="blue-gray"
         className=""
       >
-        <ListItem className="flex items-center gap-2 py-2 pr-4 text-[14px] font-semibold hover:text-pColor hover:bg-opacity-0">
+        <ListItem className="flex items-center gap-2 py-2 pr-4 text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
           استشاري
         </ListItem>
       </Typography>
@@ -153,7 +153,7 @@ function NavList() {
         color="blue-gray"
         className=""
       >
-        <ListItem className="flex items-center gap-2 py-2 pr-4 text-[14px] font-semibold hover:text-pColor hover:bg-opacity-0">
+        <ListItem className="flex items-center gap-2 py-2 pr-4 text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
           مدرسة الاطفال
         </ListItem>
       </Typography>
@@ -164,7 +164,7 @@ function NavList() {
         color="blue-gray"
         className=""
       >
-        <ListItem className="flex items-center gap-2 py-2 pr-4 text-[14px] font-semibold  hover:text-pColor hover:bg-opacity-0">
+        <ListItem className="flex items-center gap-2 py-2 pr-4 text-[17.5px] font-semibold  hover:text-pColor hover:bg-opacity-0">
           دبلومات
         </ListItem>
       </Typography>
@@ -175,14 +175,14 @@ function NavList() {
         color="blue-gray"
         className=""
       >
-        <ListItem className="flex items-center gap-2 py-2 pr-4 text-[14px] font-semibold hover:text-pColor hover:bg-opacity-0">
+        <ListItem className="flex items-center gap-2 py-2 pr-4 text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
           دورات
         </ListItem>
       </Typography>
       <Link
         to={"/"}
       >
-        <ListItem className="flex items-center gap-2 py-2 pr-4  text-[14px] font-semibold hover:text-pColor hover:bg-opacity-0">
+        <ListItem className="flex items-center gap-2 py-2 pr-4  text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
           الرئيسية
         </ListItem>
       </Link>
@@ -230,20 +230,20 @@ export default function Header() {
         <div className="hidden  lg:flex">
         <div className="flex items-center justify-center mx-[.5rem]"><LanguageSwitcher /></div>
           <Button
-            className="w-[160px] h-[40px] border-[1px] text-pColor mx-auto pt-[4px]  hover:bg-hoverColor hover:text-white bg-opacity-5 transition-all duration-500 border-pColor text-[18.5px]"
+            className="w-[150px] h-[35px] border-[1px] text-pColor mx-auto pt-[4px]  hover:bg-hoverColor hover:text-white bg-opacity-5 transition-all duration-500 border-pColor text-[15.5px]"
             variant="text"
           >
             <Link to={"/login"}> تسجيل الدخول</Link>
           </Button>
           
           <div className="bg-pColor bg-opacity-10 mx-2 mb-[-5px] text-pColor rounded-[50%] p-3 cursor-pointer">
-            <CiSearch className="text-[22px]" />
+            <CiSearch className="text-[17px]" />
           </div>
           <div className="bg-pColor bg-opacity-10 relative mb-[-5px] text-pColor rounded-[50%] p-3 cursor-pointer">
             <span className="absolute top-[-.9rem] z-[10] right-[-.5rem] text-[15px] border-2 text-white rounded-[50%] bg-pColor px-[.3rem]">
               9
             </span>
-            <FaCartShopping className="text-[22px]" />
+            <FaCartShopping className="text-[17px]" />
           </div>
           
         </div>

@@ -1,5 +1,7 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 const Login = () => {
+  const{t} = useTranslation();
   return (
     <section className="fixed top-0 left-0  w-full h-[100vh]  bg-black bg-opacity-50 z-[100] mt-[0px] flex items-center justify-center">
       <div className="p-4 w-[500px] mx-[20px] h-[513px] bg-white rounded-[30px]">
