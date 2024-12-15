@@ -22,18 +22,21 @@ const SideList = ({
 }) => {
   return (
     <div
-      className={`sticky top-80 bg-blue-gray-50 rounded-lg shadow-md px-4 py-6 mt-4 overflow-auto scrollbar-thin z-10 ${
+      className={`bg-blue-gray-50 rounded-lg shadow-md px-4 py-6 overflow-y-auto scrollbar-thin z-10 sticky duration-500 ease-in-out ${
         isModalOpen ? "translate-x-0" : "-translate-x-full"
       }`}
       style={{
-        height: "calc(100vh - 110px)",
-        width: "280px",
-        transition: "transform 0.3s ease",
+        transform: isModalOpen ? "translateX(0)" : "translateX(-100%)",
+        opacity: isModalOpen ? "1" : "0",
+        width: isModalOpen ? "300px" : "0",
+        height: "calc(100vh - 85px)",
+        top: "75px",
+        transition: "transform 0.3s ease, opacity 0.3s ease",
       }}
     >
       <span
-        className="absolute top-1 py-2 text-2xl cursor-pointer"
-        style={{ left: "230px" }}
+        className="absolute top-2 py-2 text-2xl cursor-pointer rtl:right-[230px] ltr:left-[230px]"
+        // style={{ left: "230px" }}
         onClick={() => setIsModalOpen(false)}
       >
         <FaXmark />
@@ -43,7 +46,7 @@ const SideList = ({
         {lessons.map((lesson) => (
           <li
             key={lesson.id}
-            className={`p-3 rounded-lg cursor-pointer ${
+            className={`p-3 rounded-lg cursor-pointer duration-300 ease-in-out ${
               currentVideo === lesson.video
                 ? "bg-blue-100 border-l-4 border-blue-500"
                 : "hover:bg-gray-100"

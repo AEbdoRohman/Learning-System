@@ -1,15 +1,17 @@
 {
   "auth": {
-    "login": "تسجيل الدخول",
-    "register": "تسجيل",
-    "email": "البريد الإلكتروني",
-    "password": "كلمة المرور",
-    "confirmPassword": "تأكيد كلمة المرور",
-    "firstName": "الاسم الأول",
-    "lastName": "اسم العائلة",
-    "phone": "رقم الهاتف",
-    "address": "العنوان",
-    "country": "الدولة",
-    "city": "المدينة"
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phone": "Phone",
+    "address": "Address",
+    "forget": "Forget Password?",
+    "remember": "Remember Me",
+    "noAccount": "No Account?",
+    "registerNow": "Register Now"
   }
 }
