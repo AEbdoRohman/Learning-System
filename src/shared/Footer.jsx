@@ -11,7 +11,7 @@ import { FaFacebookF } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <section className=" pt-[120px] pb-[50px] px-[50px] bg-mainColor text-white text-right">
+    <section className=" pt-[120px] pb-[2rem] px-[20px] md:px-[50px] bg-mainColor text-white text-right">
         <div className="flex flex-col justify-center px-[30px] md:flex-row-reverse flex-wrap md:items-start md:justify-around">
             {/* logo */}
 
@@ -59,11 +59,11 @@ const Footer = () => {
                 </div>
         </div>
     <div className="bg-gray-200 w-[90%] h-[2px] mx-auto mt-[35px] flex items-center justify-around"></div>
-    <div className="text-[20px]">
-        <div className="mt-[20px] me-[60px] text-hoverColor font-semibold">
+    <div className="text-[20px]  md:flex md:flex-row-reverse md:items-center md:justify-between px-[4%]">
+        <div className="mt-[20px] flex items-center justify-center text-center  text-hoverColor font-semibold">
         جميع الحقوق محفوظة لدى شركة نخبة القادة للتعليم 2024 ©
         </div>
-        <div className="flex items-center  mt-[-28px] ms-[60px]">
+        <div className=" mt-[1.5rem] flex items-center justify-center text-center">
             <FaPhoneAlt className="mx-[5px] text-[30px] text-hoverColor hover:text-white transition-all duration-200 cursor-pointer "/>
             <FaTiktok className="mx-[5px] text-[30px] text-hoverColor hover:text-white transition-all duration-200 cursor-pointer" />
             <FaInstagramSquare className="mx-[5px] text-[30px] text-hoverColor hover:text-white transition-all duration-200 cursor-pointer"/>
