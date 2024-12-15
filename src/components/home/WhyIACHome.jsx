@@ -11,14 +11,13 @@ const WhyIACHome = () => {
         نوفر دورات لغة انجليزية احترافية من خلال
       </p>
 
-      <div className="grid md:grid-cols-3 gap-[50px] md:gap-[110px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[3rem]">
         <div className="cent flex-col text-center ">
           <img
             src="/src/assets/images/pro1-instu-1712561490.webp"
             alt="image"
-            className="dropShadow rounded-xl lg:max-w-[330px] max-h-[210px]"
-            height={"210px"}
-            width={"330px"}
+            className="dropShadow rounded-xl "
+           
           />
           <p className="mt-[10px] text-[18px] font-semibold ">
             اختيار مدربين محترفين في كل مجال
@@ -28,9 +27,8 @@ const WhyIACHome = () => {
           <img
             src="/src/assets/images/newbestnew2-1712561469.webp"
             alt="image"
-            className="dropShadow rounded-xl lg:max-w-[330px] max-h-[210px]"
-            height={"210px"}
-            width={"330px"}
+            className="dropShadow rounded-xl"
+           
           />
           <p className="mt-[10px] text-[18px] font-semibold ">
             أعلى جودة في المناهج التعليمية
@@ -40,9 +38,8 @@ const WhyIACHome = () => {
           <img
             src="/src/assets/images/tech3-1712561435.webp"
             alt="image"
-            className="dropShadow rounded-xl lg:max-w-[330px] max-h-[210px]"
-            height={"210px"}
-            width={"330px"}
+            className="dropShadow rounded-xl "
+
           />
           <p className="mt-[10px] text-[18px] font-semibold text-gray-800">
             {" "}

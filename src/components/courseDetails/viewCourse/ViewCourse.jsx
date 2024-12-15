@@ -12,7 +12,7 @@ const ViewCourse = () => {
   return (
     <div className="mt-24 bg-gray-100">
       {/* Main Content */}
-      <div className="mx-auto grid lg:grid-cols-2 gap-6">
+      <div className="mx-auto grid md:grid-cols-2 gap-6">
         {/* Lessons List Section */}
         <SideList
           isModalOpen={isModalOpen}

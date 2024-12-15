@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Overview from "./tabsContent/Overview";
 import Curriculum from "./tabsContent/Curriculum";
 import Instructor from "./tabsContent/Instructor";
@@ -20,6 +20,10 @@ const Tabs = () => {
         return <Overview />;
     }
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="container mx-auto px-1 md:px-4 pt-8 ">

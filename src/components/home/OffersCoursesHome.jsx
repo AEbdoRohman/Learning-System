@@ -14,7 +14,7 @@ const OffersCoursesHome = () => {
     slidesToShow: 3, // Show 3 slides on large screens
     slidesToScroll: 1,
     arrows: true,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2000,
     responsive: [
       {
@@ -38,10 +38,10 @@ const OffersCoursesHome = () => {
   };
   return (
     <section>
-      <div className="container mx-auto px-4">
-        <div className="my-[30px]">
+      <div className="container mx-auto">
+        <div className="my-[30px] px-[1rem]">
           <div className="element-center flex-col my-[30px]">
-            <h1 className="font-bold text-[2.3rem] md:text-[2.9rem] mb-[15px] text-mainColor">
+            <h1 className="text-center font-bold text-[2.3rem] md:text-[2.9rem] mb-[15px] text-mainColor">
               أحدث العروض التي نقدمها
             </h1>
             <p className=" text-center w-75 md:w-[50%] font-semibold text-[1.1rem] md:text-[1.5rem] mb-[15px] ">
@@ -56,7 +56,7 @@ const OffersCoursesHome = () => {
                 key={index}
                 className="flex items-center justify-center gap-2 h-full mb-[30px]"
               >
-                <div className="flex flex-col items-center justify-center  min-h-[440px] rounded-lg mx-4 shadow-lg">
+                <div className="flex flex-col items-center justify-center  min-h-[440px] rounded-lg mx-3 shadow-lg">
                   <Link
                     to="/course"
                     className="overflow-hidden rounded-tl-xl rounded-tr-xl"
