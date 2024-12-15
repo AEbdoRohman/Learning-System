@@ -40,3 +40,16 @@ body {
   margin: 0 1px;
   display: inline-block;
 }
+
+/* Scrollbar  */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thumb-blue-500 {
+  scrollbar-color: #3b82f6 transparent;
+}
+
+.scrollbar-track-blue-100 {
+  scrollbar-color: transparent #dbeafe;
+}

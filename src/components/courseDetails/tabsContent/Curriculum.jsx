@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { MdLockOutline } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Curriculum = () => {
   const [openSection, setOpenSection] = useState(null);
@@ -40,7 +41,7 @@ const Curriculum = () => {
               onClick={() => toggleSection(section.id)}
               className={`w-full text-left flex justify-between items-center py-2 text-xl font-bold text-gray-900 hover:text-blue-500 pb-2  ${
                 openSection === section.id
-                  ? "border-b-[1px] border-gray-300 text-blue-800 mb-6"
+                  ? "border-b-[1px] border-gray-300 mb-6 "
                   : ""
               }`}
             >
@@ -57,7 +58,8 @@ const Curriculum = () => {
             {openSection === section.id && (
               <ul className="mt-2 space-y-3 p-0 md:pl-4">
                 {section.subTitles.map((subTitle, index) => (
-                  <li
+                  <Link
+                    to={"/course/view"}
                     key={index}
                     className="flex justify-between items-center text-gray-900 hover:text-blue-500 cursor-pointer border-b-[1px] border-gray-300 pb-2 last:border-b-0"
                   >
@@ -71,7 +73,7 @@ const Curriculum = () => {
                       </span>
                       <MdLockOutline className="text-gray-400 size-5" />
                     </div>
-                  </li>
+                  </Link>
                 ))}
               </ul>
             )}

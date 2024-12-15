@@ -62,7 +62,7 @@ const OffersCoursesHome = () => {
                     className="overflow-hidden rounded-tl-xl rounded-tr-xl"
                   >
                     <img
-                      src="/src/assets/images/AI_spesialCourse.jpg"
+                      src="/course.webp"
                       className="rounded-tl-[0.5rem] rounded-tr-[0.5rem] hover:scale-125 transition-all duration-500 ease-out  cursor-pointer"
                       style={{
                         height: "100%",
@@ -72,7 +72,7 @@ const OffersCoursesHome = () => {
                       alt="course"
                     />
                   </Link>
-                  <h1 className="px-[10px] mt-[5px] mb-[10px] font-bold text-center">
+                  <h1 className=" my-3 font-bold text-center">
                     دورة علم البيانات و الذكاء الاصطناعي
                   </h1>
                   <p className="px-[10px] text-[15px] text-center">

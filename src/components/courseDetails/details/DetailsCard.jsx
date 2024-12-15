@@ -2,6 +2,7 @@ import { FaFacebookF, FaLinkedinIn, FaRegClock } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { useState } from "react";
 import ModalVideo from "./ModalVideo";
+import { Link } from "react-router-dom";
 
 const DetailsCard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -37,9 +38,12 @@ const DetailsCard = () => {
       <button className="text-xl text-blue-900 hover:bg-blue-900 hover:text-white duration-700 ease-in-out  py-4 w-11/12 md:w-9/12 mx-auto border-[1px] border-blue-900  rounded-md">
         Price: $49.00
       </button>
-      <button className="text-xl bg-mainColor hover:bg-blue-900 transition-all duration-500 ease-in-out text-white py-4 w-11/12 md:w-9/12 mx-auto border-2  rounded-md">
+      <Link
+        to="/payment"
+        className="text-xl bg-mainColor hover:bg-blue-900 transition-all duration-500 ease-in-out text-white text-center py-4 w-11/12 md:w-9/12 mx-auto border-2  rounded-md"
+      >
         Buy Now
-      </button>
+      </Link>
       <div className="flex items-center justify-center gap-4 my-4">
         <span className="text-xl">Share:</span>
         <FaFacebookF className="text-xl hover:text-blue-900 duration-500 ease-in-out cursor-pointer" />
