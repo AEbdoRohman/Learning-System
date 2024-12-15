@@ -18,19 +18,21 @@ const MainCourses = () => {
               تؤهلك الي سوق العمل وانت علي أتم استعداد
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] place-items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 overflow-hidden gap-[30px] place-items-center">
             {[1, 2, 3, 4, 5, 6].map((index) => {
               return (
                 <div
                   key={index}
                   className="CARD w-[350px] h-[450px] border-[1px] border-gray-500 rounded-md"
                 >
-                  <div className="relative">
+                  <div className="relative ">
+                   <div className="overflow-hidden">
                     <img
-                      src="/src/assets/images/course-30.webp"
-                      className="w-[370px] h-[230px] rounded-t-md"
-                      alt="imageCourse"
-                    />
+                        src="/src/assets/images/course-30.webp"
+                        className="w-full h-[230px] rounded-t-md overflow-hidden"
+                        alt="imageCourse"
+                      />
+                   </div>
                     <FaHeart className="absolute top-[15px] right-[30px] cursor-pointer text-white text-[35px] border-[1px] border-gray-500 bg-gray-500 px-[5px] py-[5px] rounded-[50%] hover:text-red-600 transition-all duration-200" />
                     <p className="absolute bottom-[-15px] left-[30px] pb-[5px] bg-mainColor text-white px-[30px] border-[2px] border-white">
                       type

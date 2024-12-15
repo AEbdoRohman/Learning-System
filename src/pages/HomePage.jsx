@@ -1,4 +1,5 @@
 import Blog from "../components/home/Blog";
+import BLogHome from "../components/home/BLogHome";
 import Carsoul from "../components/home/Carsoul";
 import GetStarted from "../components/home/GetStarted";
 import GreenSection from "../components/home/GreenSection";
@@ -10,12 +11,12 @@ import WhyIACHome from "../components/home/WhyIACHome";
 const HomePage = () => {
   return (
     <section>
+      <div className="fixed right-[.2%] top-[15%]">
+          <SocialIcons />
+      </div>
       <div className='h-[95vh] flex bg-[url("/src/assets/images/background.png")] bg-cover bg-center'>
         <div className="w-[92%] md:w-[97.5%] pt-[40px] md:pt-[100px]">
           <Carsoul />
-        </div>
-        <div className="pt-[150px] w-[8%] md:w-[2.5%]">
-          <SocialIcons />
         </div>
       </div>
       <div className="mb-[50px] md:mb-[100px]">
@@ -27,14 +28,17 @@ const HomePage = () => {
       <div className="mb-[50px] md:mb-[100px]">
         <GreenSection />
       </div>
-      <div className="mb-[50px] md:mb-[100px]">
+      <div className="mb-[50px] md:mb-[100px] ">
         <OffersCoursesHome />
       </div>
       <div className="mb-[50px] md:mb-[100px]">
         <GetStarted />
       </div>
-      <div className="mb-[50px] md:mb-[100px]">
+      {/* <div className="mb-[50px] md:mb-[100px]">
         <Blog />
+      </div> */}
+      <div className="mb-[50px] md:mb-[100px]">
+        <BLogHome />
       </div>
     </section>
 

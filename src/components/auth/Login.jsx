@@ -5,7 +5,7 @@ const Login = () => {
       <div className="p-4 w-[500px] mx-[20px] h-[513px] bg-white rounded-[30px]">
         <div className="flex justify-between">
           <span className="text-[20px] font-bold">
-            <Link to={"/home"}>x</Link>
+            <Link to={"/"}>x</Link>
           </span>
           <h1 className="text-[20px] font-bold">سجل الدخول لحسابك</h1>
         </div>
