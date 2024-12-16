@@ -51,11 +51,7 @@ const Reviews = () => {
         <h1 className="font-bold text-3xl mb-8">Reviews</h1>
         <div className="flex  gap-4">
           <div>
-            <img
-              src="src/assets/images/instructor.webp"
-              alt=""
-              className="w-52 rounded-full"
-            />
+            <img src="/instructor.webp" alt="" className="w-52 rounded-full" />
           </div>
           <div>
             <div className="flex items-center gap-4">

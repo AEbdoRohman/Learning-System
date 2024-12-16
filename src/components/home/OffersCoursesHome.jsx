@@ -58,7 +58,7 @@ const OffersCoursesHome = () => {
               >
                 <div className="flex flex-col items-center justify-center  min-h-[440px] rounded-lg mx-3 shadow-lg">
                   <Link
-                    to="/course"
+                    to="/course/details"
                     className="overflow-hidden rounded-tl-xl rounded-tr-xl"
                   >
                     <img
@@ -101,7 +101,7 @@ const OffersCoursesHome = () => {
         </div>
         <div className="mx-auto flex justify-center items-center mt-[80px]">
           <button className="flex items-center justify-center text-mainColor px-[70px] h-[2.5rem] rounded-[.37rem] bg-white font-semibold border-[1.5px] border-mainColor ">
-            <Link>عرض المزيد</Link>
+            <Link to="/courses">عرض المزيد</Link>
           </button>
         </div>
       </div>

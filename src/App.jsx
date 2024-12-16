@@ -12,6 +12,7 @@ import Payment from "./components/payment/Payment";
 import ViewCourse from "./components/courseDetails/viewCourse/ViewCourse";
 import Footer from "./shared/Footer";
 import BlogPage from "./pages/BlogPage";
+import DetailsPage from "./pages/DetailsPage";
 
 function App() {
   const { i18n } = useTranslation();
@@ -30,7 +31,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         {/* Pages */}
         <Route path="/" element={<HomePage />} />
-        <Route path="/course" element={<CoursePage />} />
+        <Route path="/courses" element={<CoursePage />} />
+        <Route path="/course/details" element={<DetailsPage />} />
         <Route path="/course/view" element={<ViewCourse />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/blog" element={<BlogPage />} />

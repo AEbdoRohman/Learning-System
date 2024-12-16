@@ -179,9 +179,7 @@ function NavList() {
           دورات
         </ListItem>
       </Typography>
-      <Link
-        to={"/"}
-      >
+      <Link to={"/"}>
         <ListItem className="flex items-center gap-2 py-2 pr-4  text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
           الرئيسية
         </ListItem>
@@ -226,16 +224,18 @@ export default function Header() {
             <Bars3Icon className="h-6 w-6" strokeWidth={2} />
           )}
         </IconButton>
-        
+
         <div className="hidden  lg:flex">
-        <div className="flex items-center justify-center mx-[.5rem]"><LanguageSwitcher /></div>
+          <div className="flex items-center justify-center mx-[.5rem]">
+            <LanguageSwitcher />
+          </div>
           <Button
             className="w-[150px] h-[35px] border-[1px] text-pColor mx-auto pt-[4px]  hover:bg-hoverColor hover:text-white bg-opacity-5 transition-all duration-500 border-pColor text-[15.5px]"
             variant="text"
           >
             <Link to={"/login"}> تسجيل الدخول</Link>
           </Button>
-          
+
           <div className="bg-pColor bg-opacity-10 mx-2 mb-[-5px] text-pColor rounded-[50%] p-3 cursor-pointer">
             <CiSearch className="text-[17px]" />
           </div>
@@ -245,7 +245,6 @@ export default function Header() {
             </span>
             <FaCartShopping className="text-[17px]" />
           </div>
-          
         </div>
 
         {/* links */}
@@ -267,7 +266,6 @@ export default function Header() {
           </Link>
         </Typography>
       </div>
-      
 
       <Collapse open={openNav} className="">
         <NavList />
@@ -276,7 +274,6 @@ export default function Header() {
             className="w-[160px] h-[40px] border-[1px] text-pColor pt-[4px] hover:bg-hoverColor hover:text-white bg-opacity-5 transition-all duration-500 border-pColor text-[18.5px]"
             variant="text"
           >
-            
             <Link to={"/login"}> تسجيل الدخول</Link>
           </Button>
           <div className="bg-pColor bg-opacity-10 text-pColor rounded-[50%] p-3">
@@ -289,7 +286,9 @@ export default function Header() {
             <FaCartShopping className="text-[22px]" />
           </div>
         </div>
-        <div className="flex items-center justify-center "><LanguageSwitcher/></div>
+        <div className="flex items-center justify-center ">
+          <LanguageSwitcher />
+        </div>
       </Collapse>
     </Navbar>
   );
