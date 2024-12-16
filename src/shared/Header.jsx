@@ -191,14 +191,6 @@ function NavList() {
         {t("header.Children's school")}
         </ListItem>
       </Typography>
-
-
-
-      {/* <NavListMenu /> */}
-
-
-
-
       
     </List>
   );
@@ -292,7 +284,7 @@ export default function Header() {
             variant="text"
           >
             
-            <Link to={"/login"}> تسجيل الدخول</Link>
+            <Link to={"/login"}> {t("header.Login")} </Link>
           </Button>
           <div className="bg-pColor bg-opacity-10 text-pColor rounded-[50%] p-3">
             <CiSearch className="text-[22px]" />
