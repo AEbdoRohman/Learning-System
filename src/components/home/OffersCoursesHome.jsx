@@ -4,9 +4,10 @@ import Slider from "react-slick";
 import "../../../src/index.css";
 import { Link } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
-<FaCartShopping />;
+import { useTranslation } from "react-i18next";
 
 const OffersCoursesHome = () => {
+  const { t } = useTranslation();
   const settings = {
     dots: true,
     infinite: true,
@@ -42,11 +43,10 @@ const OffersCoursesHome = () => {
         <div className="my-[30px] px-[1rem]">
           <div className="element-center flex-col my-[30px]">
             <h1 className="text-center font-bold text-[2.3rem] md:text-[2.9rem] mb-[15px] text-mainColor">
-              أحدث العروض التي نقدمها
+            {t("offers.title")} 
             </h1>
             <p className=" text-center w-75 md:w-[50%] font-semibold text-[1.1rem] md:text-[1.5rem] mb-[15px] ">
-              هذه مجموعة من العروض التي لدينا و التي تتحدث باسمترار دائما تابعنا
-              كل يوم للحصول علي عروض اروع
+            {t("offers.desc")} 
             </p>
           </div>
 
@@ -101,7 +101,7 @@ const OffersCoursesHome = () => {
         </div>
         <div className="mx-auto flex justify-center items-center mt-[80px]">
           <button className="flex items-center justify-center text-mainColor px-[70px] h-[2.5rem] rounded-[.37rem] bg-white font-semibold border-[1.5px] border-mainColor ">
-            <Link>عرض المزيد</Link>
+            <Link>{t("btn.btn")}  </Link>
           </button>
         </div>
       </div>

@@ -2,20 +2,21 @@ import { Link } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 import { RiFileList3Line } from "react-icons/ri";
 import { FaStar } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const MainCourses = () => {
+  const { t } = useTranslation();
+
   return (
     <section>
       <div className="container mx-auto px-4">
         <div className="my-[30px]">
           <div className="element-center flex-col my-[30px]">
             <h1 className="text-center font-bold sm:text-[2rem] text-[2.3rem] md:text-[2.9rem] mb-[15px] text-mainColor">
-              الدورات المميزة التي لدينا
+            {t("maincourses.title")}  
             </h1>
             <p className=" text-center w-75 md:w-[60%] font-semibold text-[1.1rem] md:text-[1.5rem] mb-[15px] ">
-              نقدم لك دورات و كورسات مع أفضل المدربين ف جميع المجالات التي لدينا
-              حتي تتمكن من الاستفادة الصحيحة من و تحصل علي الخبرة الكاملة التي
-              تؤهلك الي سوق العمل وانت علي أتم استعداد
+            {t("maincourses.desc")}  
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 overflow-hidden gap-[30px] place-items-center">
@@ -87,7 +88,7 @@ const MainCourses = () => {
         </div>
         <div className="mx-auto flex justify-center items-center mt-[80px]">
           <button className="flex items-center justify-center text-mainColor px-[70px] h-[2.5rem] rounded-[.37rem] bg-white font-semibold border-[1.5px] border-mainColor ">
-            <Link>عرض المزيد</Link>
+            <Link>{t("btn.btn")}  </Link>
           </button>
         </div>
       </div>

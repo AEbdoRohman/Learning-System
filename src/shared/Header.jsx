@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import {
   Navbar,
   Collapse,
@@ -23,34 +24,27 @@ import { FaCartShopping } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import LanguageSwitcher from "../components/language/LanguageSwitcher";
 
-const navListMenuItems = [
-  {
-    title: "خدمات الدراسة بالخارج",
-    description: "",
-  },
-  {
-    title: "استشارات نفسية",
-    description: "",
-  },
-  {
-    title: "العروض",
-    description: "",
-  },
-  {
-    title: "المدونة",
-    description: "",
-  },
-  {
-    title: "اخري",
-    description: "",
-  },
-  // {
-  //   title: "خدمات الدراسة بالخارج",
-  //   description: "Find the perfect solution for your needs.",
-  //   icon: PhoneIcon,
-  // },
-];
+//  const { t } = useTranslation();
+// const navListMenuItems = [
+//   {
+//     title: t("header.PsychologicalConsultations"),
+//     description: "",
+//   },
+//   {
+//     title: t("header.StudyAbroadServices"),
+//     description: "",
+//   },
+//   {
+//     title: t("header.Offers"),
+//     description: "",
+//   },
+//   {
+//     title: t("header.Other"),
+//     description: "",
+//   },
+// ];
 function NavListMenu() {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const renderItems = navListMenuItems.map(({ title, description }, key) => (
@@ -91,7 +85,7 @@ function NavListMenu() {
               selected={isMenuOpen || isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((cur) => !cur)}
             >
-              اخري
+              {t("header.Other")}
               <ChevronDownIcon
                 strokeWidth={2.5}
                 className={`hidden h-3 w-3 transition-transform lg:block ${
@@ -120,10 +114,19 @@ function NavListMenu() {
   );
 }
 function NavList() {
+  const { t } = useTranslation();
   return (
-    <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1 flex flex-col-reverse items-center text-center lg:items-start lg:text-start">
-      <NavListMenu />
+    <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1 flex flex-col items-center text-center lg:items-start lg:text-start">
+     
+     <Link
+        to={"/"}
+      >
+        <ListItem className="flex items-center gap-2 py-2 pr-4 text-black mt-[1.2%] text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
+        {t("header.home")}
+        </ListItem>
+      </Link>
 
+     
       <Typography
         as="a"
         href="#dasd"
@@ -132,31 +135,12 @@ function NavList() {
         className=""
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4 text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
-          ماجيستير مصغر
+        {t("header.Courses")}
         </ListItem>
       </Typography>
-      <Typography
-        as="a"
-        href="#dasd"
-        variant="small"
-        color="blue-gray"
-        className=""
-      >
-        <ListItem className="flex items-center gap-2 py-2 pr-4 text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
-          استشاري
-        </ListItem>
-      </Typography>
-      <Typography
-        as="a"
-        href="#dasd"
-        variant="small"
-        color="blue-gray"
-        className=""
-      >
-        <ListItem className="flex items-center gap-2 py-2 pr-4 text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
-          مدرسة الاطفال
-        </ListItem>
-      </Typography>
+
+
+
       <Typography
         as="a"
         href="#dasd"
@@ -165,9 +149,10 @@ function NavList() {
         className=""
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4 text-[17.5px] font-semibold  hover:text-pColor hover:bg-opacity-0">
-          دبلومات
+        {t("header.Dimplomas")}
         </ListItem>
       </Typography>
+
       <Typography
         as="a"
         href="#dasd"
@@ -176,16 +161,45 @@ function NavList() {
         className=""
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4 text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
-          دورات
+        {t("header.Blogs")}
         </ListItem>
       </Typography>
-      <Link
-        to={"/"}
+
+      <Typography
+        as="a"
+        href="#dasd"
+        variant="small"
+        color="blue-gray"
+        className=""
       >
-        <ListItem className="flex items-center gap-2 py-2 pr-4  text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
-          الرئيسية
+        <ListItem className="flex items-center gap-2 py-2 pr-4 text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
+        {t("header.Offers")}
         </ListItem>
-      </Link>
+      </Typography>
+
+
+
+
+      <Typography
+        as="a"
+        href="#dasd"
+        variant="small"
+        color="blue-gray"
+        className=""
+      >
+        <ListItem className="flex items-center gap-2 py-2 pr-4 text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
+        {t("header.Children's school")}
+        </ListItem>
+      </Typography>
+
+
+
+      {/* <NavListMenu /> */}
+
+
+
+
+      
     </List>
   );
 }
@@ -193,6 +207,7 @@ function NavList() {
 export default function Header() {
   const [openNav, setOpenNav] = React.useState(false);
   const headerRef = useRef();
+  const { t } = useTranslation();
   React.useEffect(() => {
     window.addEventListener(
       "resize",
@@ -214,6 +229,25 @@ export default function Header() {
       className="fixed top-0 left-0 w-full z-50 transition-all duration-500  max-w-full px-4 bg-transparent border-none rounded-none shadow-none"
     >
       <div className="flex items-center justify-between text-blue-gray-900">
+
+      <Typography
+          variant="h6"
+          className="mr-4 cursor-pointer py-1.5 lg:ml-2 flex justify-center items-center"
+        >
+          <Link className="flex justify-center items-center">
+            <img
+              src="/src/assets/images/logo-2.png"
+              alt="logo"
+              className="w-12"
+            />
+            <span className="text-2xl text-[#525fe1] font-semibold">IAC</span>
+          </Link>
+        </Typography>
+        {/* links */}
+        <div className="hidden lg:block">
+          <NavList />
+        </div>
+        {/* logo */}
         <IconButton
           variant="text"
           color="blue-gray"
@@ -228,44 +262,25 @@ export default function Header() {
         </IconButton>
         
         <div className="hidden  lg:flex">
-        <div className="flex items-center justify-center mx-[.5rem]"><LanguageSwitcher /></div>
-          <Button
-            className="w-[150px] h-[35px] border-[1px] text-pColor mx-auto pt-[4px]  hover:bg-hoverColor hover:text-white bg-opacity-5 transition-all duration-500 border-pColor text-[15.5px]"
-            variant="text"
-          >
-            <Link to={"/login"}> تسجيل الدخول</Link>
-          </Button>
-          
-          <div className="bg-pColor bg-opacity-10 mx-2 mb-[-5px] text-pColor rounded-[50%] p-3 cursor-pointer">
-            <CiSearch className="text-[17px]" />
-          </div>
           <div className="bg-pColor bg-opacity-10 relative mb-[-5px] text-pColor rounded-[50%] p-3 cursor-pointer">
             <span className="absolute top-[-.9rem] z-[10] right-[-.5rem] text-[15px] border-2 text-white rounded-[50%] bg-pColor px-[.3rem]">
               9
             </span>
             <FaCartShopping className="text-[17px]" />
           </div>
+          <div className="bg-pColor bg-opacity-10 mx-2 mb-[-5px] text-pColor rounded-[50%] p-3 cursor-pointer">
+            <CiSearch className="text-[17px]" />
+          </div>
+          <Button
+            className="w-[150px] h-[35px] border-[1px] text-pColor mx-auto pt-[4px]  hover:bg-hoverColor hover:text-white bg-opacity-5 transition-all duration-500 border-pColor text-[15.5px]"
+            variant="text"
+          >
+            <Link to={"/login"}> {t("header.Login")} </Link>
+          </Button>
+          <div className="flex items-center justify-center mx-[.5rem]"><LanguageSwitcher /></div>
           
         </div>
 
-        {/* links */}
-        <div className="hidden lg:block">
-          <NavList />
-        </div>
-        {/* logo */}
-        <Typography
-          variant="h6"
-          className="mr-4 cursor-pointer py-1.5 lg:ml-2 flex justify-center items-center"
-        >
-          <Link className="flex justify-center items-center">
-            <img
-              src="/src/assets/images/logo-2.png"
-              alt="logo"
-              className="w-12"
-            />
-            <span className="text-2xl text-[#525fe1] font-semibold">IAC</span>
-          </Link>
-        </Typography>
       </div>
       
 

@@ -7,6 +7,7 @@ import MainCourses from "../components/home/MainCourses";
 import OffersCoursesHome from "../components/home/OffersCoursesHome";
 import SocialIcons from "../components/home/SocialIcons";
 import WhyIACHome from "../components/home/WhyIACHome";
+import { useTranslation } from "react-i18next";
 
 const HomePage = () => {
   return (

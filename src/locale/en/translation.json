@@ -7,11 +7,90 @@
     "confirmPassword": "Confirm Password",
     "firstName": "First Name",
     "lastName": "Last Name",
+    "name":"Name",
     "phone": "Phone",
     "address": "Address",
     "forget": "Forget Password?",
     "remember": "Remember Me",
-    "noAccount": "No Account?",
-    "registerNow": "Register Now"
+    "noAccount": "No Account ?",
+    "registerNow": "Register Now", 
+    "createyouraccount":"Create Your Free Account",
+    "choose":"Choose Your Natoinality",
+    "registermsg":"By clicking on register, I agree to the terms of service and privacy policy.",
+    "nameplceholder":"Full Name ",
+    "emailplceholder":"Email",
+    "nationality":"Nationality"
+    
+  },
+  "header":{
+    "home":"Home",
+    "Courses":"Courses",
+    "Dimplomas":"Dimplomas",
+    "Blogs":"Blogs",
+    "Offers":"Offers",
+    "Children's school":"Children's school",
+    "Consultative":"Consultative",
+    "Other":"Other",
+    "Login":"Login",
+    "StudyAbroadServices":"StudyAbroadServices ",
+    "PsychologicalConsultations":"  PsychologicalConsultations "
+  },
+  "slider":{
+    "title1" :  "Help your child develop.",
+    "title2" : "Choose your future path",
+    "title3" :  "Be distinguished in your work",
+    "desc1"  :  "Don't be like others! By learning English you will be prominent in your field of work because it has become an essential skill that employers are looking for in all fields",
+    "desc2"  :  "Check the most in-demand job fields in the labor market through our administrative courses, which enable you to start your professional future successfully.",
+    "desc3"  :  "You must be prominent and focused in your field so that your acceptance rate for job opportunities is higher, and this distinction also provides you with many job opportunities.",
+    "button" :  "More Info"
+  },
+  "why":{
+    "title":"Why choose IAC ?",
+    "desc":"If you are looking for an English institute in Jeddah or an English institute in Riyadh or the best study programs, welcome to the best English institute in the Kingdom of Saudi Arabia, because we provide professional English language courses through",
+    "image1" : "Relying on the latest technologies and developments",
+    "image2" : "Highest quality in educational curricula",
+    "image3" : "Selecting professional trainers in each field"
+  },
+  "maincourses":{
+    "title":"Our distinguished courses",
+    "desc":"We offer you courses and courses with the best trainers in all the fields we have so that you can benefit properly and obtain the full experience that qualifies you for the labor market and you are fully prepared"
+  },
+  "btn":{
+    "btn":"Show More "
+  },
+  "colorsection":{
+    "desc":"We are here for you.. We provide you with courses in the most in-demand fields in the labor market, and we take you step by step on your way to success. If you are looking for an English institute in Jeddah or Riyadh or the best study programs, welcome to the best English institute in the Kingdom of Saudi Arabia, because we provide professional English language courses"
+  },
+  "offers":{
+    "title":" Our latest offers",
+    "desc":"This is a group of offers that we have and that we always talk about. Follow us every day to get the best offers"
+  },
+  "getstarted":{
+    "btn":"Get Started",
+    "desc1":"Let us help you get",
+    "desc2":" the training and courses that are right for you and your field."
+  },
+  "modawanabox":{
+    "read":" Read in the blog ",
+    "all":"See All"
+  },
+  "footer":{
+    "title1":"About",
+    "title2":"Join Us",
+    "title3":"Contact Us",
+    "sub1":"Who we are ? ",
+    "sub2":"Blog",
+    "sub3":"Contact Us",
+    "sub4":"Important Links",
+    "sub5":"Packages",
+    "sub6":"Available Courses",
+    "sub66":"All Offers",
+    "sub8":"132123132",
+    "sub9":"123456789",
+    "sub10":"info@iac.com",
+    "desc":"Subscribe to our free mail service to receive our latest special offers",
+    "btn":"Subscribe",
+    "placeholder":"Enter your Email",
+    "allright":"All rights reserved to Elite Leaders Education Company 2024 ©"
   }
 }
