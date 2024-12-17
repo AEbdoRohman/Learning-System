@@ -156,11 +156,8 @@ function NavList() {
           {t("header.Children's school")}
         </ListItem>
       </Typography>
-      <Link to={"/"}>
-        <ListItem className="flex items-center gap-2 py-2 pr-4  text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
-          الرئيسية
-        </ListItem>
-      </Link>
+
+      {/* <NavListMenu /> */}
     </List>
   );
 }
