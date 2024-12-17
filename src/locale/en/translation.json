@@ -111,6 +111,20 @@
     "percentage": "Pass Percentage",
     "deadline": "Deadline"
   },
+
+  "pay": {
+    "checkout": "Checkout",
+    "name": "Cardholder Name",
+    "card": "Card Number",
+    "expiryDate": "Expiry Date",
+    "cvv": "cvv",
+    "pay": "Complete Payment",
+
+    "order": "Order Summary",
+    "subtotal": "Subtotal",
+    "total": "Total"
+  },
+
   "review": "Review",
   "more": "More Details",
   "price": "Price",
