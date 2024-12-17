@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef ,useState} from "react";
 import { useTranslation } from "react-i18next";
 import {
   Navbar,
@@ -15,8 +15,8 @@ import { CiSearch } from "react-icons/ci";
 import { FaCartShopping } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import LanguageSwitcher from "../components/language/LanguageSwitcher";
+import { useSelector } from "react-redux";
 
-//  const { t } = useTranslation();
 // const navListMenuItems = [
 //   {
 //     title: t("header.PsychologicalConsultations"),
@@ -60,7 +60,7 @@ function NavListMenu() {
       </MenuItem>
     </a>
   ));
-
+}
 //   return (
 //     <section>
 //       <Menu
@@ -179,11 +179,12 @@ function NavList() {
     </List>
   );
 }
-}
+
 export default function Header() {
   const [openNav, setOpenNav] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const headerRef = useRef();
+  const numberOfItems = useSelector((state)=>state.course);
   const { t } = useTranslation();
   React.useEffect(() => {
     window.addEventListener(
@@ -244,12 +245,12 @@ export default function Header() {
         </IconButton>
 
         <div className="hidden  lg:flex">
-          <div className="bg-pColor bg-opacity-10 relative mb-[-5px] text-pColor rounded-[50%] p-3 cursor-pointer">
+          <Link to={"/cart"} className="bg-pColor bg-opacity-10 relative mb-[-5px] text-pColor rounded-[50%] p-3 cursor-pointer">
             <span className="absolute top-[-.9rem] z-[10] right-[-.5rem] text-[15px] border-2 text-white rounded-[50%] bg-pColor px-[.3rem]">
               {numberOfItems.length}
             </span>
             <FaCartShopping className="text-[17px]" />
-          </div>
+          </Link>
           <div className="bg-pColor bg-opacity-10 mx-2 mb-[-5px] text-pColor rounded-[50%] p-3 cursor-pointer">
             <CiSearch className="text-[17px]" />
           </div>
@@ -276,12 +277,12 @@ export default function Header() {
           <div className="bg-pColor bg-opacity-10 text-pColor rounded-[50%] p-3">
             <CiSearch className="text-[22px]" />
           </div>
-          <div className="bg-pColor bg-opacity-10 relative text-pColor rounded-[50%] p-3">
+          <Link to={"/cart"} className="bg-pColor bg-opacity-10 relative text-pColor rounded-[50%] p-3">
             <span className="absolute top-[-6px] z-[10] right-[-7px] text-[15px] border-2 text-white rounded-[50%] bg-pColor p-[4px]">
-              1
+              {numberOfItems.length}
             </span>
             <FaCartShopping className="text-[22px]" />
-          </div>
+          </Link>
         </div>
         <div className="flex items-center justify-center ">
           <LanguageSwitcher />

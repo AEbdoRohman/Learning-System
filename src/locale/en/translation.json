@@ -73,7 +73,7 @@
     "read": " Read in the blog ",
     "all": "See All"
   },
-<<<<<<< HEAD
+
   "footer":{
     "title1":"About",
     "title2":"Join Us",
@@ -108,28 +108,7 @@
     "items":"Items",
     "contain":"   Your Shopping Cart Contains ",
     "ordersummary":"Order Summary"
-  }
-=======
-  "footer": {
-    "title1": "About",
-    "title2": "Join Us",
-    "title3": "Contact Us",
-    "sub1": "Who we are ? ",
-    "sub2": "Blog",
-    "sub3": "Contact Us",
-    "sub4": "Important Links",
-    "sub5": "Packages",
-    "sub6": "Available Courses",
-    "sub66": "All Offers",
-    "sub8": "132123132",
-    "sub9": "123456789",
-    "sub10": "info@iac.com",
-    "desc": "Subscribe to our free mail service to receive our latest special offers",
-    "btn": "Subscribe",
-    "placeholder": "Enter your Email",
-    "allright": "All rights reserved to Elite Leaders Education Company 2024 ©"
   },
-
   "coursed": {
     "overview": "Overview",
     "curriculum": "Curriculum",
@@ -167,5 +146,5 @@
   "price": "Price",
   "enroll": "Enroll Now",
   "share": "Share"
->>>>>>> 4c4979717be14bf7469be8847682c1f2d1ef675e
+
 }

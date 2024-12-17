@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { deleteItem } from "../redux/cart/courseSlice";
 import { Link } from "react-router-dom";
+import Breadcrumb from "../shared/Breadcrumb";
 
 const Cart = () => {
     const { t } = useTranslation();
@@ -11,18 +12,13 @@ const Cart = () => {
     const dispatch = useDispatch();
     const totalCost = myItems.reduce((acc, item) => acc + item.price, 0);
     
+    
   return (
     <section className='min-h-[100vh] pt-[20%] md:pt-[6%] bg-[url("/src/assets/images/background.png")] bg-cover bg-center'>
       <div className="container ">
-        <div className="relative">
-          <h1 className="py-[1%] text-[2.1rem] md:text-[3rem] shadow-lg bg-[#f3f4f6] rounded-lg text-mainColor font-semibold text-center my-[2%]">
-          {t("cart.cart")}
-          </h1>
-          <Link to={"/"} className="absolute top-[-5px] right-[10px] text-[1.5rem] font-bold">x</Link>
-        </div>
+        <Breadcrumb />
        {myItems.length > 0 ?
            <div className="flex flex-col-reverse md:flex-row">
-
            <div className="h-[350px] px-[4%] py-[3%] bg-white border border-gray-200 rounded-lg shadow-md mx-[2%] w-[95%] my-[5%] md:my-[3%] md:w-[30%]">
                <div>
                    <h1 className="text-center text-[2.2rem] mb-[3%] font-bold text-mainColor "> {t("cart.ordersummary")}  </h1>
