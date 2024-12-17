@@ -2,8 +2,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Carsoul = () => {
+  const { t } = useTranslation();
   const settings = {
     dots: true, // Show dots
     infinite: true, // Infinite loop
@@ -36,15 +38,13 @@ const Carsoul = () => {
               />
               <div className="flex flex-col items-center justify-center py-[30px]">
                 <h1 className="text-[28px] md:text-[35px] font-bold text-[#525fe1] mb-[30px] text-center">
-                  ساعد طفلك علي التطور{" "}
+                {t("slider.title1")}
                 </h1>
                 <p className="text-[20px] md:text-[22px] font-semibold mb-[20px] px-[15px] text-center">
-                  لا تكن مثل الاخرين! من خلال تعلم اللغة الأنجليزية ستكون بارزا
-                  في مجال عملك لانها اصبحت مهارة اساسية يبحث عنها ارباب العمل في
-                  جميع المجالات
+                {t("slider.desc1")}
                 </p>
                 <button className="w-[160px] md:w-[180px] mt-[20px] h-[35px] bg-[#525fe1]  text-white font-[500] pb-[6px] rounded-[10px] text-[20px] flex items-center justify-center ">
-                  <Link>استفسر</Link>
+                  <Link> {t("slider.button")}</Link>
                 </button>
               </div>
             </div>
@@ -60,15 +60,13 @@ const Carsoul = () => {
               <div className="flex flex-col items-center justify-center py-[30px]">
                 <h1 className="text-[28px] md:text-[35px]  font-bold text-[#525fe1] mb-[30px] text-center">
                   {" "}
-                  اختار مسارك المستقبلي{" "}
+                  {t("slider.title2")}
                 </h1>
                 <p className="text-[17px] md:text-[22px] font-semibold mb-[20px] px-[15px] text-center">
-                  {" "}
-                  التحقق بمجالات العمل الاكثر طلبا ف سوق العمل من خلاص دوراتنا
-                  الادارية و التي تجعلك قادرا علي بدء مستقبلك المهني بنجاح.
+                {t("slider.desc2")}
                 </p>
                 <button className="w-[160px] md:w-[180px] mt-[20px] h-[35px] bg-[#525fe1]  text-white font-[500] pb-[6px] rounded-[10px] text-[20px] flex items-center justify-center ">
-                  <Link>استفسر</Link>
+                  <Link> {t("slider.button")}</Link>
                 </button>
               </div>
             </div>
@@ -83,15 +81,13 @@ const Carsoul = () => {
               />
               <div className="flex flex-col items-center justify-center py-[30px]">
                 <h1 className="text-[28px] md:text-[35px]  font-bold text-[#525fe1] mb-[30px] text-center">
-                  كن متميزا ف عملك{" "}
+                {t("slider.title3")}
                 </h1>
                 <p className="text-[17px] md:text-[22px] font-semibold mb-[20px] px-[15px] text-center">
-                  {" "}
-                  يجب ان تكون بارزا و كتكيزا ف مجالك حتي تكون نسبة قبولك ف فرص
-                  العمل اكبر و ايضا هذا التميز يتيح لك فرصا كثرة للعمل.
+                {t("slider.desc3")}
                 </p>
                 <button className="w-[160px] md:w-[180px] mt-[20px] h-[35px] bg-[#525fe1]  text-white font-[500] pb-[6px] rounded-[10px] text-[20px] flex items-center justify-center ">
-                  <Link>استفسر</Link>
+                  <Link> {t("slider.button")}</Link>
                 </button>
               </div>
             </div>

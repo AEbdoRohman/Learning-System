@@ -38,19 +38,17 @@ const CoursePage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const breadcrumbItems = [{ label: "Home", to: "/" }, { label: "Courses" }];
-
   return (
-    <div className="container min-h-screen mx-auto mt-32 mb-10 px-4">
-      <Breadcrumb items={breadcrumbItems} />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className=" min-h-screen mx-auto mt-24 mb-10 px-4">
+      <Breadcrumb />
+      <div className="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {courses.map((course) => (
           <div
             key={course.id}
             className="bg-blue-gray-50 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
           >
             {/* Course Image */}
-            <Link to={`/course/details`}>
+            <Link to={`/courses/details`}>
               <div className="w-full  overflow-hidden">
                 <img
                   src={course.image}

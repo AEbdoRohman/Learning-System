@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Select from "react-select";
-
+import { useTranslation } from "react-i18next";
 const Register = () => {
+  const { t } = useTranslation();
   const countries = [
     {
       label: "مصر (+20)",
@@ -147,42 +148,43 @@ const Register = () => {
   return (
     <div className="mt-[100px]">
       <section className="fixed top-0 left-0 w-full  h-[110vh]  bg-black bg-opacity-50 z-[100] pt-[20px] overflow-auto  flex items-start justify-center">
-        <div className="p-4 mx-[20px] w-[500px] h-[680px] bg-white rounded-[30px]">
-          <div className="flex justify-between">
+        <div className="p-4 mx-[20px] w-[500px] h-[700px] md:h-[685px] bg-white rounded-[30px]">
+          <div className="flex flex-row-reverse justify-between">
             <span className="text-[20px] font-bold">
-              <Link to={"/home"}>x</Link>
+              <Link to={"/"}>x</Link>
             </span>
-            <h1 className="text-[20px] font-bold"> أنشىء حسابك المجاني </h1>
+            <h1 className="text-[20px] font-bold"> {t("auth.createyouraccount")}</h1>
           </div>
           <form action="">
             <div className="flex flex-col w-full mt-[10px]">
-              <label htmlFor="name" className="block text-right mb-[8px] ">
-                الاسم
+              <label htmlFor="name" className="block  mb-[8px] ">
+              {t("auth.name")}
               </label>
               <input
                 required
-                placeholder="اسم المستخدم"
+                placeholder={t("auth.nameplceholder")}
                 type="text"
-                className=" px-[10px] text-right border-[1px] border-gray-400 w-full h-[40px] rounded-[10px] bg-gray-100 focus:border-[#525fe1] focus:outline-none"
+                className=" px-[10px]  border-[1px] border-gray-400 w-full h-[40px] rounded-[10px] bg-gray-100 focus:border-[#525fe1] focus:outline-none"
                 id="name"
               />
             </div>
             <div className="flex flex-col w-full mt-[5px]">
-              <label htmlFor="email" className="block text-right mb-[8px] ">
-                البريد الالكتروني
+              <label htmlFor="email" className="block    mb-[8px] ">
+              {t("auth.email")}
               </label>
               <input
                 required
                 type="email"
-                className="px-[10px] text-right border-[1px]  border-gray-400  w-full h-[40px] rounded-[10px] bg-gray-100 focus:border-[#525fe1] focus:outline-none"
+                className="px-[10px]    border-[1px]  border-gray-400  w-full h-[40px] rounded-[10px] bg-gray-100 focus:border-[#525fe1] focus:outline-none"
                 id="email"
+                placeholder={t("auth.emailplceholder")}
               />
             </div>
 
             <div>
-              <div className="mt-[5px] text-right">
-                <label htmlFor="phone" className="block text-right mb-2">
-                  الهاتف
+              <div className="mt-[5px]   ">
+                <label htmlFor="phone" className="block    mb-2">
+                {t("auth.phone")}
                 </label>
                 <div className="flex items-center gap-2 bg-gray-100 border-[1px] border-gray-400 rounded-[10px] focus-within:border-[#525fe1]">
                   <Select
@@ -206,7 +208,7 @@ const Register = () => {
                     id="phone"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full px-2 text-right bg-transparent border-none focus:outline-none"
+                    className="w-full px-2    bg-transparent border-none focus:outline-none"
                     placeholder="100 123 4567"
                   />
                 </div>
@@ -214,47 +216,48 @@ const Register = () => {
             </div>
 
             <div className="flex flex-col w-full ">
-              <label htmlFor="password" className="block text-right mb-[8px] ">
-                كلمة المرور{" "}
+              <label htmlFor="password" className="block mb-[8px] ">
+              {t("auth.password")}
               </label>
               <input
                 required
                 type="password"
                 placeholder="••••••••"
-                className="px-[10px] text-right border-[1px]  border-gray-400  w-full h-[40px] rounded-[10px] bg-gray-100 focus:border-[#525fe1] focus:outline-none"
+                className="px-[10px]  border-[1px]  border-gray-400  w-full h-[40px] rounded-[10px] bg-gray-100 focus:border-[#525fe1] focus:outline-none"
                 id="password"
               />
             </div>
             <div className="flex flex-col w-full ">
               <label
                 htmlFor="nationality"
-                className="block text-right mb-[8px] "
+                className="block    my-[8px] "
               >
-                الجنسية
+                {t("auth.nationality")}
               </label>
               <select
                 required
                 type="text"
-                className="px-[10px] text-right border-[1px]  border-gray-400  w-full h-[40px] rounded-[10px] bg-gray-100 focus:border-[#525fe1] focus:outline-none"
+                className="px-[10px]    border-[1px]  border-gray-400  w-full h-[40px] rounded-[10px] bg-gray-100 focus:border-[#525fe1] focus:outline-none"
                 id="nationality"
               >
-                <option value="">قم بأختيار جنسية</option>
+                <option value="">{t("auth.choose")} </option>
                 {arabicNationalites.map((item) => {
                   return <option value={item}>{item}</option>;
                 })}
               </select>
             </div>
-            <div className="flex justify-between mt-[8px]">
+            <div className="flex flex-row-reverse justify-between mt-[8px]">
               <div></div>
-              <div>
-                <label htmlFor="remember" className="text-[14px]">
-                  .بالضغط على التسجيل أنا أوافق على شروط الخدمة و سياسة الخصوصية
-                </label>
-                <input
+              <div className="mt-[1%] mb-[2%]">
+              <input
                   type="checkbox"
                   id="remember"
                   className="mx-[5px] mt-[10px]"
                 />
+                <label htmlFor="remember" className="text-[14px]">
+                {t("auth.registermsg")}
+                </label>
+                
               </div>
             </div>
             <div className="flex items-center">
@@ -262,7 +265,7 @@ const Register = () => {
                 type="submit"
                 className="mx-auto  w-[75%] text-white rounded-[10px]  py-[8px] mt-[10px] bg-[#525fe1]"
               >
-                تسجيل الدخول{" "}
+                {t("auth.register")}
               </button>
             </div>
           </form>
@@ -282,9 +285,9 @@ const Register = () => {
           <div className="flex items-center justify-center pb-[10px]">
             <h1 className="font-semibold">
               {" "}
-              لديك حساب بالفعل ؟{" "}
-              <Link to="/login" className="text-[#525fe1] hover:underline">
-                سجل الان{" "}
+              {t("auth.noAccount")}
+              <Link to="/login" className="text-[#525fe1] hover:underline  px-[5px]">
+              {t("auth.registerNow")}
               </Link>
             </h1>
           </div>

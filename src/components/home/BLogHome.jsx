@@ -1,16 +1,18 @@
 import React from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 const BLogHome = () => {
+  const { t } = useTranslation();
   return (
     <section>
       <div className="container mx-auto">
-        <div className="flex items-center justify-between p-3 border-[1px] border-mainColor border-dashed">
+        <div className="flex flex-row-reverse items-center justify-between p-3 border-[1px] border-mainColor border-dashed">
           <Link to="/blog" className="flex items-center text-[1.2rem]">
             <IoIosArrowBack size={22} className="text-blue-700 mt-1" />
-            عرض الكل
+            {t("modawanabox.read")} 
           </Link>
-          <h3 className="text-[1.2rem] font-bold">اقرأ في المدونة</h3>
+          <h3 className="text-[1.2rem] font-bold">  {t("modawanabox.all")}  </h3>
         </div>
         <div className="mt-[2.5rem] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-[1rem]">
           <Link

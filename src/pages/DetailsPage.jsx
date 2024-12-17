@@ -10,7 +10,7 @@ const DetailsPage = () => {
     { label: "Course Details" },
   ];
   return (
-    <div className="mt-[100px] mb-[100px]">
+    <div className="mt-20 md:mt-24 mb-[100px]">
       <Breadcrumb items={breadcrumbItems} />
       <div className=" mx-6  h-[calc(100vh-200px)]">
         <img

@@ -21,7 +21,7 @@ const ViewCourse = () => {
 
       {!isModalOpen && (
         <div
-          className="fixed top-1/2 ltr:left-1 rtl:right-1 bg-blue-gray-300 p-1 rounded-lg text-2xl text-white cursor-pointer"
+          className="fixed top-1/2 ltr:left-1 rtl:right-1 bg-blue-gray-300 px-1 py-2 md:px-1 md:py-2 rounded-lg text-sm md:text-2xl text-white cursor-pointer"
           onClick={() => setIsModalOpen(true)}
         >
           <FaAngleRight />
