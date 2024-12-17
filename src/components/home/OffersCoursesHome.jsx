@@ -58,7 +58,7 @@ const OffersCoursesHome = () => {
               >
                 <div className="flex flex-col items-center justify-center  min-h-[440px] rounded-lg mx-3 shadow-lg">
                   <Link
-                    to="/course/details"
+                    to="/courses/details"
                     className="overflow-hidden rounded-tl-xl rounded-tr-xl"
                   >
                     <img
