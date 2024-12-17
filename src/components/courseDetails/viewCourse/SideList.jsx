@@ -1,25 +1,44 @@
-import { FaXmark } from "react-icons/fa6";
-
 /* eslint-disable react/prop-types */
-const lessons = [
-  { id: 1, title: "Introduction", video: "video1.mp4" },
-  { id: 2, title: "Lesson 1: Basics of React", video: "video2.mp4" },
-  { id: 3, title: "Lesson 2: React Components", video: "video3.mp4" },
-  { id: 4, title: "Lesson 3: State and Props", video: "video4.mp4" },
-  { id: 5, title: "Lesson 3: State and Props", video: "video5.mp4" },
-  { id: 6, title: "Lesson 3: State and Props", video: "video6.mp4" },
-  { id: 7, title: "Lesson 3: State and Props", video: "video7.mp4" },
-  { id: 8, title: "Lesson 3: State and Props", video: "video8.mp4" },
-  { id: 9, title: "Lesson 3: State and Props", video: "video9.mp4" },
-  { id: 10, title: "Lesson 3: State and Props", video: "video10.mp4" },
+import { useState } from "react";
+import { FaXmark } from "react-icons/fa6";
+import { IoIosArrowDown } from "react-icons/io";
+
+/* البيانات */
+const sections = [
+  {
+    id: 1,
+    title: "Introduction to the Course",
+    subTitles: ["Course Overview", "Objectives", "Requirements"],
+    video: "video1.mp4",
+  },
+  {
+    id: 2,
+    title: "Basic Concepts",
+    subTitles: ["What is React?", "JSX Basics", "Components"],
+    video: "video2.mp4",
+  },
+  {
+    id: 3,
+    title: "Advanced Topics",
+    subTitles: ["State Management", "Lifecycle Methods", "Hooks"],
+    video: "video3.mp4",
+  },
 ];
 
-const SideList = ({
-  isModalOpen,
-  setIsModalOpen,
-  currentVideo,
-  setCurrentVideo,
-}) => {
+const SideList = ({ isModalOpen, setIsModalOpen, setCurrentVideo }) => {
+  const [openSections, setOpenSections] = useState([]); // مصفوفة للأقسام المفتوحة
+  const [activeSubTitle, setActiveSubTitle] = useState(null); // للحالة النشطة
+
+  // toggle section
+  const toggleSection = (id) => {
+    setOpenSections(
+      (prevSections) =>
+        prevSections.includes(id)
+          ? prevSections.filter((sectionId) => sectionId !== id) // close section
+          : [...prevSections, id] // add section
+    );
+  };
+
   return (
     <div
       className={`bg-blue-gray-50 rounded-lg shadow-md px-4 py-6 overflow-y-auto scrollbar-thin z-10 sticky duration-500 ease-in-out ${
@@ -36,33 +55,54 @@ const SideList = ({
     >
       <span
         className="absolute top-2 py-2 text-2xl cursor-pointer rtl:right-[230px] ltr:left-[230px]"
-        // style={{ left: "230px" }}
         onClick={() => setIsModalOpen(false)}
       >
         <FaXmark />
       </span>
       <h3 className="text-lg font-bold mb-4">Lessons</h3>
-      <ul className="space-y-4">
-        {lessons.map((lesson) => (
-          <li
-            key={lesson.id}
-            className={`p-3 rounded-lg cursor-pointer duration-300 ease-in-out ${
-              currentVideo === lesson.video
-                ? "bg-blue-100 border-l-4 border-blue-500"
-                : "hover:bg-gray-100"
-            }`}
-            onClick={() => {
-              setCurrentVideo(lesson.video);
-              // Close the modal only if on mobile devices
-              if (window.innerWidth <= 768) {
-                setIsModalOpen(false);
-              }
-            }}
-          >
-            <span className="font-medium text-gray-800">{lesson.title}</span>
-          </li>
+      <div className="space-y-4">
+        {sections.map((lesson) => (
+          <div key={lesson.id}>
+            <div
+              className="flex justify-between items-center py-2 border-b-2 border-gray-300 cursor-pointer duration-300 ease-in-out"
+              onClick={() => toggleSection(lesson.id)}
+            >
+              <span className="font-medium text-gray-800">{lesson.title}</span>
+              <span
+                className={`transform transition-transform ${
+                  openSections.includes(lesson.id) ? "rotate-180" : "rotate-0"
+                }`}
+              >
+                <IoIosArrowDown />
+              </span>
+            </div>
+            {openSections.includes(lesson.id) && ( // تحقق إذا كان القسم مفتوحًا
+              <ul className=" p-0 md:pl-2">
+                {lesson.subTitles.map((subTitle, index) => (
+                  <li
+                    key={index}
+                    className={`flex items-center text-gray-900 hover:text-blue-500 cursor-pointer border-b-[1px] border-gray-300 pb-2 last:border-b-0`}
+                    onClick={() => {
+                      setCurrentVideo(lesson.video);
+                      setActiveSubTitle(subTitle);
+                    }}
+                  >
+                    <div
+                      className={`flex items-center py-2 text-ms md:text-lg w-full duration-300 ease-in-out ${
+                        activeSubTitle === subTitle
+                          ? "bg-blue-100 border-l-4 px-2 mt-2 border-blue-500 rounded-lg"
+                          : "hover:bg-gray-100"
+                      }`}
+                    >
+                      {subTitle}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

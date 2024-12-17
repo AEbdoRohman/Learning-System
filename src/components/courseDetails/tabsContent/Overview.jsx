@@ -1,8 +1,11 @@
+import { useTranslation } from "react-i18next";
+
 const Overview = () => {
+  const { t } = useTranslation();
   return (
     <div>
       <div>
-        <h1 className="font-bold text-3xl mb-4">Course Description</h1>
+        <h1 className="font-bold text-3xl mb-4">{t("coursed.desc")}</h1>
         <p className="mb-10 text-lg text-gray-700">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, debitis
           natus? Quas, repellendus. Quos, debitis natus? Quas, repellendus.{" "}
@@ -16,9 +19,7 @@ const Overview = () => {
       </div>
 
       <div className="mb-10">
-        <h1 className="font-bold text-3xl mb-4">
-          What You’ll Learn From This Course
-        </h1>
+        <h1 className="font-bold text-3xl mb-4">{t("coursed.learn")}</h1>
         <ul className="list-disc list-inside">
           <li className="mb-3 text-gray-700">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -39,7 +40,9 @@ const Overview = () => {
         </ul>
       </div>
       <div>
-        <h1 className="font-bold text-3xl mb-4">Certification</h1>
+        <h1 className="font-bold text-3xl mb-4">
+          {t("coursed.certification")}
+        </h1>
         <p className="mb-10 text-lg text-gray-700">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit soluta
           possimus nobis alias quidem, cumque dolores quibusdam! Et accusamus

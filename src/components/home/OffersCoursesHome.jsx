@@ -80,10 +80,10 @@ const OffersCoursesHome = () => {
         <div className="my-[30px] px-[1rem]">
           <div className="element-center flex-col my-[30px]">
             <h1 className="text-center font-bold text-[2.3rem] md:text-[2.9rem] mb-[15px] text-mainColor">
-            {t("offers.title")} 
+              {t("offers.title")}
             </h1>
             <p className=" text-center w-75 md:w-[50%] font-semibold text-[1.1rem] md:text-[1.5rem] mb-[15px] ">
-            {t("offers.desc")} 
+              {t("offers.desc")}
             </p>
           </div>
 
@@ -95,7 +95,7 @@ const OffersCoursesHome = () => {
               >
                 <div className="flex flex-col items-center justify-center  min-h-[440px] rounded-lg mx-3 shadow-lg">
                   <Link
-                    to="/course"
+                    to="/course/details"
                     className="overflow-hidden rounded-tl-xl rounded-tr-xl"
                   >
                     <img
@@ -137,7 +137,7 @@ const OffersCoursesHome = () => {
         </div>
         <div className="mx-auto flex justify-center items-center mt-[80px]">
           <button className="flex items-center justify-center text-mainColor px-[70px] h-[2.5rem] rounded-[.37rem] bg-white font-semibold border-[1.5px] border-mainColor ">
-            <Link>{t("btn.btn")}  </Link>
+            <Link to="/courses"> {t("more")} </Link>
           </button>
         </div>
       </div>

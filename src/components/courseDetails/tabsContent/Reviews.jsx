@@ -1,6 +1,8 @@
+import { useTranslation } from "react-i18next";
 import { FaStar } from "react-icons/fa";
 
 const Reviews = () => {
+  const { t } = useTranslation();
   const ratings = [
     { rating: 5, progress: 75, reat: 1 },
     { rating: 4, progress: 0, reat: 0 },
@@ -23,7 +25,7 @@ const Reviews = () => {
               );
             })}
           </div>
-          <span className="mx-[2px]">(1 rating)</span>
+          <span className="mx-[2px]">(1 {t("review")})</span>
         </div>
         <div className="w-2/3 flex flex-col gap-2">
           {ratings.map((item) => {
@@ -48,14 +50,10 @@ const Reviews = () => {
         </div>
       </div>
       <div className="mt-10">
-        <h1 className="font-bold text-3xl mb-8">Reviews</h1>
+        <h1 className="font-bold text-3xl mb-8">{t("coursed.reviews")}</h1>
         <div className="flex  gap-4">
           <div>
-            <img
-              src="src/assets/images/instructor.webp"
-              alt=""
-              className="w-52 rounded-full"
-            />
+            <img src="/instructor.webp" alt="" className="w-52 rounded-full" />
           </div>
           <div>
             <div className="flex items-center gap-4">

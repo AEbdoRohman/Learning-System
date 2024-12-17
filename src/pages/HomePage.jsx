@@ -1,4 +1,3 @@
-import Blog from "../components/home/Blog";
 import BLogHome from "../components/home/BLogHome";
 import Carsoul from "../components/home/Carsoul";
 import GetStarted from "../components/home/GetStarted";
@@ -11,9 +10,9 @@ import { useTranslation } from "react-i18next";
 
 const HomePage = () => {
   return (
-    <section >
+    <section>
       <div className="fixed right-[.2%] top-[30%]">
-          <SocialIcons />
+        <SocialIcons />
       </div>
       <div className='h-[95vh] flex bg-[url("/src/assets/images/background.png")] bg-cover bg-center'>
         <div className="w-[92%] md:w-[97.5%] pt-[40px] md:pt-[100px]">
@@ -39,7 +38,6 @@ const HomePage = () => {
         <BLogHome />
       </div>
     </section>
-
   );
 };
 

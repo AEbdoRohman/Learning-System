@@ -3,8 +3,10 @@ import Overview from "./tabsContent/Overview";
 import Curriculum from "./tabsContent/Curriculum";
 import Instructor from "./tabsContent/Instructor";
 import Reviews from "./tabsContent/Reviews";
+import { useTranslation } from "react-i18next";
 
 const Tabs = () => {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState("overview");
 
   // Function to render the content based on the active tab
@@ -37,7 +39,7 @@ const Tabs = () => {
                 : "text-gray-600 hover:text-blue-500"
             }`}
           >
-            Overview
+            {t("coursed.overview")}
           </button>
           <button
             onClick={() => setActiveTab("curriculum")}
@@ -47,7 +49,7 @@ const Tabs = () => {
                 : "text-gray-600 hover:text-blue-500"
             }`}
           >
-            Curriculum
+            {t("coursed.curriculum")}
           </button>
         </div>
         <div className="flex justify-around md:flex-auto">
@@ -59,7 +61,7 @@ const Tabs = () => {
                 : "text-gray-600 hover:text-blue-500"
             }`}
           >
-            Instructor
+            {t("coursed.instructor")}
           </button>
           <button
             onClick={() => setActiveTab("reviews")}
@@ -69,7 +71,7 @@ const Tabs = () => {
                 : "text-gray-600 hover:text-blue-500"
             }`}
           >
-            Reviews
+            {t("coursed.reviews")}
           </button>
         </div>
       </div>

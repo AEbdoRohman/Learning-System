@@ -6,7 +6,7 @@ const Instructor = () => {
     <div className="flex align-center flex-col md:flex-row gap-4">
       <div className="w-2/3 md:w-1/3 mx-auto h-full">
         <img
-          src="src/assets/images/instructor.webp"
+          src="/instructor.webp"
           alt="Instructor"
           className="w-full h-fullobject-cover rounded-lg"
         />
