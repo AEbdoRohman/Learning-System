@@ -12,6 +12,7 @@ import Payment from "./components/payment/Payment";
 import ViewCourse from "./components/courseDetails/viewCourse/ViewCourse";
 import Footer from "./shared/Footer";
 import BlogPage from "./pages/BlogPage";
+import store from "./redux/store";
 
 function App() {
   const { i18n } = useTranslation();
@@ -32,6 +33,7 @@ function App() {
   return (
     <div dir={i18n.language === "ar" ? "rtl" : "ltr"}>
       <Header />
+      <Provider store={store}>
       <WhatsAppIcon />
       <Routes>
         {/* Authentication */}

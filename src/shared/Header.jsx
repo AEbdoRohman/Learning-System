@@ -179,7 +179,7 @@ function NavList() {
     </List>
   );
 }
-
+}
 export default function Header() {
   const [openNav, setOpenNav] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
@@ -291,3 +291,5 @@ export default function Header() {
     </Navbar>
   );
 }
+
+
