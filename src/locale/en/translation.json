@@ -73,26 +73,42 @@
     "read": " Read in the blog ",
     "all": "See All"
   },
-  "footer": {
-    "title1": "About",
-    "title2": "Join Us",
-    "title3": "Contact Us",
-    "sub1": "Who we are ? ",
-    "sub2": "Blog",
-    "sub3": "Contact Us",
-    "sub4": "Important Links",
-    "sub5": "Packages",
-    "sub6": "Available Courses",
-    "sub66": "All Offers",
-    "sub8": "132123132",
-    "sub9": "123456789",
-    "sub10": "info@iac.com",
-    "desc": "Subscribe to our free mail service to receive our latest special offers",
-    "btn": "Subscribe",
-    "placeholder": "Enter your Email",
-    "allright": "All rights reserved to Elite Leaders Education Company 2024 ©"
-  },
 
+  "footer":{
+    "title1":"About",
+    "title2":"Join Us",
+    "title3":"Contact Us",
+    "sub1":"Who we are ? ",
+    "sub2":"Blog",
+    "sub3":"Contact Us",
+    "sub4":"Important Links",
+    "sub5":"Packages",
+    "sub6":"Available Courses",
+    "sub66":"All Offers",
+    "sub8":"132123132",
+    "sub9":"123456789",
+    "sub10":"info@iac.com",
+    "desc":"Subscribe to our free mail service to receive our latest special offers",
+    "btn":"Subscribe",
+    "placeholder":"Enter your Email",
+    "allright":"All rights reserved to Elite Leaders Education Company 2024 ©"
+  },
+  "cart":{
+    "addtocart":" Add to Cart",
+    "currency" :"EGP",
+    "cart":" Your Shopping Cart",
+    "empty":"Your Shopping Cart is Empty Now",
+    "shopping":"Shopping Now",
+    "details":"Product Details",
+    "price":"Price",
+    "delete":"Delete",
+    "cost":"Total Cost",
+    "pay":"Pay Now",
+    "numberOfItems":"Number Of Items  ",
+    "items":"Items",
+    "contain":"   Your Shopping Cart Contains ",
+    "ordersummary":"Order Summary"
+  },
   "coursed": {
     "overview": "Overview",
     "curriculum": "Curriculum",
@@ -130,4 +146,5 @@
   "price": "Price",
   "enroll": "Enroll Now",
   "share": "Share"
+
 }

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useRef ,useState} from "react";
 import { useTranslation } from "react-i18next";
 import {
   Navbar,
@@ -15,34 +15,52 @@ import { CiSearch } from "react-icons/ci";
 import { FaCartShopping } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import LanguageSwitcher from "../components/language/LanguageSwitcher";
-import SearchBar from "./SearchBar";
+import { useSelector } from "react-redux";
 
-// function NavListMenu() {
-//   const { t } = useTranslation();
-//   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-//   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-//   const renderItems = navListMenuItems.map(({ title, description }, key) => (
-//     <a href="#" key={key}>
-//       <MenuItem className="flex items-center flex-col grid-cols-1 rounded-lg">
-//         <div>
-//           <Typography
-//             variant="h6"
-//             color="blue-gray"
-//             className="flex items-center text-sm font-bold"
-//           >
-//             {title}
-//           </Typography>
-//           <Typography
-//             variant="paragraph"
-//             className="text-xs ! text-blue-gray-500"
-//           >
-//             {description}
-//           </Typography>
-//         </div>
-//       </MenuItem>
-//     </a>
-//   ));
-
+// const navListMenuItems = [
+//   {
+//     title: t("header.PsychologicalConsultations"),
+//     description: "",
+//   },
+//   {
+//     title: t("header.StudyAbroadServices"),
+//     description: "",
+//   },
+//   {
+//     title: t("header.Offers"),
+//     description: "",
+//   },
+//   {
+//     title: t("header.Other"),
+//     description: "",
+//   },
+// ];
+function NavListMenu() {
+  const { t } = useTranslation();
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const renderItems = navListMenuItems.map(({ title, description }, key) => (
+    <a href="#" key={key}>
+      <MenuItem className="flex items-center flex-col grid-cols-1 rounded-lg">
+        <div>
+          <Typography
+            variant="h6"
+            color="blue-gray"
+            className="flex items-center text-sm font-bold"
+          >
+            {title}
+          </Typography>
+          <Typography
+            variant="paragraph"
+            className="text-xs ! text-blue-gray-500"
+          >
+            {description}
+          </Typography>
+        </div>
+      </MenuItem>
+    </a>
+  ));
+}
 //   return (
 //     <section>
 //       <Menu
@@ -166,18 +184,25 @@ export default function Header() {
   const [openNav, setOpenNav] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const headerRef = useRef();
-
-  useEffect(() => {
+  const numberOfItems = useSelector((state)=>state.course);
+  const { t } = useTranslation();
+  React.useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false)
     );
-    headerRef.current.style.flexDirection = "column-reverse";
+    if (headerRef.current) {
+      headerRef.current.style.flexDirection = "column-reverse";
+    }
     window.addEventListener("scroll", () => {
       if (window.scrollY > 100) {
+        if (headerRef.current) {
         headerRef.current.style.background = "#eee";
+      }
       } else {
-        headerRef.current.style.background = "transparent";
+        if (headerRef.current){
+          headerRef.current.style.background = "transparent";
+        }
       }
     });
   }, []);
@@ -220,28 +245,23 @@ export default function Header() {
         </IconButton>
 
         <div className="hidden  lg:flex">
-          <div className="flex items-center justify-center mx-[.5rem]">
-            <LanguageSwitcher />
+          <Link to={"/cart"} className="bg-pColor bg-opacity-10 relative mb-[-5px] text-pColor rounded-[50%] p-3 cursor-pointer">
+            <span className="absolute top-[-.9rem] z-[10] right-[-.5rem] text-[15px] border-2 text-white rounded-[50%] bg-pColor px-[.3rem]">
+              {numberOfItems.length}
+            </span>
+            <FaCartShopping className="text-[17px]" />
+          </Link>
+          <div className="bg-pColor bg-opacity-10 mx-2 mb-[-5px] text-pColor rounded-[50%] p-3 cursor-pointer">
+            <CiSearch className="text-[17px]" />
           </div>
           <Button
             className="w-[150px] h-[35px] border-[1px] text-pColor mx-auto pt-[4px]  hover:bg-hoverColor hover:text-white bg-opacity-5 transition-all duration-500 border-pColor text-[15.5px]"
             variant="text"
           >
-            <Link to={"/login"}> تسجيل الدخول</Link>
+            <Link to={"/login"}> {t("header.Login")} </Link>
           </Button>
-
-          <div
-            className="bg-pColor bg-opacity-10 mx-2 mb-[-5px] text-pColor rounded-[50%] p-3 cursor-pointer"
-            onClick={() => setShowSearch(true)}
-          >
-            <CiSearch className="text-[17px]" />
-          </div>
-          <div className="bg-pColor bg-opacity-10 relative mb-[-5px] text-pColor rounded-[50%] p-3 cursor-pointer">
-            <span className="absolute top-[-.9rem] z-[10] right-[-.5rem] text-[15px] border-2 text-white rounded-[50%] bg-pColor px-[.3rem]">
-              9
-            </span>
-            <FaCartShopping className="text-[17px]" />
-          </div>
+          <div className="flex items-center justify-center mx-[.5rem]"><LanguageSwitcher /></div>
+          
         </div>
       </div>
 
@@ -257,12 +277,12 @@ export default function Header() {
           <div className="bg-pColor bg-opacity-10 text-pColor rounded-[50%] p-3">
             <CiSearch className="text-[22px]" />
           </div>
-          <div className="bg-pColor bg-opacity-10 relative text-pColor rounded-[50%] p-3">
+          <Link to={"/cart"} className="bg-pColor bg-opacity-10 relative text-pColor rounded-[50%] p-3">
             <span className="absolute top-[-6px] z-[10] right-[-7px] text-[15px] border-2 text-white rounded-[50%] bg-pColor p-[4px]">
-              1
+              {numberOfItems.length}
             </span>
             <FaCartShopping className="text-[22px]" />
-          </div>
+          </Link>
         </div>
         <div className="flex items-center justify-center ">
           <LanguageSwitcher />
@@ -272,3 +292,5 @@ export default function Header() {
     </Navbar>
   );
 }
+
+

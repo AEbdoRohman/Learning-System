@@ -3,10 +3,59 @@ import { FaHeart } from "react-icons/fa";
 import { RiFileList3Line } from "react-icons/ri";
 import { FaStar } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import { FaCartShopping } from "react-icons/fa6";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../redux/cart/courseSlice";
 
 const MainCourses = () => {
   const { t } = useTranslation();
+  const testData = [
+    {
+      id:5,
+      name:"دورة علم البيانات و الذكاء الاصطناعي 5",
+      desc:"يلعب الذكاء الاصطناعي دورا هاما ف تحويل العالم و شكل المستقبل .",
+      img:"course.webp",
+      price:175
+    },
+    {
+      id:6,
+      name:" 6 كورس تعلم الذكاء الاصطناعي و التعليم العميق بالستخدام لغة البايثو",
+      desc:"يلعب الذكاء الاصطناعي دورا هاما ف تحويل العالم و شكل المستقبل .",
+      img:"course.webp",
+      price:120
+    },
+    {
+      id:7,
+      name:"7  كورس تعلم الذكاء الاصطناعي و التعليم العميق بالستخدام لغة البايثو",
+      desc:"يلعب الذكاء الاصطناعي دورا هاما ف تحويل العالم و شكل المستقبل .",
+      img:"course.webp",
+      price:200
+    },
+    {
+      id:8,
+      name:" 8 كورس تعلم الذكاء الاصطناعي و التعليم العميق بالستخدام لغة البايثون",
+      desc:"يلعب الذكاء الاصطناعي دورا هاما ف تحويل العالم و شكل المستقبل .",
+      img:"course.webp",
+      price:100
+    },
+    {
+      id:9,
+      name:" 9 كورس تعلم الذكاء الاصطناعي و التعليم العميق بالستخدام لغة البايثون",
+      desc:"يلعب الذكاء الاصطناعي دورا هاما ف تحويل العالم و شكل المستقبل .",
+      img:"course.webp",
+      price:400
+    },
+    {
+      id:10,
+      name:" 10 كورس تعلم الذكاء الاصطناعي و التعليم العميق بالستخدام لغة البايثون",
+      desc:"يلعب الذكاء الاصطناعي دورا هاما ف تحويل العالم و شكل المستقبل .",
+      img:"course.webp",
+      price:300
+    },
 
+  ]
+  
+  const dispatch = useDispatch();
   return (
     <section>
       <div className="container mx-auto px-4">
@@ -20,7 +69,7 @@ const MainCourses = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 overflow-hidden gap-[30px] place-items-center">
-            {[1, 2, 3, 4, 5, 6].map((index) => {
+            {testData.map((item,index) => {
               return (
                 <div
                   key={index}
@@ -34,7 +83,7 @@ const MainCourses = () => {
                         alt="imageCourse"
                       />
                    </div>
-                    <FaHeart className="absolute top-[15px] right-[30px] cursor-pointer text-white text-[35px] border-[1px] border-gray-500 bg-gray-500 px-[5px] py-[5px] rounded-[50%] hover:text-red-600 transition-all duration-200" />
+                    {/* <FaHeart className="absolute top-[15px] right-[30px] cursor-pointer text-white text-[35px] border-[1px] border-gray-500 bg-gray-500 px-[5px] py-[5px] rounded-[50%] hover:text-red-600 transition-all duration-200" /> */}
                     <p className="absolute bottom-[-15px] left-[30px] pb-[5px] bg-mainColor text-white px-[30px] border-[2px] border-white">
                       type
                     </p>
@@ -60,16 +109,15 @@ const MainCourses = () => {
                     <div>
                       {" "}
                       <h1 className="text-[20px] font-semibold px-[20px] pt-[0px] pb-[20px] text-right">
-                        {" "}
-                        كورس تعلم الذكاء الاصطناعي و التعليم العميق بالستخدام
-                        لغة البايثون
+                        {item.name}
+                        
                       </h1>
                     </div>
                     <div className="w-[90%] h-[2px] bg-gray-200 mx-auto"></div>
                     <div className="py-[10px]  flex items-center justify-around">
-                      <div className="text-[20px] font-bold">123456$</div>
+                      <div className="text-[20px] font-bold">{item.price} {t("cart.currency")}</div>
                       <div>
-                        {[1, 2, 3, 4, 5].map((item) => {
+                        {[1, 2, 3].map((item) => {
                           return (
                             <FaStar
                               key={item}
@@ -77,7 +125,8 @@ const MainCourses = () => {
                             />
                           );
                         })}
-                        <span className="mx-[2px]">(5.4)</span>
+                        <span className="mx-[15px]">(5.4)</span>
+                      <FaCartShopping onClick={()=>dispatch(addItem(item))} className="text-[27px] cursor-pointer hover:text-hoverColor transition-all duration-300 text-mainColor inline " />
                       </div>
                     </div>
                   </div>
