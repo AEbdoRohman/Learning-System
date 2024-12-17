@@ -12,6 +12,9 @@ import Payment from "./components/payment/Payment";
 import ViewCourse from "./components/courseDetails/viewCourse/ViewCourse";
 import Footer from "./shared/Footer";
 import BlogPage from "./pages/BlogPage";
+import Cart from "./pages/Cart";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 function App() {
   const { i18n } = useTranslation();
@@ -22,6 +25,7 @@ function App() {
   }, [i18n.language]);
   return (
     <div dir={i18n.language === "ar" ? "rtl" : "ltr"}>
+      <Provider store={store}>
       <Header />
       <WhatsAppIcon />
       <Routes>
@@ -34,8 +38,10 @@ function App() {
         <Route path="/course/view" element={<ViewCourse />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
+      </Provider>
     </div>
   );
 }

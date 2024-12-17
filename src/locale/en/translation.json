@@ -92,5 +92,21 @@
     "btn":"Subscribe",
     "placeholder":"Enter your Email",
     "allright":"All rights reserved to Elite Leaders Education Company 2024 ©"
+  },
+  "cart":{
+    "addtocart":" Add to Cart",
+    "currency" :"EGP",
+    "cart":" Your Shopping Cart",
+    "empty":"Your Shopping Cart is Empty Now",
+    "shopping":"Shopping Now",
+    "details":"Product Details",
+    "price":"Price",
+    "delete":"Delete",
+    "cost":"Total Cost",
+    "pay":"Pay Now",
+    "numberOfItems":"Number Of Items  ",
+    "items":"Items",
+    "contain":"   Your Shopping Cart Contains ",
+    "ordersummary":"Order Summary"
   }
 }

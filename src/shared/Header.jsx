@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef ,useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import {
   Navbar,
@@ -23,6 +23,7 @@ import { CiSearch } from "react-icons/ci";
 import { FaCartShopping } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import LanguageSwitcher from "../components/language/LanguageSwitcher";
+import { useSelector } from "react-redux";
 
 //  const { t } = useTranslation();
 // const navListMenuItems = [
@@ -200,17 +201,24 @@ export default function Header() {
   const [openNav, setOpenNav] = React.useState(false);
   const headerRef = useRef();
   const { t } = useTranslation();
-  React.useEffect(() => {
+  const numberOfItems = useSelector((state)=>state.course);
+  useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false)
     );
-    headerRef.current.style.flexDirection = "column-reverse";
+    if (headerRef.current) {
+      headerRef.current.style.flexDirection = "column-reverse";
+    }
     window.addEventListener("scroll", () => {
       if (window.scrollY > 100) {
+        if (headerRef.current) {
         headerRef.current.style.background = "#eee";
+      }
       } else {
-        headerRef.current.style.background = "transparent";
+        if (headerRef.current){
+          headerRef.current.style.background = "transparent";
+        }
       }
     });
   }, []);
@@ -254,12 +262,12 @@ export default function Header() {
         </IconButton>
         
         <div className="hidden  lg:flex">
-          <div className="bg-pColor bg-opacity-10 relative mb-[-5px] text-pColor rounded-[50%] p-3 cursor-pointer">
+          <Link to={"/cart"} className="bg-pColor bg-opacity-10 relative mb-[-5px] text-pColor rounded-[50%] p-3 cursor-pointer">
             <span className="absolute top-[-.9rem] z-[10] right-[-.5rem] text-[15px] border-2 text-white rounded-[50%] bg-pColor px-[.3rem]">
-              9
+              {numberOfItems.length}
             </span>
-            <FaCartShopping className="text-[17px]" />
-          </div>
+            <div to={"cart"}><FaCartShopping className="text-[17px]" /></div>
+          </Link>
           <div className="bg-pColor bg-opacity-10 mx-2 mb-[-5px] text-pColor rounded-[50%] p-3 cursor-pointer">
             <CiSearch className="text-[17px]" />
           </div>
