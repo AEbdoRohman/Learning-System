@@ -26,8 +26,8 @@ const sections = [
 ];
 
 const SideList = ({ isModalOpen, setIsModalOpen, setCurrentVideo }) => {
-  const [openSections, setOpenSections] = useState([]); // مصفوفة للأقسام المفتوحة
-  const [activeSubTitle, setActiveSubTitle] = useState(null); // للحالة النشطة
+  const [openSections, setOpenSections] = useState([]);
+  const [activeSubTitle, setActiveSubTitle] = useState(null);
 
   // toggle section
   const toggleSection = (id) => {
@@ -76,7 +76,7 @@ const SideList = ({ isModalOpen, setIsModalOpen, setCurrentVideo }) => {
                 <IoIosArrowDown />
               </span>
             </div>
-            {openSections.includes(lesson.id) && ( // تحقق إذا كان القسم مفتوحًا
+            {openSections.includes(lesson.id) && (
               <ul className=" p-0 md:pl-2">
                 {lesson.subTitles.map((subTitle, index) => (
                   <li

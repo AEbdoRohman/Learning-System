@@ -1,4 +1,4 @@
-import React, { useRef ,useState} from "react";
+import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
   Navbar,
@@ -16,6 +16,7 @@ import { FaCartShopping } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import LanguageSwitcher from "../components/language/LanguageSwitcher";
 import { useSelector } from "react-redux";
+import SearchBar from "./SearchBar";
 
 // const navListMenuItems = [
 //   {
@@ -35,32 +36,32 @@ import { useSelector } from "react-redux";
 //     description: "",
 //   },
 // ];
-function NavListMenu() {
-  const { t } = useTranslation();
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-  const renderItems = navListMenuItems.map(({ title, description }, key) => (
-    <a href="#" key={key}>
-      <MenuItem className="flex items-center flex-col grid-cols-1 rounded-lg">
-        <div>
-          <Typography
-            variant="h6"
-            color="blue-gray"
-            className="flex items-center text-sm font-bold"
-          >
-            {title}
-          </Typography>
-          <Typography
-            variant="paragraph"
-            className="text-xs ! text-blue-gray-500"
-          >
-            {description}
-          </Typography>
-        </div>
-      </MenuItem>
-    </a>
-  ));
-}
+// function NavListMenu() {
+//   const { t } = useTranslation();
+//   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+//   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+//   const renderItems = navListMenuItems.map(({ title, description }, key) => (
+//     <a href="#" key={key}>
+//       <MenuItem className="flex items-center flex-col grid-cols-1 rounded-lg">
+//         <div>
+//           <Typography
+//             variant="h6"
+//             color="blue-gray"
+//             className="flex items-center text-sm font-bold"
+//           >
+//             {title}
+//           </Typography>
+//           <Typography
+//             variant="paragraph"
+//             className="text-xs ! text-blue-gray-500"
+//           >
+//             {description}
+//           </Typography>
+//         </div>
+//       </MenuItem>
+//     </a>
+//   ));
+// }
 //   return (
 //     <section>
 //       <Menu
@@ -110,66 +111,36 @@ function NavList() {
   return (
     <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1 flex flex-col items-center text-center lg:items-start lg:text-start">
       <Link to={"/"}>
-        <ListItem className="flex items-center gap-2 py-2 pr-4 text-black mt-[1.2%] text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
+        <ListItem className="flex items-center gap-2 py-2 pr-4 text-black  text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
           {t("header.home")}
         </ListItem>
       </Link>
 
-      <Typography
-        as="a"
-        href="#dasd"
-        variant="small"
-        color="blue-gray"
-        className=""
-      >
-        <ListItem className="flex items-center gap-2 py-2 pr-4 text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
+      <Link to="/courses">
+        <ListItem className="flex items-center gap-2 py-2 pr-4 text-black text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
           {t("header.Courses")}
         </ListItem>
-      </Typography>
+      </Link>
 
-      <Typography
-        as="a"
-        href="#dasd"
-        variant="small"
-        color="blue-gray"
-        className=""
-      >
-        <ListItem className="flex items-center gap-2 py-2 pr-4 text-[17.5px] font-semibold  hover:text-pColor hover:bg-opacity-0">
+      <Typography as="a" href="#dasd" variant="small" color="blue-gray">
+        <ListItem className="flex items-center gap-2 py-2 pr-4  text-[17.5px] font-semibold  hover:text-pColor hover:bg-opacity-0">
           {t("header.Dimplomas")}
         </ListItem>
       </Typography>
 
-      <Typography
-        as="a"
-        href="#dasd"
-        variant="small"
-        color="blue-gray"
-        className=""
-      >
-        <ListItem className="flex items-center gap-2 py-2 pr-4 text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
+      <Link to="/blog">
+        <ListItem className="flex items-center gap-2 py-2 pr-4 text-black text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
           {t("header.Blogs")}
         </ListItem>
-      </Typography>
+      </Link>
 
-      <Typography
-        as="a"
-        href="#dasd"
-        variant="small"
-        color="blue-gray"
-        className=""
-      >
+      <Typography as="a" href="#dasd" variant="small" color="blue-gray">
         <ListItem className="flex items-center gap-2 py-2 pr-4 text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
           {t("header.Offers")}
         </ListItem>
       </Typography>
 
-      <Typography
-        as="a"
-        href="#dasd"
-        variant="small"
-        color="blue-gray"
-        className=""
-      >
+      <Typography as="a" href="#dasd" variant="small" color="blue-gray">
         <ListItem className="flex items-center gap-2 py-2 pr-4 text-[17.5px] font-semibold hover:text-pColor hover:bg-opacity-0">
           {t("header.Children's school")}
         </ListItem>
@@ -184,7 +155,7 @@ export default function Header() {
   const [openNav, setOpenNav] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const headerRef = useRef();
-  const numberOfItems = useSelector((state)=>state.course);
+  const numberOfItems = useSelector((state) => state.course);
   const { t } = useTranslation();
   React.useEffect(() => {
     window.addEventListener(
@@ -197,10 +168,10 @@ export default function Header() {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 100) {
         if (headerRef.current) {
-        headerRef.current.style.background = "#eee";
-      }
+          headerRef.current.style.background = "#eee";
+        }
       } else {
-        if (headerRef.current){
+        if (headerRef.current) {
           headerRef.current.style.background = "transparent";
         }
       }
@@ -245,13 +216,19 @@ export default function Header() {
         </IconButton>
 
         <div className="hidden  lg:flex">
-          <Link to={"/cart"} className="bg-pColor bg-opacity-10 relative mb-[-5px] text-pColor rounded-[50%] p-3 cursor-pointer">
+          <Link
+            to={"/cart"}
+            className="bg-pColor bg-opacity-10 relative mb-[-5px] text-pColor rounded-[50%] p-3 cursor-pointer"
+          >
             <span className="absolute top-[-.9rem] z-[10] right-[-.5rem] text-[15px] border-2 text-white rounded-[50%] bg-pColor px-[.3rem]">
               {numberOfItems.length}
             </span>
             <FaCartShopping className="text-[17px]" />
           </Link>
-          <div className="bg-pColor bg-opacity-10 mx-2 mb-[-5px] text-pColor rounded-[50%] p-3 cursor-pointer">
+          <div
+            className="bg-pColor bg-opacity-10 mx-2 mb-[-5px] text-pColor rounded-[50%] p-3 cursor-pointer"
+            // onClick={() => setShowSearch(true)}
+          >
             <CiSearch className="text-[17px]" />
           </div>
           <Button
@@ -260,8 +237,9 @@ export default function Header() {
           >
             <Link to={"/login"}> {t("header.Login")} </Link>
           </Button>
-          <div className="flex items-center justify-center mx-[.5rem]"><LanguageSwitcher /></div>
-          
+          <div className="flex items-center justify-center mx-[.5rem]">
+            <LanguageSwitcher />
+          </div>
         </div>
       </div>
 
@@ -269,15 +247,21 @@ export default function Header() {
         <NavList />
         <div className="flex w-full flex-wrap items-center justify-center gap-4 lg:hidden pb-[10px]">
           <Button
-            className="w-[160px] h-[40px] border-[1px] text-pColor pt-[4px] hover:bg-hoverColor hover:text-white bg-opacity-5 transition-all duration-500 border-pColor text-[18.5px]"
+            className="w-[160px] h-[40px] border-[1px] text-pColor pt-[4px] hover:bg-hoverColor hover:text-white bg-opacity-5 transition-all duration-500 border-pColor text-lg"
             variant="text"
           >
-            <Link to={"/login"}> تسجيل الدخول</Link>
+            <Link to={"/login"}> {t("header.Login")} </Link>
           </Button>
-          <div className="bg-pColor bg-opacity-10 text-pColor rounded-[50%] p-3">
+          <div
+            className="bg-pColor bg-opacity-10 text-pColor rounded-[50%] p-3"
+            onClick={() => setShowSearch(true)}
+          >
             <CiSearch className="text-[22px]" />
           </div>
-          <Link to={"/cart"} className="bg-pColor bg-opacity-10 relative text-pColor rounded-[50%] p-3">
+          <Link
+            to={"/cart"}
+            className="bg-pColor bg-opacity-10 relative text-pColor rounded-[50%] p-3"
+          >
             <span className="absolute top-[-6px] z-[10] right-[-7px] text-[15px] border-2 text-white rounded-[50%] bg-pColor p-[4px]">
               {numberOfItems.length}
             </span>
@@ -292,5 +276,3 @@ export default function Header() {
     </Navbar>
   );
 }
-
-

@@ -1,8 +1,8 @@
 import { CiViewList } from "react-icons/ci";
 import { FaRegClock, FaRegUser, FaStar } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import Breadcrumb from "../shared/Breadcrumb";
 import { useEffect } from "react";
+import Breadcrumb from "../../components/breadCrumb/Breadcrumb";
 
 const CoursePage = () => {
   const courses = [

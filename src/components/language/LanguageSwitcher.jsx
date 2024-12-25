@@ -1,56 +1,39 @@
+/* eslint-disable react/prop-types */
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import "./LanguageSwitcher.css";
-import { useState } from "react";
+import { FaGlobe } from "react-icons/fa";
 
-const LanguageSwitcher = () => {
+const LanguageSwitcher = ({ onClick }) => {
   const { i18n } = useTranslation();
-  const [toggleLng, setToggleLng] = useState(false);
 
-  const toggleMenu = () => setToggleLng((prev) => !prev);
+  // Check the saved language on component mount
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("language") || "en"; // Default to "en" if no language is saved
+    i18n.changeLanguage(savedLanguage);
+  }, [i18n]);
 
-  const handleChangeLanguage = (language) => {
-    i18n.changeLanguage(language);
-
-    // Store the selected language in local storage
-    localStorage.setItem("i18nextLng", language);
-
-    window.location.reload();
-
-    setToggleLng(false);
+  // Change the language
+  const handleLanguageChange = () => {
+    if (onClick) onClick();
+    const newLang = i18n.language === "en" ? "ar" : "en"; // Switch between "en" and "ar"
+    i18n.changeLanguage(newLang);
+    localStorage.setItem("language", newLang); // Save the selected language in LocalStorage
   };
-  const renderFlag = (language) => (
-    <div className="flag-container">
-      <img
-        src={`/${language}.png`}
-        alt={language === "en" ? "English" : "Ar"}
-        className="flag"
-      />
-      <span className="language-text">{language === "en" ? "En" : "Ar"}</span>
-    </div>
-  );
 
   return (
-    <div className="language-switcher">
-      <div className="language-select" onClick={toggleMenu}>
-        {renderFlag(i18n.language)}
-      </div>
-
-      {toggleLng && (
-        <div className="language-options">
-          <div
-            className="language-option"
-            onClick={() => handleChangeLanguage("en")}
-          >
-            {renderFlag("en")}
-          </div>
-          <div
-            className="language-option"
-            onClick={() => handleChangeLanguage("ar")}
-          >
-            {renderFlag("ar")}
-          </div>
-        </div>
-      )}
+    <div
+      style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
+      onClick={handleLanguageChange}
+    >
+      <FaGlobe
+        style={{
+          fontSize: "24px",
+          color: i18n.language === "en" ? "#231f40" : "#1e91f6",
+        }}
+      />
+      <span style={{ marginInline: "8px", fontSize: "14px" }}>
+        {i18n.language === "en" ? "English" : "العربية"}
+      </span>
     </div>
   );
 };

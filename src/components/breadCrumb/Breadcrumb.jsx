@@ -1,12 +1,29 @@
 import { Link, useLocation } from "react-router-dom";
-import { capitalizeFirstLetter } from "../utils/utils";
+import { useTranslation } from "react-i18next";
+import { capitalizeFirstLetter } from "../../utils/utils";
 
 const Breadcrumb = () => {
   const location = useLocation();
+  const { t } = useTranslation();
 
   const pathSegments = location.pathname
     .split("/")
     .filter((segment) => segment);
+
+  // Check if the last segment is a number
+  const isLastSegmentNumber =
+    pathSegments.length > 0 &&
+    !isNaN(Number(pathSegments[pathSegments.length - 1]));
+
+  // Remove the last segment if it's a number
+  const segmentsToShow = isLastSegmentNumber
+    ? pathSegments.slice(0, -1)
+    : pathSegments;
+
+  // Translate the segments based on the current language
+  const translateSegment = (segment) => {
+    return t(`breadcrumb.${segment}`, segment); // Fallback to the segment itself if no translation is found
+  };
 
   return (
     <div className="relative w-full mb-6">
@@ -22,13 +39,16 @@ const Breadcrumb = () => {
       <div className="absolute top-0 left-0 w-full h-40 flex items-end pb-2 px-8">
         <nav aria-label="breadcrumb">
           <h2 className="text-4xl font-bold text-black mb-4">
-            {capitalizeFirstLetter(pathSegments[pathSegments.length - 1]) ||
-              "Home"}
+            {capitalizeFirstLetter(
+              translateSegment(
+                segmentsToShow[segmentsToShow.length - 1] || "home"
+              )
+            )}
           </h2>
           <ul className="list-none p-0 inline-flex space-x-2 text-2xl">
             <li className="flex items-center">
               <Link to="/" className="text-blue-500 hover:text-blue-800">
-                Home
+                {t("breadcrumb.home")}
               </Link>
               <span className="mx-2 text-black">/</span>
             </li>
@@ -44,10 +64,12 @@ const Breadcrumb = () => {
                       to={path}
                       className="text-blue-500 hover:text-blue-800"
                     >
-                      {segment}
+                      {translateSegment(segment)}
                     </Link>
                   ) : (
-                    <span className="text-black">{segment}</span>
+                    <span className="text-black">
+                      {translateSegment(segment)}
+                    </span>
                   )}
                   {!isLast && <span className="mx-2 text-black">/</span>}
                 </li>

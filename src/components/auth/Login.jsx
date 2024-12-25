@@ -1,26 +1,81 @@
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import Loading from "../../layouts/Loading";
 const Login = () => {
   const { t } = useTranslation();
+  const [formdata, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formdata);
+    setLoading(true);
+    setError("");
+
+    // try {
+    //   const response = await axios.post(
+    //     "https://your-api-endpoint.com/login",
+    //     formdata,
+    //     {
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //     }
+    //   );
+
+    //   console.log("Login successful:", response.data);
+    //   navigator("/");
+    // } catch (err) {
+    //   const errorMessage =
+    //     err.response?.data?.message ||
+    //     "Failed to login. Please check your credentials.";
+    //   setError(errorMessage);
+    // } finally {
+    //   setLoading(false);
+    // }
+  };
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
-    <section className="fixed top-0 left-0  w-full h-[100vh]  bg-black bg-opacity-50 z-[100] mt-[0px] flex items-center justify-center">
-      <div className="p-4 w-[500px] mx-[20px] h-[513px] bg-white rounded-[30px]">
-        <div className="flex  justify-between">
-          <h1 className="text-[20px] font-bold">{t("auth.login")}</h1>
-          <span className="text-[20px] font-bold">
-            <Link to={"/"}>x</Link>
-          </span>
-        </div>
-        <form action="">
-          <div className="flex flex-col w-full mt-[20px]">
+    <section className="w-full h-screen mt-10 flex items-center justify-center">
+      <div className="p-8 w-10/12 md:w-1/2 bg-gray-200 rounded-lg">
+        <h1 className="text-2xl font-bold text-center mb-4">
+          {t("auth.login")}
+        </h1>
+        <form action="" onSubmit={handleSubmit}>
+          <div className="flex flex-col w-full">
             <label htmlFor="email" className="block  mb-[8px] ">
               {t("auth.email")}
             </label>
             <input
               required
               type="email"
-              className="px-[10px]  border-gray-400 border-[1px] w-full h-[40px] rounded-[10px] bg-gray-100 focus:border-[#525fe1] focus:outline-none"
+              className="p-2 border-[1px] border-gray-300 w-full rounded-lg bg-gray-50 focus:border-gray-500 focus:outline-none"
               id="email"
+              name="email"
+              value={formdata.email}
+              onChange={handleChange}
             />
           </div>
           <div className="flex flex-col w-full mt-[5px] ">
@@ -31,8 +86,11 @@ const Login = () => {
               required
               type="password"
               placeholder="••••••••"
-              className="border-gray-400 px-[10px]  border-[1px] w-full h-[40px] rounded-[10px] bg-gray-100 focus:border-[#525fe1] focus:outline-none"
+              className="p-2 border-[1px] border-gray-300 w-full rounded-lg bg-gray-50 focus:border-gray-500 focus:outline-none"
               id="password"
+              name="password"
+              value={formdata.password}
+              onChange={handleChange}
             />
           </div>
           <div className="flex justify-between mt-[8px]">
@@ -55,25 +113,23 @@ const Login = () => {
             </button>
           </div>
         </form>
-        <div className="flex justify-between items-center mt-[30px]">
-          <div className="w-[46%] h-[3px] bg-gray-200"></div>
-          <span className="ms-[2px] ">أو</span>
-          <div className="w-[46%] h-[3px] bg-gray-200"></div>
-        </div>
-        <div className="flex items-center justify-center mt-[18px]">
+
+        <div className="flex items-center justify-center mt-4">
           <a href="">
             <img
               src="/src/assets/images/login-social.png"
               alt="login-social.png"
+              className="w-[30px] h-[30px] cursor-pointer"
             />
           </a>
         </div>
-        <div className="flex items-center justify-center gap-1 mt-[18px]">
+        <div className="flex items-center justify-center gap-1 mt-3">
           <h1 className="font-semibold">{t("auth.noAccount")}</h1>
           <Link to="/register" className="text-[#525fe1] hover:underline">
             {t("auth.registerNow")}
           </Link>
         </div>
+        {error && <p className="text-red-500 mt-4">{error}</p>}
       </div>
     </section>
   );

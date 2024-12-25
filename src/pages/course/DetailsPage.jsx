@@ -1,7 +1,7 @@
-import DetailsCard from "../components/courseDetails/details/DetailsCard";
-import InstructorMain from "../components/courseDetails/InstructorMain";
-import Tabs from "../components/courseDetails/Tabs ";
-import Breadcrumb from "../shared/Breadcrumb";
+import Tabs from "./component/Tabs ";
+import InstructorMain from "./component/InstructorMain";
+import Breadcrumb from "../../components/breadCrumb/Breadcrumb";
+import DetailsCard from "./component/details/DetailsCard";
 
 const DetailsPage = () => {
   const breadcrumbItems = [

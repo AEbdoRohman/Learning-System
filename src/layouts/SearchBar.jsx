@@ -36,7 +36,7 @@ export default function SearchBar({ onClose }) {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 flex justify-center items-center duration-300 ease-in-out z-50">
+    <div className="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-70 flex justify-center items-center duration-500 ease-in-out z-50">
       <div
         ref={searchRef}
         className="w-3/4 lg:w-2/3 bg-white text-black p-4 rounded-lg shadow-lg relative"
