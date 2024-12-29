@@ -17,13 +17,13 @@ const Cart = () => {
   }, []);
 
   return (
-    <section className='min-h-[100vh] pt-[15%] md:pt-[6%] bg-[url("/src/assets/images/background.png")] bg-cover bg-center'>
+    <section className='min-h-screen mt-16  bg-[url("/src/assets/images/background.png")] bg-cover bg-center'>
       <Breadcrumb />
       <div className="container ">
         {myItems.length > 0 ? (
           <div className="flex flex-col-reverse md:flex-row">
             {/* Order Summary */}
-            <div className="h-fit w-[100%] md:w-[30%] px-8 py-8 bg-white rounded-lg mx-4  my-4 ">
+            <div className="h-fit w-[95%] md:w-[30%] px-8 py-8 bg-white rounded-lg mx-4  my-4 ">
               <div>
                 <h1 className="text-center text-3xl font-bold text-mainColor mb-6 ">
                   {t("cart.ordersummary")}
@@ -51,7 +51,7 @@ const Cart = () => {
             </div>
 
             {/* Products List */}
-            <div className=" w-[100%] md:w-[70%] ">
+            <div className="w-[100%] md:w-[70%] ">
               <ul className="space-y-4 my-4 bg-white rounded-lg">
                 {myItems.map((item) => (
                   <li

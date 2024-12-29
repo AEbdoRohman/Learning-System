@@ -3,9 +3,9 @@ import { RiFileList3Line } from "react-icons/ri";
 import { FaStar } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import { FaCartShopping } from "react-icons/fa6";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import MainTitle from "./MainTitle";
-import { addItem } from "../../../redux/cart/courseSlice";
+// import { addItem } from "../../../redux/cart/courseSlice";
 
 const MainCourses = () => {
   const { t } = useTranslation();
@@ -54,7 +54,7 @@ const MainCourses = () => {
     },
   ];
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   return (
     <section>
       <div className="container mx-auto">
@@ -125,7 +125,7 @@ const MainCourses = () => {
                         })}
                         <span className="mx-[15px]">(5.4)</span>
                         <FaCartShopping
-                          onClick={() => dispatch(addItem(item))}
+                          // onClick={() => dispatch(addItem(item))}
                           className="text-[27px] cursor-pointer hover:text-hoverColor transition-all duration-300 text-mainColor inline "
                         />
                       </div>

@@ -5,7 +5,7 @@ import { MdLockOutline } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const Curriculum = () => {
-  const [openSection, setOpenSection] = useState(null);
+  const [openSections, setOpenSections] = useState([]);
 
   const sections = [
     {
@@ -26,7 +26,11 @@ const Curriculum = () => {
   ];
 
   const toggleSection = (id) => {
-    setOpenSection((prev) => (prev === id ? null : id));
+    setOpenSections((prev) =>
+      prev.includes(id)
+        ? prev.filter((sectionId) => sectionId !== id)
+        : [...prev, id]
+    );
   };
 
   return (
@@ -39,24 +43,27 @@ const Curriculum = () => {
           >
             <button
               onClick={() => toggleSection(section.id)}
-              className={`w-full text-left flex justify-between items-center py-2 text-xl font-bold text-gray-900 hover:text-blue-500 pb-2  ${
-                openSection === section.id
-                  ? "border-b-[1px] border-gray-300 mb-6 "
-                  : ""
+              className={`w-full text-left flex justify-between items-center py-2 text-xl font-bold text-gray-900 hover:text-blue-500 pb-2 border-b-[1px] border-gray-200 ${
+                openSections.includes(section.id) ? "border-gray-300" : ""
               }`}
             >
               {section.title}
               <span
                 className={`transform transition-transform ${
-                  openSection === section.id ? "rotate-180" : "rotate-0"
+                  openSections.includes(section.id) ? "rotate-180" : "rotate-0"
                 }`}
               >
                 <IoIosArrowDown />
               </span>
             </button>
 
-            {openSection === section.id && (
-              <ul className="mt-2 space-y-3 p-0 md:pl-4">
+            {/* Add animation */}
+            <div
+              className={` overflow-hidden transition-all duration-500 ease-in-out ${
+                openSections.includes(section.id) ? "max-h-screen" : "max-h-0"
+              }`}
+            >
+              <ul className="mt-4 space-y-3 p-0 md:pl-4">
                 {section.subTitles.map((subTitle, index) => (
                   <Link
                     to={"/course/view"}
@@ -68,7 +75,7 @@ const Curriculum = () => {
                       {subTitle}
                     </div>
                     <div className="flex items-center gap-3">
-                      <span className="bg-blue-700 px-2 py-1 text-white text-xs md:text-sm  rounded">
+                      <span className="bg-blue-700 px-2 py-1 text-white text-xs md:text-sm rounded">
                         7 minutes
                       </span>
                       <MdLockOutline className="text-gray-400 size-5" />
@@ -76,9 +83,19 @@ const Curriculum = () => {
                   </Link>
                 ))}
               </ul>
-            )}
+            </div>
           </div>
         ))}
+        <div
+          className={`w-full py-2 text-xl font-bold text-gray-900 hover:text-blue-500 pb-2 border-b-[1px] border-gray-200`}
+        >
+          <Link
+            to="/courses/quiz"
+            className="w-full flex justify-center  py-2 mb-4 px-0 md:px-4 shadow bg-gray-100 rounded-lg"
+          >
+            Start Quiz
+          </Link>
+        </div>
       </div>
     </div>
   );

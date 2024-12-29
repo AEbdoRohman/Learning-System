@@ -4,8 +4,8 @@ import "./Header.css";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
-import { FaCartShopping } from "react-icons/fa6";
-import { useSelector } from "react-redux";
+// import { FaCartShopping } from "react-icons/fa6";
+// import { useSelector } from "react-redux";
 import SearchBar from "../SearchBar";
 import LanguageSwitcher from "../../components/language/LanguageSwitcher";
 
@@ -14,7 +14,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
 
-  const numberOfItems = useSelector((state) => state.course);
+  // const numberOfItems = useSelector((state) => state.course);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -73,7 +73,7 @@ const Header = () => {
               >
                 <CiSearch className="text-[22px]" />
               </div>
-              <Link
+              {/* <Link
                 to={"/cart"}
                 className="bg-pColor bg-opacity-10 relative text-pColor rounded-[50%] p-3"
                 onClick={closeMenu}
@@ -82,9 +82,9 @@ const Header = () => {
                   {numberOfItems.length}
                 </span>
                 <FaCartShopping className="text-[22px]" />
-              </Link>
+              </Link> */}
             </div>
-            <div className="flex flex-col md:flex-row items-center gap-4 md:gap-2">
+            <div className="flex flex-col md:flex-row items-center gap-4 mx-3">
               <button
                 className="w-full border-[1px] text-hoverColor border-hoverColor rounded-lg hover:bg-hoverColor hover:text-white bg-opacity-5 transition-all duration-500  text-lg px-2 py-1"
                 onClick={closeMenu}

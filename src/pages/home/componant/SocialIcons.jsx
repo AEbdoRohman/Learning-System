@@ -6,7 +6,7 @@ import { FaFacebookF } from "react-icons/fa6";
 
 const SocialIcons = () => {
   return (
-    <section className="fixed right-2">
+    <section className="fixed right-2 -z-50">
       <div className="flex flex-col ">
         <FaFacebookF className="text-xl my-4 cursor-pointer hover:text-mainColor transition-all duration-200" />
         <FaSquareXTwitter className="text-xl my-4 cursor-pointer hover:text-mainColor transition-all duration-200" />

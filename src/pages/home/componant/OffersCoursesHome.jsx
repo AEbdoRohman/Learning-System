@@ -4,12 +4,12 @@ import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
-import { addItem } from "../../../redux/cart/courseSlice";
+// import { useDispatch } from "react-redux";
+// import { addItem } from "../../../redux/cart/courseSlice";
 import MainTitle from "./MainTitle";
 
 const OffersCoursesHome = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const { t } = useTranslation();
 
   //data for testing
@@ -109,7 +109,7 @@ const OffersCoursesHome = () => {
                   <div className="px-4 py-2 my-4 flex items-center justify-between w-full pb-[10px] border-t-2 mx-4">
                     <div>
                       <div
-                        onClick={() => dispatch(addItem(item))}
+                        // onClick={() => dispatch(addItem(item))}
                         className="cursor-pointer hover:text-hoverColor transition-all duration-500 flex flex-row items-center justify-center font-bold text-mainColor"
                       >
                         <FaCartShopping size={20} className="mx-[5px]" />

@@ -69,7 +69,7 @@ const DetailsCard = () => {
         {t("price")} $: $49.00
       </button>
       <Link
-        to="/payment"
+        to="/courses/payment"
         className="text-xl bg-mainColor hover:bg-blue-900 transition-all duration-500 ease-in-out text-white text-center py-4 w-11/12 md:w-9/12 mx-auto border-2  rounded-md"
       >
         {t("enroll")}

@@ -43,7 +43,7 @@ const BLogHome = () => {
             )}
           </p>
         </div>
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-4">
+        <div className="mt-10 mr-4 md:mx-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-4 ">
           {data.map((item) => (
             <Link
               to={`/blog/${item.id}`}

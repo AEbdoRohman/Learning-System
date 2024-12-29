@@ -10,9 +10,8 @@ import HomePage from "./pages/home/HomePage";
 import Payment from "./components/payment/Payment";
 import ViewCourse from "./pages/course/component/viewCourse/ViewCourse";
 import Footer from "./layouts/Footer";
-import store from "./redux/store";
-import Cart from "./pages/Cart";
-import { Provider } from "react-redux";
+// import store from "./redux/store";
+// import { Provider } from "react-redux";
 import Loading from "./layouts/Loading";
 import QuizComponent from "./components/quiz/QuizComponent";
 import CoursePage from "./pages/course/CoursePage";
@@ -40,28 +39,28 @@ function App() {
   return (
     <div dir={i18n.language === "ar" ? "rtl" : "ltr"}>
       {loading && <Loading />}
-      <Provider store={store}>
-        {/* <Header /> */}
-        <Header />
-        <WhatsAppIcon />
-        <Routes>
-          {/* Authentication */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          {/* Pages */}
-          <Route path="/" element={<HomePage />} />
-          <Route path="/courses" element={<CoursePage />} />
-          <Route path="/courses/details" element={<DetailsPage />} />
-          <Route path="/course/view" element={<ViewCourse />} />
-          <Route path="/blog" element={<BlogsPage />} />
-          <Route path="/blog/:id" element={<BlogPage />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/:cart?/payment" element={<Payment />} />
+      {/* <Provider store={store}> */}
+      {/* <Header /> */}
+      <Header />
+      <WhatsAppIcon />
+      <Routes>
+        {/* Authentication */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        {/* Pages */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/courses" element={<CoursePage />} />
+        <Route path="/courses/details" element={<DetailsPage />} />
+        <Route path="/course/view" element={<ViewCourse />} />
+        <Route path="/blog" element={<BlogsPage />} />
+        <Route path="/blog/:id" element={<BlogPage />} />
+        {/* <Route path="/cart" element={<Cart />} /> */}
+        <Route path="/courses/payment" element={<Payment />} />
 
-          <Route path="/quiz" element={<QuizComponent />} />
-        </Routes>
-        <Footer />
-      </Provider>
+        <Route path="/courses/quiz" element={<QuizComponent />} />
+      </Routes>
+      <Footer />
+      {/* </Provider> */}
     </div>
   );
 }
