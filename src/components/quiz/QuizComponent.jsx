@@ -2,54 +2,83 @@ import { useEffect, useState } from "react";
 import Breadcrumb from "../breadCrumb/Breadcrumb";
 // import Questions from "./Questions";
 import QuizResult from "./QuizResult";
-import TrueFalseQ from "./TruefalseQ";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import Cookies from "universal-cookie";
+import Questions from "./Questions";
 
 const QuizComponent = () => {
+  const { id } = useParams();
+  const { i18n } = useTranslation();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
   const [isQuizFinished, setIsQuizFinished] = useState(false);
 
-  // const questions = [
-  //   {
-  //     id: 1,
-  //     question: "What is the capital of France?",
-  //     options: ["Berlin", "Madrid", "Paris", "Rome"],
-  //   },
-  //   {
-  //     id: 2,
-  //     question: "What is the largest planet in the solar system?",
-  //     options: ["Earth", "Mars", "Jupiter", "Saturn"],
-  //   },
-  //   {
-  //     id: 3,
-  //     question: "What is the chemical element with the symbol O?",
-  //     options: ["Hydrogen", "Oxygen", "Nitrogen", "Carbon"],
-  //   },
-  //   {
-  //     id: 4,
-  //     question: "Who discovered the law of gravity?",
-  //     options: [
-  //       "Albert Einstein",
-  //       "Isaac Newton",
-  //       "Galileo Galilei",
-  //       "Thomas Edison",
-  //     ],
-  //   },
-  //   {
-  //     id: 5,
-  //     question: "What is the fastest land animal?",
-  //     options: ["Tiger", "Cheetah", "Gazelle", "Lion"],
-  //   },
-  // ];
+  const cookies = new Cookies();
+  const token = cookies.get("authToken");
+
+  const [desc, setDesc] = useState([]);
 
   const questions = [
-    { id: 1, question: "The Earth is flat." },
-    { id: 2, question: "Water boils at 100°C." },
-    { id: 3, question: "The Sun rises in the West." },
-    { id: 4, question: "Humans need oxygen to survive." },
+    {
+      id: 1,
+      question: "What is the capital of France?",
+      options: ["Berlin", "Madrid", "Paris", "Rome"],
+    },
+    {
+      id: 2,
+      question: "What is the largest planet in the solar system?",
+      options: ["Earth", "Mars", "Jupiter", "Saturn"],
+    },
+    {
+      id: 3,
+      question: "What is the chemical element with the symbol O?",
+      options: ["Hydrogen", "Oxygen", "Nitrogen", "Carbon"],
+    },
+    {
+      id: 4,
+      question: "Who discovered the law of gravity?",
+      options: [
+        "Albert Einstein",
+        "Isaac Newton",
+        "Galileo Galilei",
+        "Thomas Edison",
+      ],
+    },
+    {
+      id: 5,
+      question: "What is the fastest land animal?",
+      options: ["Tiger", "Cheetah", "Gazelle", "Lion"],
+    },
   ];
 
+  // const questions = [
+  //   { id: 1, question: "The Earth is flat." },
+  //   { id: 2, question: "Water boils at 100°C." },
+  //   { id: 3, question: "The Sun rises in the West." },
+  //   { id: 4, question: "Humans need oxygen to survive." },
+  // ];
   useEffect(() => {
+    const fetchDesc = async () => {
+      try {
+        const response = await axios.get(
+          `https://qourb.com/api/course/${id}/exam`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+              lang: i18n.language,
+            },
+          }
+        );
+        setDesc(response.data[0].parts[0]);
+        console.log(response.data[0].parts[0]);
+      } catch (error) {
+        console.error("Error fetching description:", error);
+      }
+    };
+    fetchDesc();
     window.scrollTo(0, 0);
   }, []);
   const handleAnswerChange = (questionId, option) => {
@@ -72,34 +101,33 @@ const QuizComponent = () => {
         <div className="container my-8">
           <div>
             <p className="text-lg text-gray-600 mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              {desc.description}
+              {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Perspiciatis recusandae voluptas ut, minus mollitia quia tenetur
               facilis earum ab officia est aperiam illo asperiores sunt.
-              Nesciunt fuga est deserunt recusandae?
+              Nesciunt fuga est deserunt recusandae? */}
             </p>
             <div className="mb-6 w-full h-[300px]">
               <img
-                src="https://via.placeholder.com/600x300"
+                src={desc.image}
                 alt="وصف الصورة"
                 className="w-full h-full object-cover rounded-lg shadow-md"
               />
             </div>
           </div>
 
-          {/* <Questions
-            index={currentQuestionIndex}
-            question={questions[currentQuestionIndex]}
-            answer={answers[questions[currentQuestionIndex].id]}
-            onAnswerChange={handleAnswerChange}
-          /> */}
-
-          <TrueFalseQ
+          <Questions
             index={currentQuestionIndex}
             question={questions[currentQuestionIndex]}
             answer={answers[questions[currentQuestionIndex].id]}
             onAnswerChange={handleAnswerChange}
           />
-
+          {/* <TrueFalseQ
+            index={currentQuestionIndex}
+            question={questions[currentQuestionIndex]}
+            answer={answers[questions[currentQuestionIndex].id]}
+            onAnswerChange={handleAnswerChange}
+          /> */}
           <div className="flex justify-center mt-8">
             {currentQuestionIndex < questions.length - 1 ? (
               <button

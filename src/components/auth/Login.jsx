@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Loading from "../../layouts/Loading";
+import axios from "axios";
+import Cookies from "universal-cookie";
 const Login = () => {
   const { t } = useTranslation();
-  const [formdata, setFormData] = useState({
+  const cookies = new Cookies();
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
-  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -26,31 +30,34 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formdata);
+
     setLoading(true);
-    setError("");
+    try {
+      // Send data to the API
+      const response = await axios.post(
+        "https://qourb.com/api/auth/login",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-    // try {
-    //   const response = await axios.post(
-    //     "https://your-api-endpoint.com/login",
-    //     formdata,
-    //     {
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //     }
-    //   );
+      console.log("Response:", response.data);
+      if (response.status === 200) {
+        const token = response.data.token;
+        console.log("Token:", token);
+        cookies.set("authToken", token);
+        navigate("/");
+      }
 
-    //   console.log("Login successful:", response.data);
-    //   navigator("/");
-    // } catch (err) {
-    //   const errorMessage =
-    //     err.response?.data?.message ||
-    //     "Failed to login. Please check your credentials.";
-    //   setError(errorMessage);
-    // } finally {
-    //   setLoading(false);
-    // }
+      setLoading(false);
+    } catch (error) {
+      console.error("Error logging in:", error);
+      setError("Invalid email or password");
+      setLoading(false);
+    }
   };
 
   if (loading) {
@@ -74,7 +81,7 @@ const Login = () => {
               className="p-2 border-[1px] border-gray-300 w-full rounded-lg bg-gray-50 focus:border-gray-500 focus:outline-none"
               id="email"
               name="email"
-              value={formdata.email}
+              value={formData.email}
               onChange={handleChange}
             />
           </div>
@@ -89,7 +96,7 @@ const Login = () => {
               className="p-2 border-[1px] border-gray-300 w-full rounded-lg bg-gray-50 focus:border-gray-500 focus:outline-none"
               id="password"
               name="password"
-              value={formdata.password}
+              value={formData.password}
               onChange={handleChange}
             />
           </div>

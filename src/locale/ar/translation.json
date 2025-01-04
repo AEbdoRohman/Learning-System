@@ -23,16 +23,21 @@
   },
   "header": {
     "home": "الرئيسية",
-    "Courses": "دورات",
-    "Dimplomas": "دبلومات",
-    "Blogs": "المدونة",
-    "Offers": "العروض",
-    "Children's school": "مدرسة أطفال",
-    "Consultative": "استشاري",
-    "Other": "اخري",
-    "Login": "تسجيل الدخول ",
-    "StudyAbroadServices": "خدمات الدراسة بالخارج ",
-    "PsychologicalConsultations": "استشارات نفسية  "
+    "news": "الاخبار",
+    "accreditations": "الإعتمادات",
+    "activities": "نشاطات الأكاديمية",
+    "members": "الأعضاء ",
+    "registration": "التسجيل و الإستفسار",
+    "statistics": "أحصائيات الموقع",
+    "contact": "تواصل معنا "
+  },
+
+  "home": {
+    "goals": "اهدافنا",
+    "massage": "رسالتنا",
+    "vision": "رؤيتنا",
+    "work": "إسلوب العمل الإبداعي ",
+    "team": "خبراء الإبداع الدولية للتطوير والاستشارات"
   },
   "footer": {
     "title1": "نبذة عننا ",
@@ -106,6 +111,16 @@
     "items": "عناصر  ",
     "contain": "عربة التسوق الخاصة بك تحتوي علي   ",
     "ordersummary": "ملخص الطلبات"
+  },
+  "course": {
+    "hours": "ساعات",
+    "lessons": "دروس",
+    "students": "طلاب",
+    "reviews": "التقييمات",
+    "instructor": "المدرب",
+    "learn": "ما سيتم تعلمة من هذه الدورة",
+    "certification": "الشهادة",
+    "quizz": "الاختبار"
   },
   "coursed": {
     "overview": "نظرة عامة",

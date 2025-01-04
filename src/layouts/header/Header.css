@@ -10,8 +10,14 @@
 }
 
 .navbar .logo {
-  width: 40px;
-  height: 40px;
+  width: 230px;
+  height: 60px;
+}
+@media screen and (max-width: 992px) {
+  .navbar .logo {
+    width: 130px;
+    height: 45px;
+  }
 }
 .navbar .logo img {
   width: 100%;

@@ -85,7 +85,7 @@ const OffersCoursesHome = () => {
                 className="flex items-center justify-center gap-2 h-full mb-[30px]"
               >
                 <div className="flex flex-col items-center justify-center  rounded-lg mx-3 shadow-lg">
-                  <Link to="/courses/details">
+                  <Link to="/courses/3">
                     <div className="overflow-hidden rounded-t-lg group">
                       <img
                         src={`/${item.img}`}
@@ -100,7 +100,7 @@ const OffersCoursesHome = () => {
                     </div>
                   </Link>
                   <Link
-                    to="/courses/details"
+                    to="/courses/3"
                     className="text-xl mt-6 mb-3 font-bold text-center hover:text-mainColor transition-all duration-500"
                   >
                     {item.name}

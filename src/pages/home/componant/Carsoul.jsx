@@ -4,34 +4,16 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-
-const sliderData = [
-  {
-    image: "/src/assets/images/help.webp",
-    titleKey: "slider.title1",
-    descKey: "slider.desc1",
-    buttonKey: "slider.button",
-  },
-  {
-    image: "/src/assets/images/search.webp",
-    titleKey: "slider.title2",
-    descKey: "slider.desc2",
-    buttonKey: "slider.button",
-  },
-  {
-    image: "/src/assets/images/uniqu.webp",
-    titleKey: "slider.title3",
-    descKey: "slider.desc3",
-    buttonKey: "slider.button",
-  },
-];
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Cookies from "universal-cookie";
 
 const CarouselSlide = ({ image, title, description, buttonText }) => (
   <div
     className="bg-transparent shadow-none"
     style={{ height: "calc(100vh - 75px)" }}
   >
-    <div className="flex flex-col-reverse md:flex-row items-center justify-center h-full">
+    <div className="flex flex-col-reverse w-full md:flex-row items-center justify-center h-full">
       <img
         src={image}
         alt={title}
@@ -42,7 +24,7 @@ const CarouselSlide = ({ image, title, description, buttonText }) => (
           {title}
         </h1>
         <p className="text-sm md:text-xl font-semibold mb-2">{description}</p>
-        <button className="mt-2 px-6 py-1  bg-[#525fe1] text-white font-bold rounded-lg text-lg md:text-xl flex items-center justify-center">
+        <button className="mt-2 px-6 py-1 bg-[#525fe1] text-white font-bold rounded-lg text-lg md:text-xl flex items-center justify-center">
           <Link>{buttonText}</Link>
         </button>
       </div>
@@ -51,7 +33,34 @@ const CarouselSlide = ({ image, title, description, buttonText }) => (
 );
 
 const Carousel = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [slides, setSlides] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const cookies = new Cookies();
+  const token = cookies.get("authToken");
+  useEffect(() => {
+    const fetchSlides = async () => {
+      try {
+        const response = await axios.get("https://qourb.com/api/Slider", {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+            lang: i18n.language,
+          },
+        }); // رابط API
+        setSlides(response.data);
+        setLoading(false);
+      } catch (err) {
+        console.error("Error fetching slides:", err);
+        setError("Failed to fetch slides");
+        setLoading(false);
+      }
+    };
+
+    fetchSlides();
+  }, []);
 
   const settings = {
     dots: true,
@@ -70,11 +79,19 @@ const Carousel = () => {
     ],
   };
 
+  if (loading) {
+    return <div>Loading...</div>; // عرض رسالة تحميل
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>; // عرض رسالة خطأ
+  }
+
   return (
     <div className="w-full" style={{ height: "calc(100vh - 75px)" }}>
       <div className="h-full">
         <Slider {...settings}>
-          {sliderData.map((slide, index) => (
+          {slides.map((slide, index) => (
             <CarouselSlide
               key={index}
               image={slide.image}

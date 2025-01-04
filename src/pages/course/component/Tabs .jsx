@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 import { useEffect, useState } from "react";
 import Overview from "./tabsContent/Overview";
 import Curriculum from "./tabsContent/Curriculum";
@@ -5,7 +7,7 @@ import Instructor from "./tabsContent/Instructor";
 import Reviews from "./tabsContent/Reviews";
 import { useTranslation } from "react-i18next";
 
-const Tabs = () => {
+const Tabs = ({ id }) => {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState("overview");
 
@@ -13,7 +15,7 @@ const Tabs = () => {
   const renderContent = () => {
     switch (activeTab) {
       case "curriculum":
-        return <Curriculum />;
+        return <Curriculum id={id} />;
       case "instructor":
         return <Instructor />;
       case "reviews":

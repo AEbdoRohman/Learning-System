@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import { useTranslation } from "react-i18next";
 import { FaStar } from "react-icons/fa";
 
-const InstructorMain = () => {
+const InstructorMain = ({ course }) => {
   const { t } = useTranslation();
   return (
     <div>
@@ -31,7 +32,7 @@ const InstructorMain = () => {
         </div>
       </div>
       <h1 className="text-2xl md:text-4xl font-bold w-full md:w-4/5 text-hoverColor">
-        Grow Personal Financial Security Thinking & Principles{" "}
+        {course.title}
       </h1>
     </div>
   );

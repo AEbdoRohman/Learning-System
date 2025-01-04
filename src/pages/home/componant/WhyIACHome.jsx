@@ -1,8 +1,33 @@
 import { useTranslation } from "react-i18next";
 import MainTitle from "./MainTitle";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { baseurl } from "../../../api/api";
 
 const WhyIACHome = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const [choose, setChoose] = useState("");
+
+  useEffect(() => {
+    const fetchChoose = async () => {
+      try {
+        const response = await axios.get(`${baseurl}/show/privacy/user`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "Bearer " + "5|1Q8vzifRZTUdzM51sJkxIOuQ0uCqoAcR31EaiC9Ea452fb53",
+            lang: i18n.language,
+          },
+        });
+        setChoose(response.data.privacy);
+        console.log(response.data.privacy);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchChoose();
+  }, [i18n.language]);
 
   const items = [
     {
@@ -21,7 +46,7 @@ const WhyIACHome = () => {
 
   return (
     <section className="container mx-auto px-4 mt-14 xl:py-16 flex flex-col items-center">
-      <MainTitle title={t("why.title")} description={t("why.desc")} />
+      <MainTitle title={t("why.title")} description={choose} />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
         {items.map((item, index) => (

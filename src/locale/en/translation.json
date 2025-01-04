@@ -23,16 +23,20 @@
   },
   "header": {
     "home": "Home",
-    "Courses": "Courses",
-    "Dimplomas": "Dimplomas",
-    "Blogs": "Blogs",
-    "Offers": "Offers",
-    "Children's school": "Children's school",
-    "Consultative": "Consultative",
-    "Other": "Other",
-    "Login": "Login",
-    "StudyAbroadServices": "StudyAbroadServices ",
-    "PsychologicalConsultations": "  PsychologicalConsultations "
+    "news": "News",
+    "accreditations": "Accreditations",
+    "activities": "Activities",
+    "members": "Members",
+    "registration": "Registration",
+    "statistics": "Statistics",
+    "contact": "Contact"
+  },
+  "home": {
+    "goals": "Our Goals",
+    "massage": "Our Message",
+    "vision": "Our Vision",
+    "work": "Creativity of creative work",
+    "team": "The best trainers in all fields"
   },
   "slider": {
     "title1": "Help your child develop.",
@@ -108,6 +112,17 @@
     "items": "Items",
     "contain": "   Your Shopping Cart Contains ",
     "ordersummary": "Order Summary"
+  },
+
+  "course": {
+    "hours": "Hours",
+    "lessons": "Lessons",
+    "students": "Students",
+    "reviews": "Reviews",
+    "instructor": "المدرب",
+    "learn": "ما سيتم تعلمة من هذه الدورة",
+    "certification": "الشهادة",
+    "quizz": "الاختبار"
   },
   "coursed": {
     "overview": "Overview",

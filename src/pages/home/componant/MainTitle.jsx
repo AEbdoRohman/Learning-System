@@ -5,9 +5,11 @@ const MainTitle = ({ title, description }) => {
       <h1 className="text-center text-2xl md:text-4xl font-bold  mb-[15px] text-mainColor">
         {title}
       </h1>
-      <p className="text-center w-11/12 md:w-10/12 text-md md:text-xl text-gray-800  ">
-        {description}
-      </p>
+
+      <p
+        className="w-11/12 md:w-10/12 text-sm md:text-lg font-bold"
+        dangerouslySetInnerHTML={{ __html: description }}
+      />
     </div>
   );
 };

@@ -1,16 +1,73 @@
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { baseurl } from "../../../api/api";
+
 const GreenSection = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const [vision, setVision] = useState("");
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    const fetchMessage = async () => {
+      try {
+        const response = await axios.get(`${baseurl}/show/message/user`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "Bearer " + "5|1Q8vzifRZTUdzM51sJkxIOuQ0uCqoAcR31EaiC9Ea452fb53",
+            lang: i18n.language,
+          },
+        });
+        setMessage(response.data.message);
+        console.log(response.data.message);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    const fetchAbout = async () => {
+      try {
+        const response = await axios.get(`${baseurl}/show/our-vision/user`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "Bearer " + "5|1Q8vzifRZTUdzM51sJkxIOuQ0uCqoAcR31EaiC9Ea452fb53",
+            lang: i18n.language,
+          },
+        });
+        setVision(response.data.our_vision);
+        console.log(response.data.our_vision);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchMessage();
+    fetchAbout();
+  }, [i18n.language]);
+
   return (
-    <section className="pt-[30px] ">
-      <div className='bg-[url("/src/assets/images/phoneBG.jpeg")]  md:bg-[url("/src/assets/images/DeskBG.jpeg")]  bg-no-repeat md:bg-contain bg-cover md:h-[28vw] h-[115vw] text-center flex flex-col items-center justify-center'>
-        <p className="w-[80%] lg:w-[50%] mb-[15px] text-white text-[16px] pt-[70px]  md:pt-[5px]  xl:pt-[5px] xl:text-[20px] font-semibold">
-        {t("colorsection.desc")}  
-        </p>
-        <button className="flex items-center justify-center text-mainColor px-10 h-[2.5rem] rounded-[.37rem] bg-white font-semibold border-[1.5px] border-mainColor">
-          <Link> {t("btn.btn")}  </Link>
-        </button>
+    <section className="pt-[30px] bg-blue-gray-100 px-8 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-8 mx-4   py-10">
+        <div className="">
+          <h2 className="text-xl md:text-3xl font-bold text-center mb-4">
+            {t("home.massage")}
+          </h2>
+          <p
+            className=" text-sm md:text-lg font-bold text-center shadow-md p-3"
+            dangerouslySetInnerHTML={{ __html: message }}
+          />
+        </div>
+        <div className="">
+          <h2 className="text-xl md:text-3xl font-bold  text-center mb-4">
+            {t("home.vision")}
+          </h2>
+          <p
+            className="  text-sm md:text-lg font-bold text-center shadow-md p-3"
+            dangerouslySetInnerHTML={{ __html: vision }}
+          />
+        </div>
       </div>
     </section>
   );

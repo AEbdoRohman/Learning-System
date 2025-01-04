@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   FaFacebookF,
   FaLanguage,
@@ -20,7 +21,7 @@ import { useTranslation } from "react-i18next";
 import { LuUsers } from "react-icons/lu";
 import { PiCertificateThin } from "react-icons/pi";
 
-const DetailsCard = () => {
+const DetailsCard = ({ course }) => {
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -66,7 +67,7 @@ const DetailsCard = () => {
         ))}
       </div>
       <button className="text-xl text-blue-900 hover:bg-blue-900 hover:text-white duration-700 ease-in-out  py-4 w-11/12 md:w-9/12 mx-auto border-[1px] border-blue-900  rounded-md">
-        {t("price")} $: $49.00
+        {t("price")} $: {course.price}
       </button>
       <Link
         to="/courses/payment"

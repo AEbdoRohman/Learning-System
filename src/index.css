@@ -1,6 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@layer tailwind-base, primereact, tailwind-utilities;
+@import "primereact/resources/themes/soho-light/theme.css";
+@layer tailwind-base {
+  @tailwind base;
+}
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
 
 body {
   @apply font-sans;
@@ -52,4 +58,12 @@ body {
 
 .scrollbar-track-blue-100 {
   scrollbar-color: transparent #dbeafe;
+}
+
+.p-menubar
+  .p-menubar-root-list
+  > .p-menuitem
+  > .p-menuitem-content
+  .p-menuitem-link {
+  padding: 1rem 0.4rem;
 }

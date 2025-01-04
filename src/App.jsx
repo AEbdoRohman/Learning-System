@@ -19,6 +19,8 @@ import DetailsPage from "./pages/course/DetailsPage";
 import BlogsPage from "./pages/blog/BlogsPage";
 import BlogPage from "./pages/blog/BlogPage";
 import Header from "./layouts/header/Header";
+import RequireAuth from "./components/auth/RequireAuth";
+import CourseDetail from "./pages/course/CourseDitail";
 
 function App() {
   const { i18n } = useTranslation();
@@ -48,16 +50,19 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         {/* Pages */}
+        {/* <Route element={<RequireAuth />}> */}
         <Route path="/" element={<HomePage />} />
         <Route path="/courses" element={<CoursePage />} />
-        <Route path="/courses/details" element={<DetailsPage />} />
+        {/* <Route path="/courses/:id" element={<DetailsPage />} /> */}
+        <Route path="/courses/:id" element={<CourseDetail />} />
         <Route path="/course/view" element={<ViewCourse />} />
         <Route path="/blog" element={<BlogsPage />} />
         <Route path="/blog/:id" element={<BlogPage />} />
         {/* <Route path="/cart" element={<Cart />} /> */}
         <Route path="/courses/payment" element={<Payment />} />
 
-        <Route path="/courses/quiz" element={<QuizComponent />} />
+        <Route path="/courses/:id/quiz" element={<QuizComponent />} />
+        {/* </Route> */}
       </Routes>
       <Footer />
       {/* </Provider> */}

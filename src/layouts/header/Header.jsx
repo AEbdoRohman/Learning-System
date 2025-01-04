@@ -1,24 +1,24 @@
-import { FaBars, FaTimes } from "react-icons/fa";
+// import { FaBars, FaTimes } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import "./Header.css";
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import { CiSearch } from "react-icons/ci";
+// import { useTranslation } from "react-i18next";
+// import { Link } from "react-router-dom";
+// import { CiSearch } from "react-icons/ci";
 // import { FaCartShopping } from "react-icons/fa6";
 // import { useSelector } from "react-redux";
-import SearchBar from "../SearchBar";
+// import SearchBar from "../SearchBar";
 import LanguageSwitcher from "../../components/language/LanguageSwitcher";
-
+import NavBar from "./NavBar";
 const Header = () => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
+  // const [showSearch, setShowSearch] = useState(false);
 
   // const numberOfItems = useSelector((state) => state.course);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  // const toggleMenu = () => {
+  //   setIsMenuOpen(!isMenuOpen);
+  // };
 
   const closeMenu = () => {
     setIsMenuOpen(false);
@@ -37,34 +37,9 @@ const Header = () => {
 
   return (
     <nav className="navbar">
-      <div className="container flex items-center justify-between">
-        <ul className={`nav-links ${isMenuOpen ? "open" : ""}`}>
-          <li>
-            <Link to="/" onClick={closeMenu}>
-              {t("header.home")}
-            </Link>
-          </li>
-          <li>
-            <Link to="/courses" onClick={closeMenu}>
-              {t("header.Courses")}
-            </Link>
-          </li>
-          <li>
-            <Link to="/" onClick={closeMenu}>
-              {t("header.Dimplomas")}
-            </Link>
-          </li>
-          <li>
-            <Link to="/blog" onClick={closeMenu}>
-              {t("header.Blogs")}
-            </Link>
-          </li>
-          <li>
-            <Link to="/" onClick={closeMenu}>
-              {t("header.Offers")}
-            </Link>
-          </li>
-
+      <div className="flex items-center justify-between">
+        <NavBar />
+        {/* <ul className={`nav-links ${isMenuOpen ? "open" : ""}`}>
           <div className="flex flex-col md:flex-row items-center justify-center gap-3 mx-8 mt-4 md:mt-0">
             <div className="flex items-center gap-3">
               <div
@@ -73,7 +48,7 @@ const Header = () => {
               >
                 <CiSearch className="text-[22px]" />
               </div>
-              {/* <Link
+              <Link
                 to={"/cart"}
                 className="bg-pColor bg-opacity-10 relative text-pColor rounded-[50%] p-3"
                 onClick={closeMenu}
@@ -82,7 +57,7 @@ const Header = () => {
                   {numberOfItems.length}
                 </span>
                 <FaCartShopping className="text-[22px]" />
-              </Link> */}
+              </Link>
             </div>
             <div className="flex flex-col md:flex-row items-center gap-4 mx-3">
               <button
@@ -91,22 +66,21 @@ const Header = () => {
               >
                 <Link to={"/login"}> {t("header.Login")} </Link>
               </button>
-
-              <LanguageSwitcher onClick={closeMenu} />
             </div>
           </div>
-        </ul>
-        <div className="menu-icon" onClick={toggleMenu}>
+        </ul> */}
+        {/* <div className="menu-icon" onClick={toggleMenu}>
           {isMenuOpen ? <FaTimes /> : <FaBars />}
-        </div>
+        </div> */}
         <div className="flex items-center gap-4">
+          <LanguageSwitcher onClick={closeMenu} />
           <div className="logo">
-            <img src="src/assets/images/logo-2.png" alt="Logo" />
+            <img src="src/assets/images/Artboard.png" alt="Logo" />
           </div>
-          <h1 className="text-2xl font-bold text-hoverColor">IAC</h1>
+          {/* <h1 className="text-2xl font-bold text-hoverColor">IAC</h1> */}
         </div>
       </div>
-      {showSearch && <SearchBar onClose={() => setShowSearch(false)} />}
+      {/* {showSearch && <SearchBar onClose={() => setShowSearch(false)} />} */}
     </nav>
   );
 };
