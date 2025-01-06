@@ -25,6 +25,7 @@ import CourseDetail from "./pages/course/CourseDitail";
 import SubNews from "./pages/news/SubNews";
 import { HomeProvider } from "./context/HomeContext";
 import NewDetails from "./pages/news/NewDetails";
+import Cia from "./pages/home/componant/Cia";
 
 function App() {
   const { i18n } = useTranslation();
@@ -55,6 +56,8 @@ function App() {
           {/* Pages */}
           {/* <Route element={<RequireAuth />}> */}
           <Route path="/" element={<HomePage />} />
+          <Route path="/:id" element={<Cia />} />
+
           <Route path="/courses" element={<CoursePage />} />
           <Route path="/courses/:id" element={<CourseDetail />} />
 

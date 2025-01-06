@@ -10,20 +10,13 @@ import { useTranslation } from "react-i18next";
 const Footer = () => {
   const { t } = useTranslation();
   return (
-    <section className="py-8 bg-mainColor text-white">
+    <section className="py-8 bg-blue-500 text-white">
       <div className="flex flex-col justify-center  md:flex-row flex-wrap md:items-start md:justify-around gap-4  mx-12 px-4 md:px-0 md:mx-0">
         {/* logo */}
 
         <div className="flex flex-col items-center   w-full md:w-[20%]">
           <Link className="flex justify-center items-center tex-center">
-            <img
-              src="/src/assets/images/logo-2.png"
-              alt="logo"
-              className="w-2/3"
-            />
-            <span className="text-4xl mx-4 text-hoverColor font-semibold">
-              IAC
-            </span>
+            <img src="/images/Artboard.png" alt="logo" className="w-2/3" />
           </Link>
           <p className="text-lg font-bold mt-4">{t("footer.desc")}</p>
         </div>

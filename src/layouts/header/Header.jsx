@@ -27,7 +27,7 @@ const Header = () => {
       <div className="flex items-center justify-between mx-4 ">
         <div className="flex items-center gap-2">
           <div className="w-40 ">
-            <img src="src/assets/images/Artboard.png" alt="Logo" />
+            <img src="/images/Artboard.png" alt="Logo" />
           </div>
           <button
             className="w-32 border-[1px] text-hoverColor border-hoverColor rounded-lg hover:bg-hoverColor hover:text-white bg-opacity-5 transition-all duration-500 text-sm md:text-lg px-1 py-1"
