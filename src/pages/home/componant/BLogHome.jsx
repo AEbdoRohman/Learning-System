@@ -8,19 +8,19 @@ const BLogHome = () => {
       id: 1,
       title:
         "بعض النصائح التي سوف تفيدك و تطور من مهاراتك الدراسية و الفنية و العملية",
-      image: "/src/assets/images/modawana.jpg",
+      image: "./images/modawana.jpg",
     },
     {
       id: 1,
       title:
         "بعض النصائح التي سوف تفيدك و تطور من مهاراتك الدراسية و الفنية و العملية",
-      image: "/src/assets/images/modawana.jpg",
+      image: "./images/modawana.jpg",
     },
     {
       id: 1,
       title:
         "بعض النصائح التي سوف تفيدك و تطور من مهاراتك الدراسية و الفنية و العملية",
-      image: "/src/assets/images/modawana.jpg",
+      image: "./images/modawana.jpg",
     },
   ];
   return (

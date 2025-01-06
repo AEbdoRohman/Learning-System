@@ -1,52 +1,28 @@
+/* eslint-disable react/prop-types */
 import { useTranslation } from "react-i18next";
 import MainTitle from "./MainTitle";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { baseurl } from "../../../api/api";
 
-const WhyIACHome = () => {
-  const { t, i18n } = useTranslation();
-
-  const [choose, setChoose] = useState("");
-
-  useEffect(() => {
-    const fetchChoose = async () => {
-      try {
-        const response = await axios.get(`${baseurl}/show/privacy/user`, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization:
-              "Bearer " + "5|1Q8vzifRZTUdzM51sJkxIOuQ0uCqoAcR31EaiC9Ea452fb53",
-            lang: i18n.language,
-          },
-        });
-        setChoose(response.data.privacy);
-        console.log(response.data.privacy);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchChoose();
-  }, [i18n.language]);
+const WhyIACHome = ({ privacyData }) => {
+  const { t } = useTranslation();
 
   const items = [
     {
-      image: "/src/assets/images/pro1-instu-1712561490.webp",
-      textKey: "why.image1",
+      image: "/images/pro1-instu-1712561490.webp",
+      textKey: t("why.why"),
     },
     {
-      image: "/src/assets/images/newbestnew2-1712561469.webp",
-      textKey: "why.image2",
+      image: "/images/newbestnew2-1712561469.webp",
+      textKey: t("why.who"),
     },
     {
-      image: "/src/assets/images/tech3-1712561435.webp",
-      textKey: "why.image3",
+      image: "/images/tech3-1712561435.webp",
+      textKey: t("why.word-saly"),
     },
   ];
 
   return (
     <section className="container mx-auto px-4 mt-14 xl:py-16 flex flex-col items-center">
-      <MainTitle title={t("why.title")} description={choose} />
+      <MainTitle title={t("why.title")} description={privacyData} />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
         {items.map((item, index) => (
@@ -54,7 +30,7 @@ const WhyIACHome = () => {
             key={index}
             className="flex flex-col items-center text-center  border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out"
           >
-            <div className="w-full h-48 group overflow-hidden cursor-pointer rounded-t-lg">
+            <div className="w-full h-32 group overflow-hidden cursor-pointer rounded-t-lg">
               <img
                 src={item.image}
                 alt={t(item.textKey)}

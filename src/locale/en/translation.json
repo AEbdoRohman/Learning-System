@@ -26,17 +26,22 @@
     "news": "News",
     "accreditations": "Accreditations",
     "activities": "Activities",
+    "childrens": "Childrens School",
     "members": "Members",
     "registration": "Registration",
     "statistics": "Statistics",
-    "contact": "Contact"
+    "contact": "Contact",
+    "Login": "Login",
+    "register": "Register"
   },
   "home": {
     "goals": "Our Goals",
     "massage": "Our Message",
     "vision": "Our Vision",
     "work": "Creativity of creative work",
-    "team": "The best trainers in all fields"
+    "team": "The best trainers in all fields",
+    "cood": "Course Code",
+    "price": "Course Price"
   },
   "slider": {
     "title1": "Help your child develop.",

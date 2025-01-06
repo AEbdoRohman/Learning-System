@@ -1,26 +1,30 @@
 import { Routes, Route } from "react-router-dom";
-// import Header from "./layouts/Header";
-import Login from "./components/auth/Login";
-import Register from "./components/auth/Register";
-import WhatsAppIcon from "./pages/home/componant/WhatsAppIcon";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import "./App.css";
-import HomePage from "./pages/home/HomePage";
-import Payment from "./components/payment/Payment";
-import ViewCourse from "./pages/course/component/viewCourse/ViewCourse";
-import Footer from "./layouts/Footer";
-// import store from "./redux/store";
-// import { Provider } from "react-redux";
-import Loading from "./layouts/Loading";
-import QuizComponent from "./components/quiz/QuizComponent";
+import {
+  Login,
+  Register,
+  HomePage,
+  News,
+  Accreditations,
+  Activities,
+  Childrens,
+  Members,
+  Registration,
+  Statistics,
+  Contact,
+  Header,
+  Footer,
+  Loading,
+  WhatsAppIcon,
+} from "./routes/Route";
+
 import CoursePage from "./pages/course/CoursePage";
-import DetailsPage from "./pages/course/DetailsPage";
-import BlogsPage from "./pages/blog/BlogsPage";
-import BlogPage from "./pages/blog/BlogPage";
-import Header from "./layouts/header/Header";
-import RequireAuth from "./components/auth/RequireAuth";
 import CourseDetail from "./pages/course/CourseDitail";
+import SubNews from "./pages/news/SubNews";
+import { HomeProvider } from "./context/HomeContext";
+import NewDetails from "./pages/news/NewDetails";
 
 function App() {
   const { i18n } = useTranslation();
@@ -41,31 +45,34 @@ function App() {
   return (
     <div dir={i18n.language === "ar" ? "rtl" : "ltr"}>
       {loading && <Loading />}
-      {/* <Provider store={store}> */}
-      {/* <Header /> */}
-      <Header />
-      <WhatsAppIcon />
-      <Routes>
-        {/* Authentication */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        {/* Pages */}
-        {/* <Route element={<RequireAuth />}> */}
-        <Route path="/" element={<HomePage />} />
-        <Route path="/courses" element={<CoursePage />} />
-        {/* <Route path="/courses/:id" element={<DetailsPage />} /> */}
-        <Route path="/courses/:id" element={<CourseDetail />} />
-        <Route path="/course/view" element={<ViewCourse />} />
-        <Route path="/blog" element={<BlogsPage />} />
-        <Route path="/blog/:id" element={<BlogPage />} />
-        {/* <Route path="/cart" element={<Cart />} /> */}
-        <Route path="/courses/payment" element={<Payment />} />
+      <HomeProvider>
+        <Header />
+        <WhatsAppIcon />
+        <Routes>
+          {/* Authentication */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          {/* Pages */}
+          {/* <Route element={<RequireAuth />}> */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/courses" element={<CoursePage />} />
+          <Route path="/courses/:id" element={<CourseDetail />} />
 
-        <Route path="/courses/:id/quiz" element={<QuizComponent />} />
-        {/* </Route> */}
-      </Routes>
-      <Footer />
-      {/* </Provider> */}
+          <Route path="/news" element={<News />} />
+          <Route path="/news/:id" element={<SubNews />} />
+          <Route path="/news/:id/:sub_id" element={<NewDetails />} />
+          <Route path="/accreditations" element={<Accreditations />} />
+          <Route path="/activities" element={<Activities />} />
+          <Route path="/childrens" element={<Childrens />} />
+          <Route path="/members" element={<Members />} />
+          <Route path="/registration" element={<Registration />} />
+          <Route path="/statistics" element={<Statistics />} />
+          <Route path="/contact" element={<Contact />} />
+
+          {/* </Route> */}
+        </Routes>
+        <Footer />
+      </HomeProvider>
     </div>
   );
 }

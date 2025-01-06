@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import MainTitle from "./MainTitle";
 import { baseurl } from "../../../api/api";
+import { FaStar } from "react-icons/fa6";
 
 const SpecialCourses = () => {
   const { t, i18n } = useTranslation();
@@ -30,7 +31,6 @@ const SpecialCourses = () => {
 
   return (
     <section className="container mx-auto ">
-      {/* <div className="container mx-auto"> */}
       <div className="my-8">
         {/* main title */}
         <MainTitle
@@ -46,34 +46,36 @@ const SpecialCourses = () => {
                 className="overflow-hidden"
               >
                 <img
-                  src="/src/assets/images/course-30.webp"
+                  src="/images/course-30.webp"
                   className="w-full h-auto rounded-t-md"
                   alt="imageCourse"
                 />
               </Link>
 
               <div>
-                <div className="flex justify-between items-center">
+                <div className="flex items-center">
                   <h1 className="text-2xl font-bold m-4">{item.name}</h1>
-                  <p className="m-4 bg-blue-700 text-white px-2 py-1 rounded-lg w-fit  ">
-                    {item.is_special ? "Special" : "Normal"}
+                  <p className="text-yellow-800 mt-2 rounded-lg w-fit  ">
+                    {item.is_special ? <FaStar size={26} /> : ""}
                   </p>
                 </div>
                 <div className="w-[90%] h-[1px] bg-gray-300 mx-auto"></div>
-                <div className="flex items-center my-4">
-                  <p className="mx-2"> code: {item.code}</p>
+                <div className="flex flex-col gap-4 my-4">
+                  <p className="mx-2">
+                    <span className="font-bold mx-2">{t("home.cood")}:</span>{" "}
+                    {item.code}
+                  </p>
+                  <p className="mx-2">
+                    <span className="font-bold mx-2">{t("home.price")}:</span>
+                    {item.credits}
+                    <span className="font-bold mx-2">100$</span>
+                  </p>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-      <div className="mx-auto flex justify-center items-center mt-[80px]">
-        <button className="flex items-center justify-center text-mainColor px-[70px] h-[2.5rem] rounded-[.37rem] bg-white font-semibold border-[1.5px] border-mainColor ">
-          <Link>{t("btn.btn")} </Link>
-        </button>
-      </div>
-      {/* </div> */}
     </section>
   );
 };

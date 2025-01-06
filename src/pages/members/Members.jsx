@@ -1,0 +1,16 @@
+import MainCard from "../../components/mainCard/MainCard";
+
+const Members = () => {
+  const data = [
+    { id: 1, name: "عضوية الإبداع الدولية للتطوير والاستشارات" },
+    { id: 2, name: "الأعضاء " },
+    { id: 3, name: "الاستشاريون" },
+  ];
+  return (
+    <div className="container mx-auto h-screen mt-28 md:mt-32">
+      <MainCard data={data} />
+    </div>
+  );
+};
+
+export default Members;
