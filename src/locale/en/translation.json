@@ -4,22 +4,21 @@
     "register": "Register",
     "email": "Email",
     "password": "Password",
-    "confirmPassword": "Confirm Password",
     "firstName": "First Name",
     "lastName": "Last Name",
-    "name": "Name",
+    "name": "User Name",
+    "nameAr": "Name Arabic",
+    "nameEn": "Name English",
+    "nationality": "Nationality",
+    "qualification": "Qualification",
+    "job": "Job",
     "phone": "Phone",
-    "address": "Address",
-    "forget": "Forget Password?",
-    "remember": "Remember Me",
-    "noAccount": "No Account ?",
+    "country": "Country",
+    "courseName": "Course Name",
     "registerNow": "Register Now",
-    "createyouraccount": "Create Your Free Account",
-    "choose": "Choose Your Natoinality",
-    "registermsg": "By clicking on register, I agree to the terms of service and privacy policy.",
-    "nameplceholder": "Full Name ",
-    "emailplceholder": "Email",
-    "nationality": "Nationality"
+    "choose": " Choose Your Nationality ",
+    "nameplceholder": "User Name",
+    "emailplceholder": "Email"
   },
   "header": {
     "home": "Home",
@@ -43,21 +42,12 @@
     "cood": "Course Code",
     "price": "Course Price"
   },
-  "slider": {
-    "title1": "Help your child develop.",
-    "title2": "Choose your future path",
-    "title3": "Be distinguished in your work",
-    "desc1": "Don't be like others! By learning English you will be prominent in your field of work because it has become an essential skill that employers are looking for in all fields",
-    "desc2": "Check the most in-demand job fields in the labor market through our administrative courses, which enable you to start your professional future successfully.",
-    "desc3": "You must be prominent and focused in your field so that your acceptance rate for job opportunities is higher, and this distinction also provides you with many job opportunities.",
-    "button": "More Info"
-  },
+
   "why": {
-    "title": "Why choose IAC ?",
-    "desc": "If you are looking for an English institute in Jeddah or an English institute in Riyadh or the best study programs, welcome to the best English institute in the Kingdom of Saudi Arabia, because we provide professional English language courses through",
-    "image1": "Relying on the latest technologies and developments",
-    "image2": "Highest quality in educational curricula",
-    "image3": "Selecting professional trainers in each field"
+    "title": "Why choose CIA-Cd ",
+    "why": "Why Ebdaa",
+    "who": "Who we are",
+    "word-saly": "Word of Saly"
   },
   "maincourses": {
     "title": "Our distinguished courses",
@@ -66,18 +56,12 @@
   "btn": {
     "btn": "Show More "
   },
-  "colorsection": {
-    "desc": "We are here for you.. We provide you with courses in the most in-demand fields in the labor market, and we take you step by step on your way to success. If you are looking for an English institute in Jeddah or Riyadh or the best study programs, welcome to the best English institute in the Kingdom of Saudi Arabia, because we provide professional English language courses"
-  },
+
   "offers": {
     "title": " Our latest offers",
     "desc": "This is a group of offers that we have and that we always talk about. Follow us every day to get the best offers"
   },
-  "getstarted": {
-    "btn": "Get Started",
-    "desc1": "Let us help you get",
-    "desc2": " the training and courses that are right for you and your field."
-  },
+
   "modawanabox": {
     "read": " Read in the blog ",
     "all": "See All"
@@ -100,52 +84,7 @@
     "desc": "Subscribe to our free mail service to receive our latest special offers",
     "btn": "Subscribe",
     "placeholder": "Enter your Email",
-    "allright": "All rights reserved to Elite Leaders Education Company 2024 ©"
-  },
-  "cart": {
-    "addtocart": " Add to Cart",
-    "currency": "EGP",
-    "cart": " Your Shopping Cart",
-    "empty": "Your Shopping Cart is Empty Now",
-    "shopping": "Shopping Now",
-    "details": "Product Details",
-    "price": "Price",
-    "delete": "Delete",
-    "cost": "Total Cost",
-    "pay": "Pay Now",
-    "numberOfItems": "Number Of Items  ",
-    "items": "Items",
-    "contain": "   Your Shopping Cart Contains ",
-    "ordersummary": "Order Summary"
-  },
-
-  "course": {
-    "hours": "Hours",
-    "lessons": "Lessons",
-    "students": "Students",
-    "reviews": "Reviews",
-    "instructor": "المدرب",
-    "learn": "ما سيتم تعلمة من هذه الدورة",
-    "certification": "الشهادة",
-    "quizz": "الاختبار"
-  },
-  "coursed": {
-    "overview": "Overview",
-    "curriculum": "Curriculum",
-    "instructor": "Instructor",
-    "reviews": "Reviews",
-    "desc": "Course Description",
-    "learn": "What You’ll Learn From This Course",
-    "certification": "Certification",
-
-    "duration": "Duration",
-    "students": "Students",
-    "lessons": "Lessons",
-    "level": "Skill Level",
-    "language": "Language",
-    "quizz": "Quizzes",
-    "percentage": "Pass Percentage",
-    "deadline": "Deadline"
+    "allright": "All rights reserved to International Creativity for Development and Consulting"
   },
 
   "pay": {
@@ -170,6 +109,10 @@
     "cart": "Cart",
     "contact": "Contact",
     "products": "Products"
+  },
+  "members": {
+    "consultants": "Consultants",
+    "member": "Members"
   },
 
   "review": "Review",

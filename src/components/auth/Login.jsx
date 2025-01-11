@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Loading from "../../layouts/Loading";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import { baseurl } from "../../api/api";
 const Login = () => {
   const { t } = useTranslation();
   const cookies = new Cookies();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    email: "",
+    name: "",
     password: "",
   });
 
@@ -34,15 +35,11 @@ const Login = () => {
     setLoading(true);
     try {
       // Send data to the API
-      const response = await axios.post(
-        "https://qourb.com/api/auth/login",
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await axios.post(`${baseurl}/auth/login`, formData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       console.log("Response:", response.data);
       if (response.status === 200) {
@@ -73,15 +70,15 @@ const Login = () => {
         <form action="" onSubmit={handleSubmit}>
           <div className="flex flex-col w-full">
             <label htmlFor="email" className="block  mb-[8px] ">
-              {t("auth.email")}
+              {t("auth.name")}
             </label>
             <input
               required
-              type="email"
+              type="text"
               className="p-2 border-[1px] border-gray-300 w-full rounded-lg bg-gray-50 focus:border-gray-500 focus:outline-none"
-              id="email"
-              name="email"
-              value={formData.email}
+              id="name"
+              name="name"
+              value={formData.name}
               onChange={handleChange}
             />
           </div>
@@ -100,17 +97,7 @@ const Login = () => {
               onChange={handleChange}
             />
           </div>
-          <div className="flex justify-between mt-[8px]">
-            <div>
-              <a href="/" className="text-[#525fe1] hover:underline">
-                {t("auth.forget")}
-              </a>
-            </div>
-            <div>
-              <label htmlFor="remember">{t("auth.remember")}</label>
-              <input type="checkbox" id="remember" className="mx-[5px]" />
-            </div>
-          </div>
+
           <div className="flex items-center">
             <button
               type="submit"
@@ -121,21 +108,6 @@ const Login = () => {
           </div>
         </form>
 
-        <div className="flex items-center justify-center mt-4">
-          <a href="">
-            <img
-              src="/src/assets/images/login-social.png"
-              alt="login-social.png"
-              className="w-[30px] h-[30px] cursor-pointer"
-            />
-          </a>
-        </div>
-        <div className="flex items-center justify-center gap-1 mt-3">
-          <h1 className="font-semibold">{t("auth.noAccount")}</h1>
-          <Link to="/register" className="text-[#525fe1] hover:underline">
-            {t("auth.registerNow")}
-          </Link>
-        </div>
         {error && <p className="text-red-500 mt-4">{error}</p>}
       </div>
     </section>

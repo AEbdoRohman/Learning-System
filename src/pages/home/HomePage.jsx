@@ -10,8 +10,16 @@ import { useHome } from "../../context/HomeContext";
 import Loading from "../../layouts/Loading";
 
 const HomePage = () => {
-  const { privacyData, messageData, ourVision, ourGoalsData, loading } =
-    useHome();
+  const {
+    privacyData,
+    messageData,
+    ourVision,
+    ourGoalsData,
+    ebdaExpert,
+    workingData,
+    allCourses,
+    loading,
+  } = useHome();
 
   if (loading) return <Loading />;
   return (
@@ -26,7 +34,7 @@ const HomePage = () => {
         <GreenSection messageData={messageData} ourVision={ourVision} />
       </div>
       <div className="mb-10 ">
-        <GetStarted messageData={messageData} ourVision={ourVision} />
+        <GetStarted workingData={workingData} ebdaExpert={ebdaExpert} />
       </div>
       <div className="mb-10 md:mb-20">
         <Goals ourGoalsData={ourGoalsData} />
@@ -36,7 +44,7 @@ const HomePage = () => {
       </div>
 
       <div className="mb-10 md:mb-20 ">
-        <OffersCoursesHome />
+        <OffersCoursesHome allCourses={allCourses} />
       </div>
 
       <div className="mb-10 md:mb-20">

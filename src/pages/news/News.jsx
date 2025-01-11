@@ -1,57 +1,78 @@
-import { useEffect } from "react";
-import MainCard from "../../components/mainCard/MainCard";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { baseurl } from "../../api/api";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import Loading from "../../layouts/Loading";
 
 const News = () => {
-  const data = [
-    { id: 1, name: "أخبار الأكاديمية" },
-    {
-      id: 2,
-      name: "بروتوكولات تعاون",
-      sub_category: [
-        {
-          id: 1,
-          name: "الاتحاد النوعي للصم وضعاف السمع",
-        },
-        {
-          id: 2,
-          name: "مؤسسة ال ناصــــــر",
-        },
-        {
-          id: 3,
-          name: "نادي روتاري مصر",
-        },
-        {
-          id: 4,
-          name: "شركة سبارك للإتصالات",
-        },
-        {
-          id: 5,
-          name: "اكو ميديكال الطبية",
-        },
-        {
-          id: 6,
-          name: "إمبيريال للأجهزة الكهربائية",
-        },
-        {
-          id: 7,
-          name: "التحالف الدولي للمصريين في الخارج",
-        },
-      ],
-    },
-    { id: 3, name: "شهادات التقدير " },
-    { id: 4, name: "جهات تم التعامل معها" },
-    { id: 5, name: "شركاء الثقــــة" },
-    { id: 6, name: "قالـو عنا" },
-  ];
+  const { i18n } = useTranslation();
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
+    const fetchBlog = async () => {
+      try {
+        const res = await axios.get(`${baseurl}/blog`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "Bearer 5|1Q8vzifRZTUdzM51sJkxIOuQ0uCqoAcR31EaiC9Ea452fb53",
+            // Authorization: `Bearer ${token}`,
+            lang: i18n.language,
+          },
+        });
+        setBlogs(res.data.blogs);
+
+        setLoading(false);
+      } catch (err) {
+        console.error("Error fetching blogs:", err);
+        setError("Failed to fetch blogs.");
+        setLoading(false);
+      }
+    };
+
+    fetchBlog();
     window.scrollTo(0, 0);
-  }, []);
+  }, [i18n.language]);
+
+  if (loading) return <Loading />;
+  if (error) return <p className="text-red-500">{error}</p>;
 
   return (
     <div className="container mx-auto main-h-screen mt-28 md:mt-32 mb-10">
-      {" "}
-      <MainCard data={data} />
+      {blogs.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 ">
+          {blogs.map((item) => (
+            <Link
+              to={`${item.id}`}
+              key={item.id}
+              className="bg-blue-gray-100 rounded-lg group pb-4"
+            >
+              <div className="overflow-hidden rounded-t-lg ">
+                <img
+                  src="/images/course-30.webp"
+                  className="w-full h-auto rounded-t-md group-hover:scale-105 duration-300 ease-in-out"
+                  alt="image"
+                />
+              </div>
+
+              <div className="flex flex-col py-2">
+                <h1 className="text-2xl font-bold text-center m-4">
+                  {item.title}
+                </h1>
+                <p
+                  className="line-clamp-2 overflow-hidden text-gray-700 mx-6"
+                  dangerouslySetInnerHTML={{ __html: item.content }}
+                ></p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      ) : (
+        <p>No blogs found.</p>
+      )}
     </div>
   );
 };

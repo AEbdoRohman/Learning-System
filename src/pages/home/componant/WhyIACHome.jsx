@@ -11,16 +11,19 @@ const WhyIACHome = ({ privacyData }) => {
       id: 1,
       image: "/images/pro1-instu-1712561490.webp",
       textKey: t("why.why"),
+      link: "/about-us",
     },
     {
       id: 2,
       image: "/images/newbestnew2-1712561469.webp",
       textKey: t("why.who"),
+      link: "/why-us",
     },
     {
       id: 3,
       image: "/images/tech3-1712561435.webp",
       textKey: t("why.word-saly"),
+      link: "/dr-saly-words",
     },
   ];
 
@@ -31,7 +34,7 @@ const WhyIACHome = ({ privacyData }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
         {items.map((item, index) => (
           <Link
-            to={`/${item.id}`}
+            to={`${item.link}`}
             key={index}
             className="flex flex-col items-center text-center  border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out"
           >

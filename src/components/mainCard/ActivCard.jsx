@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
-const MainCard = ({ data }) => {
+const ActivCard = ({ data }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  mx-10 rounded-lg">
       {data.map((item) => (
         <Link
-          to={`${item.link}`}
+          to={`${item.id}`}
           key={item.id}
           className="bg-blue-gray-100 rounded-lg group"
         >
@@ -27,4 +27,4 @@ const MainCard = ({ data }) => {
   );
 };
 
-export default MainCard;
+export default ActivCard;

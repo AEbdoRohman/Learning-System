@@ -2,32 +2,16 @@
 
 import { useTranslation } from "react-i18next";
 
-const GetStarted = ({ messageData, ourVision }) => {
+const GetStarted = ({ workingData, ebdaExpert }) => {
   const { t } = useTranslation();
+  console.log(workingData);
 
   // const [vision, setVision] = useState("");
-  // const [message, setMessage] = useState("");
 
   // useEffect(() => {
-  //   const fetchMessage = async () => {
-  //     try {
-  //       const response = await axios.get(`${baseurl}/show/message/user`, {
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Authorization:
-  //             "Bearer " + "5|1Q8vzifRZTUdzM51sJkxIOuQ0uCqoAcR31EaiC9Ea452fb53",
-  //           lang: i18n.language,
-  //         },
-  //       });
-  //       setMessage(response.data.message);
-  //       console.log(response.data.message);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
   //   const fetchAbout = async () => {
   //     try {
-  //       const response = await axios.get(`${baseurl}/show/our-vision/user`, {
+  //       const response = await axios.get(`${baseurl}/show/working-style/user`, {
   //         headers: {
   //           "Content-Type": "application/json",
   //           Authorization:
@@ -35,14 +19,13 @@ const GetStarted = ({ messageData, ourVision }) => {
   //           lang: i18n.language,
   //         },
   //       });
-  //       setVision(response.data.our_vision);
-  //       console.log(response.data.our_vision);
+  //       setVision(response.data.ebda_expert);
+  //       console.log(response.data.ebda_expert);
   //     } catch (err) {
   //       console.log(err);
   //     }
   //   };
 
-  //   fetchMessage();
   //   fetchAbout();
   // }, [i18n.language]);
 
@@ -55,7 +38,7 @@ const GetStarted = ({ messageData, ourVision }) => {
           </h2>
           <p
             className=" text-sm md:text-lg font-bold text-center p-3"
-            dangerouslySetInnerHTML={{ __html: messageData }}
+            dangerouslySetInnerHTML={{ __html: workingData }}
           />
         </div>
         <div className="">
@@ -64,7 +47,7 @@ const GetStarted = ({ messageData, ourVision }) => {
           </h2>
           <p
             className="  text-sm md:text-lg font-bold text-center p-3"
-            dangerouslySetInnerHTML={{ __html: ourVision }}
+            dangerouslySetInnerHTML={{ __html: ebdaExpert }}
           />
         </div>
       </div>

@@ -11,7 +11,13 @@ import {
   Activities,
   Childrens,
   Members,
+  MemberIbda,
+  Member,
+  MemberCondition,
+  Approved,
   Registration,
+  Questions,
+  Inquiries,
   Statistics,
   Contact,
   Header,
@@ -22,10 +28,12 @@ import {
 
 import CoursePage from "./pages/course/CoursePage";
 import CourseDetail from "./pages/course/CourseDitail";
-import SubNews from "./pages/news/SubNews";
 import { HomeProvider } from "./context/HomeContext";
 import NewDetails from "./pages/news/NewDetails";
 import Cia from "./pages/home/componant/Cia";
+import SubCategory from "./pages/activities/subCategory";
+import AccreditationsPage from "./pages/accreditations/AccreditationsPage";
+import ZoomVideo from "./pages/ZoomVideo/ZoomVideo";
 
 function App() {
   const { i18n } = useTranslation();
@@ -52,24 +60,72 @@ function App() {
         <Routes>
           {/* Authentication */}
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+
           {/* Pages */}
           {/* <Route element={<RequireAuth />}> */}
+          {/* Home */}
           <Route path="/" element={<HomePage />} />
-          <Route path="/:id" element={<Cia />} />
+          <Route path="/about-us" element={<Cia />} />
+          <Route path="/dr-saly-words" element={<Cia />} />
+          <Route path="/why-us" element={<Cia />} />
 
           <Route path="/courses" element={<CoursePage />} />
           <Route path="/courses/:id" element={<CourseDetail />} />
 
+          {/* News */}
           <Route path="/news" element={<News />} />
-          <Route path="/news/:id" element={<SubNews />} />
-          <Route path="/news/:id/:sub_id" element={<NewDetails />} />
+          {/* <Route path="/news/:id" element={<SubNews />} /> */}
+          <Route path="/news/:id" element={<NewDetails />} />
+
+          {/* Accreditations */}
           <Route path="/accreditations" element={<Accreditations />} />
+          <Route
+            path="/accreditations/local-accrebtions"
+            element={<AccreditationsPage />}
+          />
+          <Route
+            path="/accreditations/international-accrebtions"
+            element={<AccreditationsPage />}
+          />
+
+          {/* Activities */}
           <Route path="/activities" element={<Activities />} />
+          <Route path="/activities/:id" element={<SubCategory />} />
+          <Route path="/activities/:id/:id" element={<CourseDetail />} />
+          <Route path="/register/:id" element={<Register />} />
+          {/* <Route
+            path="/activities/:id/:id/zoom-session"
+            element={<ZoomVideo />}
+          /> */}
+
+          {/* Childrens */}
           <Route path="/childrens" element={<Childrens />} />
+          <Route path="/childrens/zoom-session" element={<ZoomVideo />} />
+          {/* Members */}
           <Route path="/members" element={<Members />} />
+          <Route path="/members/memberIbda" element={<MemberIbda />} />
+          <Route path="/members/member" element={<Member />} />
+          <Route
+            path="/members/member/benefits"
+            element={<MemberCondition />}
+          />
+          <Route path="/members/member/approved" element={<Approved />} />
+          <Route path="members/consultants" element={<Member />} />
+          <Route
+            path="/members/consultants/conditions"
+            element={<MemberCondition />}
+          />
+          <Route path="/members/consultants/approved" element={<Approved />} />
+          {/* Registration */}
           <Route path="/registration" element={<Registration />} />
+          <Route path="/registration/courses" element={<Register />} />
+          <Route path="/registration/degrees" element={<Register />} />
+          <Route path="/registration/master" element={<Register />} />
+          <Route path="/registration/questions" element={<Questions />} />
+          <Route path="/registration/inquiries" element={<Inquiries />} />
+          {/* Statistics */}
           <Route path="/statistics" element={<Statistics />} />
+          {/* Contact */}
           <Route path="/contact" element={<Contact />} />
 
           {/* </Route> */}

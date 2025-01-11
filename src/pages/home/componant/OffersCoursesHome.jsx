@@ -1,48 +1,71 @@
+/* eslint-disable react/prop-types */
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
-import { FaCartShopping } from "react-icons/fa6";
+import { FaStar } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
 // import { useDispatch } from "react-redux";
 // import { addItem } from "../../../redux/cart/courseSlice";
 import MainTitle from "./MainTitle";
+import axios from "axios";
+import { baseurl } from "../../../api/api";
 
-const OffersCoursesHome = () => {
+const OffersCoursesHome = ({ allCourses }) => {
   // const dispatch = useDispatch();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const handelEnroll = async (courseId) => {
+    try {
+      const response = await axios.post(
+        `${baseurl}/subscripte/${courseId}`,
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "Bearer " + "7|2Ht6CFZ4SrHd5D61YUdGMxyvZNY2DDofAWXBcAxFf136b392",
+            lang: i18n.language,
+          },
+        }
+      );
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   //data for testing
-  const testData = [
-    {
-      id: 1,
-      name: "دورة علم البيانات و الذكاء الاصطناعي 1",
-      desc: "يلعب الذكاء الاصطناعي دورا هاما ف تحويل العالم و شكل المستقبل .",
-      img: "course.webp",
-      price: 350,
-    },
-    {
-      id: 2,
-      name: "دورة علم البيانات و الذكاء الاصطناعي 2",
-      desc: "يلعب الذكاء الاصطناعي دورا هاما ف تحويل العالم و شكل المستقبل .",
-      img: "course.webp",
-      price: 250,
-    },
-    {
-      id: 3,
-      name: "دورة علم البيانات و الذكاء الاصطناعي 3",
-      desc: "يلعب الذكاء الاصطناعي دورا هاما ف تحويل العالم و شكل المستقبل .",
-      img: "course.webp",
-      price: 500,
-    },
-    {
-      id: 4,
-      name: "دورة علم البيانات و الذكاء الاصطناعي 4",
-      desc: "يلعب الذكاء الاصطناعي دورا هاما ف تحويل العالم و شكل المستقبل .",
-      img: "course.webp",
-      price: 800,
-    },
-  ];
+  // const testData = [
+  //   {
+  //     id: 1,
+  //     name: "دورة علم البيانات و الذكاء الاصطناعي 1",
+  //     desc: "يلعب الذكاء الاصطناعي دورا هاما ف تحويل العالم و شكل المستقبل .",
+  //     img: "course.webp",
+  //     price: 350,
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "دورة علم البيانات و الذكاء الاصطناعي 2",
+  //     desc: "يلعب الذكاء الاصطناعي دورا هاما ف تحويل العالم و شكل المستقبل .",
+  //     img: "course.webp",
+  //     price: 250,
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "دورة علم البيانات و الذكاء الاصطناعي 3",
+  //     desc: "يلعب الذكاء الاصطناعي دورا هاما ف تحويل العالم و شكل المستقبل .",
+  //     img: "course.webp",
+  //     price: 500,
+  //   },
+  //   {
+  //     id: 4,
+  //     name: "دورة علم البيانات و الذكاء الاصطناعي 4",
+  //     desc: "يلعب الذكاء الاصطناعي دورا هاما ف تحويل العالم و شكل المستقبل .",
+  //     img: "course.webp",
+  //     price: 800,
+  //   },
+  // ];
 
   const settings = {
     dots: true,
@@ -79,16 +102,16 @@ const OffersCoursesHome = () => {
         <div className="my-[30px] px-[1rem]">
           <MainTitle title={t("offers.title")} description={t("offers.desc")} />
           <Slider {...settings}>
-            {testData.map((item, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-center gap-2 h-full mb-[30px]"
-              >
-                <div className="flex flex-col items-center justify-center  rounded-lg mx-3 shadow-lg">
+            <div className="flex gap-2 h-full mb-8">
+              {allCourses.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col  rounded-lg mx-3 pb-6 shadow-lg"
+                >
                   <Link to="/courses/3">
                     <div className="overflow-hidden rounded-t-lg group">
                       <img
-                        src={`/${item.img}`}
+                        src={`/course.webp`}
                         className="rounded-t-lg group-[&:hover]:scale-110  transition-all duration-700 ease-out  cursor-pointer"
                         style={{
                           height: "100%",
@@ -99,30 +122,44 @@ const OffersCoursesHome = () => {
                       />
                     </div>
                   </Link>
-                  <Link
-                    to="/courses/3"
-                    className="text-xl mt-6 mb-3 font-bold text-center hover:text-mainColor transition-all duration-500"
+                  <div
+                    className="flex items-center gap-4 mx-4"
+                    style={{
+                      direction: i18n.language === "ar" ? "rtl" : "ltr",
+                    }}
                   >
-                    {item.name}
-                  </Link>
-                  <p className="px-2 text-lg text-center">{item.desc}</p>
-                  <div className="px-4 py-2 my-4 flex items-center justify-between w-full pb-[10px] border-t-2 mx-4">
-                    <div>
-                      <div
-                        // onClick={() => dispatch(addItem(item))}
-                        className="cursor-pointer hover:text-hoverColor transition-all duration-500 flex flex-row items-center justify-center font-bold text-mainColor"
-                      >
-                        <FaCartShopping size={20} className="mx-[5px]" />
-                        {t("cart.addtocart")}
-                      </div>
-                    </div>
-                    <p className="font-bold text-right flex flex-row-reverse gap-[4px]">
-                      <span>{item.price}</span> {t("cart.currency")}
+                    <h1 className="text-xl mt-6 mb-3 font-bold hover:text-mainColor transition-all duration-500">
+                      {item.name}
+                    </h1>
+                    <p className="text-yellow-800 mt-2 rounded-lg w-fit  ">
+                      {item.is_special ? <FaStar size={26} /> : ""}
                     </p>
                   </div>
+                  <div
+                    className="flex flex-col gap-3 mx-4 my-2"
+                    style={{
+                      direction: i18n.language === "ar" ? "rtl" : "ltr",
+                    }}
+                  >
+                    <p className="mx-2">
+                      <span className="font-bold mx-2">{t("home.cood")}:</span>{" "}
+                      {item.code}
+                    </p>
+                    <p className="mx-2">
+                      <span className="font-bold mx-2">{t("home.price")}:</span>
+                      {item.credits}
+                      <span className="font-bold mx-2">${item.price}</span>
+                    </p>
+                  </div>
+                  <button
+                    className="w-1/2 mx-auto mt-4 bg-blue-600 text-white px-4 py-1 rounded-md"
+                    onClick={() => handelEnroll(item.id)}
+                  >
+                    {i18n.language === "en" ? "Enroll" : "تسجيل"}
+                  </button>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </Slider>
         </div>
         <div className="mx-auto flex justify-center items-center mt-[80px]">

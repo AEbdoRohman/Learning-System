@@ -2,13 +2,35 @@ import { Link } from "react-router-dom";
 import { FaWhatsappSquare } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
 import { FaPhoneAlt } from "react-icons/fa";
-import { FaTiktok } from "react-icons/fa";
-import { FaInstagramSquare } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
-import { FaFacebookF } from "react-icons/fa6";
+import { FaFacebookF, FaSquareXTwitter, FaYoutube } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { baseurl } from "../api/api";
 const Footer = () => {
   const { t } = useTranslation();
+  const [social, setSocial] = useState({});
+
+  useEffect(() => {
+    const fetchSocial = async () => {
+      try {
+        const response = await axios.get(`${baseurl}/show/media-logo/user`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "Bearer 5|1Q8vzifRZTUdzM51sJkxIOuQ0uCqoAcR31EaiC9Ea452fb53",
+          },
+        });
+        setSocial(response.data.data);
+        console.log(social);
+        console.log(response.data.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchSocial();
+  }, []);
+
   return (
     <section className="py-8 bg-blue-500 text-white">
       <div className="flex flex-col justify-center  md:flex-row flex-wrap md:items-start md:justify-around gap-4  mx-12 px-4 md:px-0 md:mx-0">
@@ -82,14 +104,20 @@ const Footer = () => {
       <div className="bg-gray-100 w-[90%] h-[1px] mx-auto mt-8"></div>
       <div>
         <div className="mt-4 flex items-center justify-center gap-4">
-          <FaPhoneAlt className="text-2xl text-hoverColor hover:text-white transition-all duration-500 cursor-pointer " />
-          <FaTiktok className="text-2xl text-hoverColor hover:text-white transition-all duration-500 cursor-pointer" />
-          <FaInstagramSquare className="text-2xl text-hoverColor hover:text-white transition-all duration-500 cursor-pointer" />
-          <FaFacebookF className="text-2xl text-hoverColor hover:text-white transition-all duration-500 cursor-pointer" />
-          <FaSquareXTwitter className="text-2xl text-hoverColor hover:text-white transition-all duration-500 cursor-pointer" />
+          <a href={social.facebook} target="_blank" rel="noopener noreferrer">
+            <FaFacebookF className="text-2xl text-hoverColor hover:text-white transition-all duration-500 cursor-pointer" />
+          </a>
+          <a href={social.twitter} target="_blank" rel="noopener noreferrer">
+            <FaSquareXTwitter className="text-2xl text-hoverColor hover:text-white transition-all duration-500 cursor-pointer" />
+          </a>
+          <a href={social.youtube} target="_blank" rel="noopener noreferrer">
+            <FaYoutube className="text-2xl text-hoverColor hover:text-white transition-all duration-500 cursor-pointer" />
+          </a>
         </div>
         <div className="mt-4 text-center font-semibold text-hoverColor">
+          <span className="mx-1">©</span>
           {t("footer.allright")}
+          <span className="mx-1 text-gray-900 font-bold"> 2024</span>
         </div>
       </div>
     </section>
