@@ -31,12 +31,12 @@ import CourseDetail from "./pages/course/CourseDitail";
 import { HomeProvider } from "./context/HomeContext";
 import NewDetails from "./pages/news/NewDetails";
 import Cia from "./pages/home/componant/Cia";
-import SubCategory from "./pages/activities/subCategory";
 import AccreditationsPage from "./pages/accreditations/AccreditationsPage";
 import ZoomVideo from "./pages/ZoomVideo/ZoomVideo";
 import Calender from "./pages/calender/Calender";
 import { ToastContainer } from "react-toastify";
 import RequireAuth from "./components/auth/RequireAuth";
+import SubCategory from "./pages/activities/subCategory";
 
 function App() {
   const { i18n } = useTranslation();
