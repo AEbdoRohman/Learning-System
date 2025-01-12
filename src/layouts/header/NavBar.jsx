@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 export default function NavBar() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
 
   // static items
@@ -50,7 +50,9 @@ export default function NavBar() {
     <div className="">
       <Menubar
         model={items}
-        className=" bg-transparent w-full border-none text-[1.1rem] font-semibold py-1"
+        className={`bg-transparent w-full border-none py-1 font-semibold ${
+          i18n.language === "en" ? "text-[1.2rem]" : "text-[.9rem]"
+        }`}
         p-cascadeselect-items
       />
     </div>

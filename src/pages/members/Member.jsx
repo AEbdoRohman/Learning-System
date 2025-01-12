@@ -1,15 +1,21 @@
+import { useTranslation } from "react-i18next";
 import MainCard from "../../components/mainCard/MainCard";
 
 const Member = () => {
+  const { t } = useTranslation();
   const location = window.location.pathname.split("/")[2];
 
   const data =
     location === "member"
       ? [
-          { id: 1, name: "مميزات الاعضاء", link: "/members/member/benefits" },
+          {
+            id: 1,
+            name: t("members.benefits"),
+            link: "/members/member/benefits",
+          },
           {
             id: 2,
-            name: "الاعضاء المعتمدون",
+            name: t("members.member"),
             link: "/members/member/approved",
           },
         ]
@@ -17,12 +23,12 @@ const Member = () => {
       ? [
           {
             id: 1,
-            name: "شروط الاستشاري",
+            name: t("members.conditions"),
             link: "/members/consultants/conditions",
           },
           {
             id: 2,
-            name: "استشاريون معتمدون",
+            name: t("members.consultantsCon"),
             link: "/members/consultants/approved",
           },
         ]

@@ -1,20 +1,30 @@
+import { useTranslation } from "react-i18next";
 import MainCard from "../../components/mainCard/MainCard";
 
 const Registration = () => {
+  const { t } = useTranslation();
   const data = [
-    { id: 1, name: "التسجيل فى الدورات", link: "/registration/courses" },
+    { id: 1, name: t("registration.Courses"), link: "/registration/courses" },
     {
       id: 2,
-      name: "التسجيل فى الدبلومات التدريبية",
+      name: t("registration.Diplomas"),
       link: "/registration/degrees",
     },
     {
       id: 3,
-      name: "التسجيل فى الماجستير المصغر",
+      name: t("registration.Masters"),
       link: "/registration/master",
     },
-    { id: 4, name: "أسئلة متكررة", link: "/registration/questions" },
-    { id: 5, name: "الإستفسارات", link: "/registration/inquiries" },
+    {
+      id: 4,
+      name: t("registration.repeatquestions"),
+      link: "/registration/questions",
+    },
+    {
+      id: 5,
+      name: t("registration.inquiries"),
+      link: "/registration/inquiries",
+    },
   ];
   return (
     <div className="container mx-auto main-h-screen mt-28 md:mt-32 mb-10">

@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 
 const Register = () => {
   const { id } = useParams();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const [formdata, setFormdata] = useState({
     name: {
@@ -117,12 +117,32 @@ const Register = () => {
       });
 
       toast.success("تم التسجيل بنجاح!");
-      navigate("/login");
+      navigate("/");
       console.log("Response");
     } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handelEnroll = async (courseId) => {
+    try {
+      const response = await axios.post(
+        `${baseurl}/subscripte/${courseId}`,
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "Bearer " + "7|2Ht6CFZ4SrHd5D61YUdGMxyvZNY2DDofAWXBcAxFf136b392",
+            lang: i18n.language,
+          },
+        }
+      );
+      console.log(response);
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -271,7 +291,8 @@ const Register = () => {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="bg-blue-500 text-white py-2 rounded-lg mt-4"
+              className="bg-blue-500 text-white py-2 px-4 rounded-lg mt-4"
+              onClick={() => handelEnroll(id)}
             >
               {t("auth.register")}
             </button>

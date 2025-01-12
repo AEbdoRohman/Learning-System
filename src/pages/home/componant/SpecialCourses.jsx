@@ -41,16 +41,11 @@ const SpecialCourses = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  mx-10 rounded-lg">
           {data.map((item) => (
             <div key={item.id} className="bg-blue-gray-100 rounded-lg">
-              <Link
-                to={`/courses/${item.sub_category_id}`}
-                className="overflow-hidden"
-              >
-                <img
-                  src="/images/course-30.webp"
-                  className="w-full h-auto rounded-t-md"
-                  alt="imageCourse"
-                />
-              </Link>
+              <img
+                src="/images/course-30.webp"
+                className="w-full h-auto rounded-t-md"
+                alt="imageCourse"
+              />
 
               <div>
                 <div className="flex items-center">
@@ -70,6 +65,12 @@ const SpecialCourses = () => {
                     {item.credits}
                     <span className="font-bold mx-2">100$</span>
                   </p>
+                  <Link
+                    to={`/register/${item.id}`}
+                    className="bg-blue-600 text-white w-fit mx-auto px-4 py-2 rounded-lg font-bold"
+                  >
+                    {t("enroll")}
+                  </Link>
                 </div>
               </div>
             </div>

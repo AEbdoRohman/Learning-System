@@ -1,14 +1,16 @@
+import { useTranslation } from "react-i18next";
 import MainCard from "../../components/mainCard/MainCard";
 
 const Members = () => {
+  const { t } = useTranslation();
   const data = [
     {
       id: 1,
-      name: "عضوية الإبداع الدولية للتطوير والاستشارات",
+      name: t("members.memberIbda"),
       link: "/members/memberIbda",
     },
-    { id: 2, name: "الأعضاء ", link: "/members/member" },
-    { id: 3, name: "الاستشاريون", link: "/members/consultants" },
+    { id: 2, name: t("members.members"), link: "/members/member" },
+    { id: 3, name: t("members.consultants"), link: "/members/consultants" },
   ];
   return (
     <div className="container mx-auto h-screen mt-28 md:mt-32">

@@ -21,6 +21,10 @@ const Login = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const handleLoginSuccess = () => {
+    window.location.reload();
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -43,10 +47,13 @@ const Login = () => {
 
       console.log("Response:", response.data);
       if (response.status === 200) {
+        const user = response.data.user.name;
         const token = response.data.token;
         console.log("Token:", token);
         cookies.set("authToken", token);
-        navigate("/");
+        cookies.set("authUser", user);
+        navigate("/calender");
+        handleLoginSuccess();
       }
 
       setLoading(false);

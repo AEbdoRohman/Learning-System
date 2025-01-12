@@ -1,7 +1,7 @@
 import BLogHome from "./componant/BLogHome";
 import GetStarted from "./componant/GetStarted";
 import GreenSection from "./componant/GreenSection";
-import OffersCoursesHome from "./componant/OffersCoursesHome";
+// import OffersCoursesHome from "./componant/OffersCoursesHome";
 import SocialIcons from "./componant/SocialIcons";
 import WhyIACHome from "./componant/WhyIACHome";
 import SpecialCourses from "./componant/SpecialCourses";
@@ -17,7 +17,7 @@ const HomePage = () => {
     ourGoalsData,
     ebdaExpert,
     workingData,
-    allCourses,
+    // allCourses,
     loading,
   } = useHome();
 
@@ -43,9 +43,9 @@ const HomePage = () => {
         <SpecialCourses />
       </div>
 
-      <div className="mb-10 md:mb-20 ">
+      {/* <div className="mb-10 md:mb-20 ">
         <OffersCoursesHome allCourses={allCourses} />
-      </div>
+      </div> */}
 
       <div className="mb-10 md:mb-20">
         <BLogHome />

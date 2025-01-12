@@ -34,6 +34,9 @@ import Cia from "./pages/home/componant/Cia";
 import SubCategory from "./pages/activities/subCategory";
 import AccreditationsPage from "./pages/accreditations/AccreditationsPage";
 import ZoomVideo from "./pages/ZoomVideo/ZoomVideo";
+import Calender from "./pages/calender/Calender";
+import { ToastContainer } from "react-toastify";
+import RequireAuth from "./components/auth/RequireAuth";
 
 function App() {
   const { i18n } = useTranslation();
@@ -55,6 +58,7 @@ function App() {
     <div dir={i18n.language === "ar" ? "rtl" : "ltr"}>
       {loading && <Loading />}
       <HomeProvider>
+        <ToastContainer />
         <Header />
         <WhatsAppIcon />
         <Routes>
@@ -62,7 +66,10 @@ function App() {
           <Route path="/login" element={<Login />} />
 
           {/* Pages */}
-          {/* <Route element={<RequireAuth />}> */}
+          <Route element={<RequireAuth />}>
+            <Route path="/calender" element={<Calender />} />
+            <Route path="/zoom-session" element={<ZoomVideo />} />
+          </Route>
           {/* Home */}
           <Route path="/" element={<HomePage />} />
           <Route path="/about-us" element={<Cia />} />
@@ -93,14 +100,11 @@ function App() {
           <Route path="/activities/:id" element={<SubCategory />} />
           <Route path="/activities/:id/:id" element={<CourseDetail />} />
           <Route path="/register/:id" element={<Register />} />
-          {/* <Route
-            path="/activities/:id/:id/zoom-session"
-            element={<ZoomVideo />}
-          /> */}
 
           {/* Childrens */}
           <Route path="/childrens" element={<Childrens />} />
-          <Route path="/childrens/zoom-session" element={<ZoomVideo />} />
+          <Route path="/register/:id" element={<Register />} />
+
           {/* Members */}
           <Route path="/members" element={<Members />} />
           <Route path="/members/memberIbda" element={<MemberIbda />} />
@@ -128,7 +132,10 @@ function App() {
           {/* Contact */}
           <Route path="/contact" element={<Contact />} />
 
-          {/* </Route> */}
+          <Route
+            path="/terms/terms-conditions"
+            element={<AccreditationsPage />}
+          />
         </Routes>
         <Footer />
       </HomeProvider>

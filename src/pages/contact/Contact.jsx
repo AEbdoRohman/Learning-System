@@ -31,7 +31,7 @@ const Contact = () => {
   //   },
   // ];
 
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [contacts, setContacts] = useState([]);
 
   const [loading, setLoading] = useState(false);
@@ -67,7 +67,7 @@ const Contact = () => {
   return (
     <div className="container mx-auto min-h-screen mt-28 md:mt-32 mb-10 px-4">
       <h1 className="text-4xl font-bold text-blue-400 text-center mb-8 ">
-        اتصل بنا
+        {t("registration.contact")}
       </h1>
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
         {/* Card Section */}
@@ -81,7 +81,9 @@ const Contact = () => {
             </h2>
             <p className="text-gray-600 mx-4 mb-2">{contact.description}</p>
             <div>
-              <p className="text-lg md:text-xl font-bold">موبايل:</p>
+              <p className="text-lg md:text-xl font-bold">
+                {t("registration.phone")}:
+              </p>
               <p className="text-gray-800 mx-4 mt-2">{contact.phone[0]}</p>
               <p className="text-gray-800 mx-4 mt-2">{contact.phone[1]}</p>
             </div>
@@ -92,7 +94,7 @@ const Contact = () => {
       {/* Email Section */}
       <div className="flex items-center justify-center gap-6  md:gap-8 mt-8 bg-gray-100 rounded-lg p-2 md:p-6 text-center">
         <h2 className="text-2xl font-semibold text-rose-800">
-          بريد إلكتروني :
+          {t("registration.email")}:
         </h2>
         <p className="text-red-600 text-lg font-bold">Info@cia-cd.com</p>
       </div>

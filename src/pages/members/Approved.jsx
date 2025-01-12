@@ -48,9 +48,13 @@ const Approved = () => {
   return (
     <div className="container mx-auto min-h-screen mt-28 md:mt-32 mb-10 px-4">
       {path === "member" ? (
-        <h1 className="text-2xl font-bold mb-4">{t("members.member")}</h1>
+        <h1 className="text-lg md:text-4xl font-bold text-blue-400 text-center mb-8">
+          {t("members.member")}
+        </h1>
       ) : (
-        <h1 className="text-2xl font-bold mb-4">{t("members.consultants")}</h1>
+        <h1 className="text-lg md:text-4xl font-bold text-blue-400 text-center mb-8">
+          {t("members.consultantsCon")}
+        </h1>
       )}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {data.map((item, index) => (

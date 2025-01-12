@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { FaWhatsappSquare } from "react-icons/fa";
-import { IoMail } from "react-icons/io5";
-import { FaPhoneAlt } from "react-icons/fa";
+// import { FaWhatsappSquare } from "react-icons/fa";
+// import { IoMail } from "react-icons/io5";
+// import { FaPhoneAlt } from "react-icons/fa";
 import { FaFacebookF, FaSquareXTwitter, FaYoutube } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
@@ -17,13 +17,9 @@ const Footer = () => {
         const response = await axios.get(`${baseurl}/show/media-logo/user`, {
           headers: {
             "Content-Type": "application/json",
-            Authorization:
-              "Bearer 5|1Q8vzifRZTUdzM51sJkxIOuQ0uCqoAcR31EaiC9Ea452fb53",
           },
         });
         setSocial(response.data.data);
-        console.log(social);
-        console.log(response.data.data);
       } catch (err) {
         console.log(err);
       }
@@ -43,7 +39,7 @@ const Footer = () => {
           <p className="text-lg font-bold mt-4">{t("footer.desc")}</p>
         </div>
 
-        <div>
+        {/* <div>
           <h1 className="font-bold text-2xl text-hoverColor mb-4">
             {t("footer.title3")}
           </h1>
@@ -63,39 +59,61 @@ const Footer = () => {
               info@iac.com
             </Link>
           </div>
-        </div>
+        </div> */}
 
         <div>
           <h1 className="font-bold text-2xl text-hoverColor mb-4">
             {t("footer.title2")}
           </h1>
           <div className="px-4 md:px-0">
-            <Link className="block font-semibold hover:text-hoverColor transition-all duration-200">
-              {t("footer.sub5")}
+            <Link
+              to={"/activities"}
+              className="block font-semibold hover:text-hoverColor transition-all duration-200"
+            >
+              {t("header.activities")}
             </Link>
-            <Link className=" my-2 block font-semibold hover:text-hoverColor transition-all duration-200 ">
-              {t("footer.sub6")}
+            <Link
+              to={"/childrens"}
+              className=" my-2 block font-semibold hover:text-hoverColor transition-all duration-200 "
+            >
+              {t("header.childrens")}
             </Link>
-            <Link className="block font-semibold hover:text-hoverColor transition-all duration-200 ">
-              {t("footer.sub66")}
+            <Link
+              to={"/terms/terms-conditions"}
+              className="block font-semibold hover:text-hoverColor transition-all duration-200 "
+            >
+              {t("footer.tarms")}
             </Link>
           </div>
         </div>
+
         <div>
           <h1 className="font-bold text-2xl text-hoverColor mb-4">
             {t("footer.title1")}
           </h1>
           <div className="px-4 md:px-0">
-            <Link className="block hover:text-hoverColor transition-all duration-200 font-bold">
+            <Link
+              to={"/why-us"}
+              className="block hover:text-hoverColor transition-all duration-200 font-bold"
+            >
               {t("footer.sub1")}
             </Link>
-            <Link className=" my-2 block hover:text-hoverColor transition-all duration-200 font-bold">
+            <Link
+              to={"/news"}
+              className=" my-2 block hover:text-hoverColor transition-all duration-200 font-bold"
+            >
               {t("footer.sub2")}
             </Link>
-            <Link className="block mb-2 hover:text-hoverColor transition-all duration-200 font-bold">
+            <Link
+              to={"/contact"}
+              className="block mb-2 hover:text-hoverColor transition-all duration-200 font-bold"
+            >
               {t("footer.sub3")}
             </Link>
-            <Link className="block hover:text-hoverColor transition-all duration-200 font-bold">
+            <Link
+              to={"/dr-saly-words"}
+              className="block hover:text-hoverColor transition-all duration-200 font-bold"
+            >
               {t("footer.sub4")}
             </Link>
           </div>

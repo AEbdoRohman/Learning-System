@@ -6,7 +6,7 @@ import { baseurl } from "../../../api/api";
 import Loading from "../../../layouts/Loading";
 
 const Cia = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
 
@@ -55,17 +55,17 @@ const Cia = () => {
     <div className="container mx-auto min-h-screen mt-28 md:mt-32 mb-10 px-4">
       {path === "about-us" && (
         <h1 className="text-lg md:text-4xl font-bold text-blue-400 text-center mb-8">
-          لماذا إبداع؟
+          {t("why.why")}
         </h1>
       )}
       {path === "dr-saly-words" && (
         <h1 className="text-lg md:text-4xl font-bold text-blue-400 text-center mb-8">
-          التعريف بالدكتورة / سالي زكي محمد
+          {t("d-sally")}
         </h1>
       )}
       {path === "why-us" && (
         <h1 className="text-lg md:text-4xl font-bold text-blue-400 text-center mb-8">
-          لماذا نحن؟
+          {t("why.who")}
         </h1>
       )}
 
@@ -77,19 +77,19 @@ const Cia = () => {
         {/* if data is object */}
         {typeof data === "object" && data.content && (
           <>
-            <p
-              className="text-gray-600 text-lg leading-relaxed mb-4"
-              dangerouslySetInnerHTML={{ __html: data.content }}
-            >
-              {/* {data.content} */}
-            </p>
             {data.image && (
               <img
                 src={data.image}
                 alt="Why Us"
-                className="w-full rounded-lg mt-4"
+                className="w-full h-32 object-cover rounded-lg mt-4"
               />
             )}
+            <p
+              className="text-gray-600 text-lg leading-relaxed mt-6 mb-4"
+              dangerouslySetInnerHTML={{ __html: data.content }}
+            >
+              {/* {data.content} */}
+            </p>
           </>
         )}
       </div>

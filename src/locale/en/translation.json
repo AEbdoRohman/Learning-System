@@ -31,7 +31,9 @@
     "statistics": "Statistics",
     "contact": "Contact",
     "Login": "Login",
-    "register": "Register"
+    "register": "Register",
+    "calendar": "Calendar",
+    "join": "Join Now"
   },
   "home": {
     "goals": "Our Goals",
@@ -69,35 +71,16 @@
 
   "footer": {
     "title1": "About",
-    "title2": "Join Us",
-    "title3": "Contact Us",
-    "sub1": "Who we are ? ",
+    "title2": "Important services",
+    "tarms": "Terms and Conditions",
+    "sub4": "D_Sally",
+    "sub1": "Who are we?",
     "sub2": "Blog",
     "sub3": "Contact Us",
-    "sub4": "Important Links",
-    "sub5": "Packages",
-    "sub6": "Available Courses",
-    "sub66": "All Offers",
-    "sub8": "132123132",
-    "sub9": "123456789",
-    "sub10": "info@iac.com",
     "desc": "Subscribe to our free mail service to receive our latest special offers",
-    "btn": "Subscribe",
-    "placeholder": "Enter your Email",
+
+    "sub10": "info@iac.com",
     "allright": "All rights reserved to International Creativity for Development and Consulting"
-  },
-
-  "pay": {
-    "checkout": "Checkout",
-    "name": "Cardholder Name",
-    "card": "Card Number",
-    "expiryDate": "Expiry Date",
-    "cvv": "cvv",
-    "pay": "Complete Payment",
-
-    "order": "Order Summary",
-    "subtotal": "Subtotal",
-    "total": "Total"
   },
 
   "breadcrumb": {
@@ -111,13 +94,41 @@
     "products": "Products"
   },
   "members": {
+    "memberIbda": "International Creativity Membership for Development and Consulting",
     "consultants": "Consultants",
-    "member": "Members"
+    "consultantsCon": "Certified Consultants",
+    "conditions": "Consultant Terms",
+    "members": "Members",
+    "benefits": "Member Benefits",
+    "member": "Accredited members"
+  },
+  "accreditation": {
+    "local": "Local Accreditation",
+    "international": "International Accreditation"
   },
 
+  "registration": {
+    "Courses": "Register for courses",
+    "Diplomas": "Registration for training diplomas",
+    "Masters": "Registration for Masters",
+    "repeatquestions": "Repeating questions",
+    "inquiries": "Inquiries",
+    "subject": "Subject",
+    "name": "Name",
+    "email": "Email",
+    "massage": "Message",
+    "submit": "Submit",
+    "contact": "Contact Us",
+    "phone": "Phone"
+  },
+
+  "d-sally": "Introducing Dr. Sally Zaki Muhammad",
   "review": "Review",
   "more": "More Details",
   "price": "Price",
   "enroll": "Enroll Now",
-  "share": "Share"
+  "share": "Share",
+
+  "success": "تم الارسال بنجاح",
+  "error": "حاول مرة اخرى"
 }

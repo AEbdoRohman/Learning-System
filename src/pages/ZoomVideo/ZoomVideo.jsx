@@ -3,17 +3,21 @@ import "@zoom/videosdk-ui-toolkit/dist/videosdk-ui-toolkit.css";
 import "./ZoomVideo.css";
 import KJUR from "jsrsasign";
 import { useLocation } from "react-router-dom";
+import Cookies from "universal-cookie";
 
 function ZoomVideo() {
   const location = useLocation();
   const calender = location.state?.calender;
+
+  const cookies = new Cookies();
+  const user = cookies.get("authUser");
 
   let sessionContainer = null;
 
   const config = {
     videoSDKJWT: "",
     sessionName: "calender?.sessionName",
-    userName: "Admin",
+    userName: user,
     sessionPasscode: "",
     features: ["video", "audio", "settings", "users", "chat", "share"],
     options: { init: {}, audio: {}, video: {}, share: {} },
@@ -43,7 +47,7 @@ function ZoomVideo() {
       role_type: role,
       session_key: sessionKey,
       user_identity: userIdentity,
-      version: 1,
+      version: 0,
       iat: iat,
       exp: exp,
     };
@@ -83,14 +87,12 @@ function ZoomVideo() {
     document.getElementById("join-flow").style.display = "block";
   };
 
-  console.log("Navigating with data:", calender); // في handleZoomClick
+  console.log("Navigating with data:", calender);
   console.log("Received location state:", location.state);
 
   return (
     <main className=" w-2/3 mx-auto mt-20 md:mt-32">
       <div id="join-flow">
-        {/* <h1>Zoom Video SDK Sample React</h1> */}
-        {/* <p>User interface offered by the Video SDK UI Toolkit</p> */}
         <button onClick={getVideoSDKJWT} className="">
           Join Session
         </button>

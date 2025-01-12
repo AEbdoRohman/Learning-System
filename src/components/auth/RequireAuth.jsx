@@ -4,7 +4,7 @@ import Cookies from "universal-cookie";
 const RequireAuth = () => {
   const cookies = new Cookies();
   const token = cookies.get("authToken");
-  return token ? <Outlet /> : <Navigate to="/login" replace={true} />;
+  return token ? <Outlet /> : <Navigate to="/" replace={true} />;
 };
 
 export default RequireAuth;

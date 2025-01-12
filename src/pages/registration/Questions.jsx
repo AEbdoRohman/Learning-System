@@ -5,7 +5,7 @@ import { baseurl } from "../../api/api";
 import Loading from "../../layouts/Loading";
 
 const Questions = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
 
@@ -42,7 +42,9 @@ const Questions = () => {
 
   return (
     <div className="container mx-auto min-h-screen mt-28 md:mt-32 mb-10 px-4">
-      <h1 className="text-2xl font-bold mb-4">الاسئلة الشائعة</h1>
+      <h1 className="text-lg md:text-4xl font-bold text-blue-400 text-center mb-8">
+        {t("registration.repeatquestions")}
+      </h1>
       <div
         className="bg-gray-200 rounded-lg p-6 px-8"
         dangerouslySetInnerHTML={{ __html: data }}

@@ -66,6 +66,7 @@ const Childrens = () => {
   //   }
   // };
 
+  // const handelEnroll =()=>{}
   return (
     <div className="container mx-auto p-4 h-screen mt-32">
       <div>
@@ -74,30 +75,6 @@ const Childrens = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {data.map((item) => (
-            // <div
-            //   key={course.id}
-            //   className="border px-8 py-4 mb-4 rounded-md shadow-md bg-white"
-            // >
-            //   <div className="flex items-center justify-between">
-            //     <div className="flex items-center justify-between flex-1">
-            //       <h3 className="text-2xl font-bold text-blue-600 mb-4">
-            //         {course.name}
-            //       </h3>
-            //       <p className="bg-gray-300 px-2 py-1 rounded-md">
-            //         {course.is_special ? "Special" : "Normal"}
-            //       </p>
-            //     </div>
-            //     <p className="mx-4 bg-blue-gray-400 text-white px-3 py-1 rounded-md ">
-            //       {course.code}
-            //     </p>
-            //     <button
-            //       className="bg-blue-600 text-white px-4 py-1 rounded-md"
-            //       onClick={() => handelEnroll(course.id)}
-            //     >
-            //       {i18n.language === "en" ? "Enroll" : "تسجيل"}
-            //     </button>
-            //   </div>
-            // </div>
             <div key={item.id} className="bg-blue-gray-100 rounded-lg">
               <div className="overflow-hidden group ">
                 <img
@@ -126,7 +103,7 @@ const Childrens = () => {
                     <span className="font-bold mx-2">${item.price}</span>
                   </p>
                   <Link
-                    to={`/childrens/zoom-session`}
+                    to={`/register/${item.id}`}
                     className="w-fit mx-auto mt-4 bg-blue-600 text-white px-4 py-1 rounded-md"
                     // onClick={() => handelEnroll(item.id)}
                   >

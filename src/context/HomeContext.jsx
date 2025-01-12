@@ -7,6 +7,7 @@ const HomeContext = createContext();
 
 export const HomeProvider = ({ children }) => {
   const { i18n } = useTranslation();
+
   const [data, setData] = useState({
     privacyData: null,
     messageData: null,
@@ -23,12 +24,12 @@ export const HomeProvider = ({ children }) => {
     const fetchData = async () => {
       try {
         const baseurl = "https://cia-cd.native-digitalsolutions.com/api";
-        const token = "5|1Q8vzifRZTUdzM51sJkxIOuQ0uCqoAcR31EaiC9Ea452fb53";
+        // const token = "5|1Q8vzifRZTUdzM51sJkxIOuQ0uCqoAcR31EaiC9Ea452fb53";
         const lang = i18n.language;
 
         const headers = {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          // Authorization: `Bearer ${token}`,
           lang: lang,
         };
 
