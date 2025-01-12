@@ -51,7 +51,7 @@ export default function NavBar() {
       <Menubar
         model={items}
         className={`bg-transparent w-full border-none py-1 font-semibold ${
-          i18n.language === "en" ? "text-[1.2rem]" : "text-[.9rem]"
+          i18n.language === "en" ? "text-[1.2rem]" : "text-[1.2rem]"
         }`}
         p-cascadeselect-items
       />
