@@ -32,7 +32,7 @@ const Header = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-40 bg-white shadow-md py-2">
-      <div className="flex items-center justify-between mx-1 md:mx-4">
+      <div className="flex items-center justify-between mx-1 md:mx-2">
         <div className="flex items-center gap-1 md:gap-2">
           <div className="w-32 md:w-52">
             <img src="/images/Artboard.png" alt="Logo" />
