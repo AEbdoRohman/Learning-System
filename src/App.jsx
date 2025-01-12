@@ -36,7 +36,7 @@ import ZoomVideo from "./pages/ZoomVideo/ZoomVideo";
 import Calender from "./pages/calender/Calender";
 import { ToastContainer } from "react-toastify";
 import RequireAuth from "./components/auth/RequireAuth";
-import SubCategory from "./pages/activities/subCategory";
+import SubCategory from "./pages/activities/SubCategory";
 
 function App() {
   const { i18n } = useTranslation();
