@@ -3,7 +3,7 @@
 export { default as Login } from "../components/auth/Login";
 export { default as Register } from "../components/auth/Register";
 export { default as HomePage } from "../pages/home/HomePage";
-export { default as News } from "../pages/news/News";
+export { default as News } from "../pages/news/Academic";
 export { default as Accreditations } from "../pages/accreditations/Accreditations";
 export { default as Activities } from "../pages/activities/Activities";
 export { default as Childrens } from "../pages/Childrens/Childrens";

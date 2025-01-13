@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import Loading from "../../layouts/Loading";
 
-const News = () => {
+const Academic = () => {
   const { i18n } = useTranslation();
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -41,7 +41,7 @@ const News = () => {
   if (error) return <p className="text-red-500">{error}</p>;
 
   return (
-    <div className="container mx-auto main-h-screen mt-28 md:mt-32 mb-10">
+    <div className="container mx-auto h-full mt-28 md:mt-32 mb-28">
       {blogs.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 ">
           {blogs.map((item) => (
@@ -52,7 +52,7 @@ const News = () => {
             >
               <div className="overflow-hidden rounded-t-lg ">
                 <img
-                  src="/images/course-30.webp"
+                  src="/logo.jpeg"
                   className="w-full h-auto rounded-t-md group-hover:scale-105 duration-300 ease-in-out"
                   alt="image"
                 />
@@ -62,10 +62,10 @@ const News = () => {
                 <h1 className="text-2xl font-bold text-center m-4">
                   {item.title}
                 </h1>
-                <p
+                {/* <p
                   className="line-clamp-2 overflow-hidden text-gray-700 mx-6"
                   dangerouslySetInnerHTML={{ __html: item.content }}
-                ></p>
+                ></p> */}
               </div>
             </Link>
           ))}
@@ -77,4 +77,4 @@ const News = () => {
   );
 };
 
-export default News;
+export default Academic;

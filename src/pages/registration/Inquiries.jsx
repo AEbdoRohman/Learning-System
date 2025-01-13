@@ -46,11 +46,11 @@ const Inquiries = () => {
   };
 
   return (
-    <div className="container mx-auto mt-20 md:mt-32 mb-10">
-      <h1 className="text-lg md:text-4xl font-bold text-blue-400 text-center mb-8">
-        {t("Inquiries")}{" "}
+    <div className="container mx-auto mt-28 md:mt-32 mb-10">
+      <h1 className="text-4xl font-bold text-blue-400 text-center mb-8">
+        {t("registration.inquiries")}
       </h1>
-      <form className="w-1/2 mx-auto" onSubmit={handleSubmit}>
+      <form className="w-full md:w-1/2 mx-4 md:mx-auto" onSubmit={handleSubmit}>
         {/* Subject */}
         <div className="mb-4">
           <label

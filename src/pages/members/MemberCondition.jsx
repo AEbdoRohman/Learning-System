@@ -47,11 +47,11 @@ const MemberCondition = () => {
   return (
     <div className="container mx-auto min-h-screen mt-28 md:mt-32 mb-10 px-4">
       {path === "member" ? (
-        <h1 className="text-lg md:text-4xl font-bold text-blue-400 text-center mb-8">
+        <h1 className="text-4xl font-bold text-blue-400 text-center mb-8 ">
           {t("members.benefits")}
         </h1>
       ) : (
-        <h1 className="text-lg md:text-4xl font-bold text-blue-400 text-center mb-8">
+        <h1 className="text-4xl font-bold text-blue-400 text-center mb-8">
           {t("members.conditions")}
         </h1>
       )}

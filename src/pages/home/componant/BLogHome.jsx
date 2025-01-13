@@ -65,12 +65,12 @@ const BLogHome = () => {
               className="rounded-md cursor-pointer w-full relative transition-all duration-1000 group overflow-hidden"
             >
               <img
-                src="/src/assets/images/modawana.jpg"
+                src="/logo.jpeg"
                 className="rounded-md w-full transform transition-transform duration-1000 group-hover:scale-110 group-hover:rotate-3"
                 alt=""
               />
-              <div className="absolute bg-black bg-opacity-50 w-full h-full top-0 left-0 rounded-md flex items-center justify-center text-white text-center p-3 opacity-0 transform transition-all duration-700 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0">
-                <p className="px-2 border-[1px] border-white w-full h-full font-semibold flex items-center justify-center rounded-lg transform scale-90 group-hover:scale-100 transition-transform duration-700">
+              <div className="absolute bg-black bg-opacity-50 w-full h-full top-0 left-0 rounded-md flex items-center justify-center text-center p-3 opacity-0 transform transition-all duration-700 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0">
+                <p className="text-lg md:text-2xl text-white px-2 border-[1px] border-white w-full h-full font-bold flex items-center justify-center rounded-lg transform scale-90 group-hover:scale-100 transition-transform duration-700">
                   {item.title}{" "}
                 </p>
               </div>

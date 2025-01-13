@@ -46,58 +46,14 @@ const CourseDetail = () => {
   if (loading) return <Loading />;
   if (error) return <p>{error}</p>;
 
-  // const handelEnroll = async (courseId) => {
-  //   try {
-  //     const response = await axios.post(
-  //       `${baseurl}/subscripte/${courseId}`,
-  //       {},
-  //       {
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Authorization:
-  //             "Bearer " + "7|2Ht6CFZ4SrHd5D61YUdGMxyvZNY2DDofAWXBcAxFf136b392",
-  //           lang: i18n.language,
-  //         },
-  //       }
-  //     );
-  //     console.log(response);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-
   return (
-    <div className="container mx-auto p-4 h-screen mt-32">
+    <div className="container mx-auto p-4 h-full mb-20 mt-28 md:mt-32">
       <div>
-        <h2 className="text-2xl font-bold text-center mt-4 mb-6">
+        <h1 className="text-4xl font-bold text-blue-400 text-center mb-8 ">
           {subcategory}
-        </h2>
+        </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {data.map((item) => (
-            // <div
-            //   key={course.id}
-            //   className="border px-8 py-4 mb-4 rounded-md shadow-md bg-white"
-            // >
-            //   <div className="flex items-center justify-between">
-            //     <div className="flex items-center justify-between flex-1">
-            //       <h3 className="text-2xl font-bold text-blue-600 mb-4">
-            //         {course.name}
-            //       </h3>
-            //       <p className="bg-gray-300 px-2 py-1 rounded-md">
-            //         {course.is_special ? "Special" : "Normal"}
-            //       </p>
-            //     </div>
-            //     <p className="mx-4 bg-blue-gray-400 text-white px-3 py-1 rounded-md ">
-            //       {course.code}
-            //     </p>
-            //     <button
-            //       className="bg-blue-600 text-white px-4 py-1 rounded-md"
-            //       onClick={() => handelEnroll(course.id)}
-            //     >
-            //       {i18n.language === "en" ? "Enroll" : "تسجيل"}
-            //     </button>
-            //   </div>
-            // </div>
             <div key={item.id} className="bg-blue-gray-100 rounded-lg">
               <div className="overflow-hidden group ">
                 <img

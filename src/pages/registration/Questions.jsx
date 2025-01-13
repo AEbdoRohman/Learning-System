@@ -42,7 +42,7 @@ const Questions = () => {
 
   return (
     <div className="container mx-auto min-h-screen mt-28 md:mt-32 mb-10 px-4">
-      <h1 className="text-lg md:text-4xl font-bold text-blue-400 text-center mb-8">
+      <h1 className="text-4xl font-bold text-blue-400 text-center mb-8">
         {t("registration.repeatquestions")}
       </h1>
       <div

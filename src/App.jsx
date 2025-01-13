@@ -6,7 +6,6 @@ import {
   Login,
   Register,
   HomePage,
-  News,
   Accreditations,
   Activities,
   Childrens,
@@ -37,6 +36,17 @@ import Calender from "./pages/calender/Calender";
 import { ToastContainer } from "react-toastify";
 import RequireAuth from "./components/auth/RequireAuth";
 import SubCategory from "./pages/activities/SubCategory";
+import MainNews from "./pages/news/MainNews";
+import Protocols from "./pages/news/component/Protocols";
+import Certificates from "./pages/news/component/Certificates";
+import Academic from "./pages/news/Academic";
+import SubProtocol from "./pages/news/component/SubProtocol";
+import Certificate from "./pages/news/component/Certificate";
+import Truspartenrs from "./pages/news/Truspartenrs";
+import Entities from "./pages/news/Entities";
+import SayAboutUs from "./pages/news/SayAboutUs";
+import StatisticHome from "./pages/statistics/StatisticHome";
+import Statistic from "./pages/statistics/Statistic";
 
 function App() {
   const { i18n } = useTranslation();
@@ -64,7 +74,6 @@ function App() {
         <Routes>
           {/* Authentication */}
           <Route path="/login" element={<Login />} />
-
           {/* Pages */}
           <Route element={<RequireAuth />}>
             <Route path="/calender" element={<Calender />} />
@@ -75,14 +84,24 @@ function App() {
           <Route path="/about-us" element={<Cia />} />
           <Route path="/dr-saly-words" element={<Cia />} />
           <Route path="/why-us" element={<Cia />} />
-
           <Route path="/courses" element={<CoursePage />} />
           <Route path="/courses/:id" element={<CourseDetail />} />
-
           {/* News */}
-          <Route path="/news" element={<News />} />
-          {/* <Route path="/news/:id" element={<SubNews />} /> */}
-          <Route path="/news/:id" element={<NewDetails />} />
+          <Route path="/news" element={<MainNews />} />
+          <Route path="/news/academic" element={<Academic />} />
+          <Route path="/news/academic/:id" element={<NewDetails />} />
+          {/* <Route path="/news/academic/DrIhab" element={<DrIhab />} /> */}
+          <Route path="/news/protocols" element={<Protocols />} />
+          <Route path="/news/protocols/:union" element={<SubProtocol />} />
+
+          <Route path="/news/certificates" element={<Certificates />} />
+          <Route
+            path="/news/certificates/:certificate"
+            element={<Certificate />}
+          />
+          <Route path="/news/entities" element={<Entities />} />
+          <Route path="/news/partners" element={<Truspartenrs />} />
+          <Route path="/news/aboutUs" element={<SayAboutUs />} />
 
           {/* Accreditations */}
           <Route path="/accreditations" element={<Accreditations />} />
@@ -94,17 +113,14 @@ function App() {
             path="/accreditations/international-accrebtions"
             element={<AccreditationsPage />}
           />
-
           {/* Activities */}
           <Route path="/activities" element={<Activities />} />
           <Route path="/activities/:id" element={<SubCategory />} />
           <Route path="/activities/:id/:id" element={<CourseDetail />} />
           <Route path="/register/:id" element={<Register />} />
-
           {/* Childrens */}
           <Route path="/childrens" element={<Childrens />} />
           <Route path="/register/:id" element={<Register />} />
-
           {/* Members */}
           <Route path="/members" element={<Members />} />
           <Route path="/members/memberIbda" element={<MemberIbda />} />
@@ -129,9 +145,14 @@ function App() {
           <Route path="/registration/inquiries" element={<Inquiries />} />
           {/* Statistics */}
           <Route path="/statistics" element={<Statistics />} />
+          <Route path="/statistics/home" element={<StatisticHome />} />
+          <Route path="/statistics/news" element={<Statistic />} />
+          <Route path="/statistics/members" element={<Statistic />} />
+          <Route path="/statistics/accreditations" element={<Statistic />} />
+          <Route path="/statistics/questions" element={<Statistic />} />
+          <Route path="/statistics/contact" element={<Statistic />} />
           {/* Contact */}
           <Route path="/contact" element={<Contact />} />
-
           <Route
             path="/terms/terms-conditions"
             element={<AccreditationsPage />}

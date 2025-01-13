@@ -34,7 +34,7 @@ const Member = () => {
         ]
       : [];
   return (
-    <div className="container mx-auto h-screen mt-28 md:mt-32">
+    <div className="container mx-auto h-full mb-20 mt-28 md:mt-32">
       <MainCard data={data} />
     </div>
   );

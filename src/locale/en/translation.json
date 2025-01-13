@@ -51,6 +51,26 @@
     "who": "Who we are",
     "word-saly": "Word of Saly"
   },
+
+  "news": {
+    "academic": "Academy News",
+    "protocols": "Cooperation protocols",
+    "certificates": "Certificates of Appreciation",
+    "entities": "Entities dealt with",
+    "partners": "Trusted Partners",
+    "about": "about us",
+    "DrIhab": "Dr. Ihab Heikal",
+    "union": "The Union of the Deaf and Hard of Hearing",
+    "alnasser": "Al Nasser Foundation",
+    "spark": "Spark Communications Company",
+    "rotary": "Rotary Club of Egypt",
+    "aco": "Aco Medical",
+    "imperial": "Imperial Electrical Appliances",
+    "iaea": "International Alliance for Egyptians Abroad",
+    "esu": "Egyptian and Saudi universities",
+    "gulf": "Gulf Cooperation Council",
+    "various": "Various other parties"
+  },
   "maincourses": {
     "title": "Our distinguished courses",
     "desc": "We offer you courses and courses with the best trainers in all the fields we have so that you can benefit properly and obtain the full experience that qualifies you for the labor market and you are fully prepared"
