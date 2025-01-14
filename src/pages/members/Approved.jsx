@@ -46,7 +46,7 @@ const Approved = () => {
   }
 
   return (
-    <div className="container mx-auto min-h-screen mt-28 md:mt-32 mb-10 px-4">
+    <div className="container mx-auto min-h-screen mt-28 md:mt-40 mb-10 px-4">
       {path === "member" ? (
         <h1 className="text-4xl font-bold text-blue-400 text-center mb-8">
           {t("members.member")}

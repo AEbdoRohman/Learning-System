@@ -22,9 +22,7 @@ const SubCategory = () => {
           {
             headers: {
               "Content-Type": "application/json",
-              Authorization:
-                "Bearer 5|1Q8vzifRZTUdzM51sJkxIOuQ0uCqoAcR31EaiC9Ea452fb53",
-              // Authorization: `Bearer ${token}`,
+
               lang: i18n.language,
             },
           }
@@ -44,7 +42,7 @@ const SubCategory = () => {
   }
 
   return (
-    <div className="container mx-auto main-h-screen mt-28 md:mt-32 mb-10">
+    <div className="container mx-auto main-h-screen mt-28 md:mt-40 mb-10">
       <ActivCard data={data} />
     </div>
   );

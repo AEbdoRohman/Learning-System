@@ -31,13 +31,14 @@ const Activities = () => {
       }
     };
     fetchData();
+    window.scrollTo(0, 0);
   }, [i18n.language]);
 
   if (loading) {
     return <Loading />;
   }
   return (
-    <div className="container mx-auto main-h-screen mt-28 md:mt-32 mb-10">
+    <div className="container mx-auto main-h-screen mt-28 md:mt-40 mb-10">
       <ActivCard data={data} />
     </div>
   );

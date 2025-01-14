@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import MainCard from "../../components/mainCard/MainCard";
+import { useEffect } from "react";
 
 const MainNews = () => {
   const { t } = useTranslation();
@@ -35,8 +36,11 @@ const MainNews = () => {
       link: "/news/aboutUs",
     },
   ];
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
-    <div className="container mx-auto h-full mb-28 mt-28 md:mt-32 ">
+    <div className="container mx-auto h-full mb-28 mt-28 md:mt-40 ">
       <MainCard data={data} />
     </div>
   );

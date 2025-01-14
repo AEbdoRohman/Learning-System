@@ -21,7 +21,7 @@ const Certificates = () => {
     },
   ];
   return (
-    <div className="container mx-auto h-full mt-28 md:mt-36 mb-10">
+    <div className="container mx-auto h-full mt-28 md:mt-40 mb-10">
       <MainCard data={data} />
     </div>
   );

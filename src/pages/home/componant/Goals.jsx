@@ -34,7 +34,7 @@ const Goals = ({ ourGoalsData }) => {
           {t("home.goals")}
         </h2>
         <p
-          className=" text-sm md:text-xl font-bold mx-3 md:mx-10 p-3"
+          className=" text-sm md:text-xl font-bold text-center w-full md:w-2/3 mx-3 md:mx-auto p-3"
           dangerouslySetInnerHTML={{ __html: ourGoalsData }}
         />
       </div>

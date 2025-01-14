@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import MainCard from "../../components/mainCard/MainCard";
+import { useEffect } from "react";
 
 const Accreditations = () => {
   const { t } = useTranslation();
@@ -15,8 +16,12 @@ const Accreditations = () => {
       link: "/accreditations/international-accrebtions",
     },
   ];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
-    <div className="container mx-auto main-h-screen mt-28 md:mt-32 mb-10">
+    <div className="container mx-auto main-h-screen mt-28 md:mt-40 mb-10">
       {" "}
       <MainCard data={data} />
     </div>

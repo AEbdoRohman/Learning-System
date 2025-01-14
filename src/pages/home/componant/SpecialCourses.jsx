@@ -42,8 +42,8 @@ const SpecialCourses = () => {
           {data.map((item) => (
             <div key={item.id} className="bg-blue-gray-100 rounded-lg">
               <img
-                src="/images/course-30.webp"
-                className="w-full h-auto rounded-t-md"
+                src={item.image}
+                className="w-full max-h-56 rounded-t-md"
                 alt="imageCourse"
               />
 

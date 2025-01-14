@@ -41,7 +41,7 @@ const Academic = () => {
   if (error) return <p className="text-red-500">{error}</p>;
 
   return (
-    <div className="container mx-auto h-full mt-28 md:mt-32 mb-28">
+    <div className="container mx-auto h-full mt-28 md:mt-40 mb-28">
       {blogs.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 ">
           {blogs.map((item) => (

@@ -62,7 +62,7 @@ const Certificate = () => {
             key={index}
             src={item.image}
             alt="Protocol"
-            className="w-40 h-40 object-cover mb-4"
+            className="w-40 h-60 object-cover mb-4"
           />
         ))}
       </div>

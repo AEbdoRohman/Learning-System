@@ -19,7 +19,7 @@ const RouteVisits = () => {
     "International Accreditations": "/statistics/accreditations",
     Questions: "/statistics/questions",
     "contactu-us": "/statistics/contact",
-    // المفاتيح العربية
+
     "الرئيسيه ": "/statistics/home",
     "الاخبار وشركاء الثقه": "/statistics/news",
     "الاعضاء والاستشاريين": "/statistics/members",
@@ -46,6 +46,7 @@ const RouteVisits = () => {
     };
 
     fetchData();
+    window.scrollTo(0, 0);
   }, [i18n.language]);
 
   if (loading) {
