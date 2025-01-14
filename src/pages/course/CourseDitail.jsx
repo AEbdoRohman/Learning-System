@@ -22,8 +22,7 @@ const CourseDetail = () => {
         const response = await axios.get(`${baseurl}/course/${id}/get`, {
           headers: {
             "Content-Type": "application/json",
-            Authorization:
-              "Bearer " + "7|2Ht6CFZ4SrHd5D61YUdGMxyvZNY2DDofAWXBcAxFf136b392",
+
             lang: i18n.language,
           },
         });
@@ -58,7 +57,7 @@ const CourseDetail = () => {
               <div className="overflow-hidden group ">
                 <img
                   src={item.image}
-                  className="w-full h-auto rounded-t-md group:hover:scale-110 duration-300 ease-in-out"
+                  className="w-full h-52 rounded-t-md group:hover:scale-110 duration-300 ease-in-out"
                   alt="imageCourse"
                 />
               </div>

@@ -43,7 +43,7 @@ const SpecialCourses = () => {
             <div key={item.id} className="bg-blue-gray-100 rounded-lg">
               <img
                 src={item.image}
-                className="w-full max-h-56 rounded-t-md"
+                className="w-full max-h-52 rounded-t-md"
                 alt="imageCourse"
               />
 
