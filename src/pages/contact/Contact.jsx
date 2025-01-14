@@ -5,32 +5,6 @@ import { baseurl } from "../../api/api";
 import Loading from "../../layouts/Loading";
 
 const Contact = () => {
-  // const contacts = [
-  //   {
-  //     name: "دكتور / سيد المنير",
-  //     title: "رئيس مجلس الإدارة",
-  //     phones: ["جمهورية مصر العربية: 01006611222 002"],
-  //   },
-  //   {
-  //     name: "دكتورة / سالي زكى",
-  //     title: "نائب رئيس مجلس الإدارة والمدير العام",
-  //     phones: [
-  //       "جمهورية مصر العربية: 01006085683 002",
-  //       "المملكة العربية السعودية: 535074210 00966",
-  //     ],
-  //   },
-  //   {
-  //     name: "مهندسة / سها زكي",
-  //     title: "المديرة التنفيذية",
-  //     phones: ["جمهورية مصر العربية: 01003572300 002"],
-  //   },
-  //   {
-  //     name: "مهندس / أيمن قاسم",
-  //     title: "المدير التنفيذي",
-  //     phones: ["المملكة العربية السعودية: 568498820 00966"],
-  //   },
-  // ];
-
   const { t, i18n } = useTranslation();
   const [contacts, setContacts] = useState([]);
 
@@ -66,7 +40,7 @@ const Contact = () => {
 
   return (
     <div className="container mx-auto min-h-screen mt-28 md:mt-32 mb-10 px-4">
-      <h1 className="text-4xl font-bold text-blue-400 text-center mb-8 ">
+      <h1 className="text-4xl font-bold text-blue-400 text-center mb-8">
         {t("registration.contact")}
       </h1>
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">

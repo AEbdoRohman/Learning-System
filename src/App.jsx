@@ -90,7 +90,6 @@ function App() {
           <Route path="/news" element={<MainNews />} />
           <Route path="/news/academic" element={<Academic />} />
           <Route path="/news/academic/:id" element={<NewDetails />} />
-          {/* <Route path="/news/academic/DrIhab" element={<DrIhab />} /> */}
           <Route path="/news/protocols" element={<Protocols />} />
           <Route path="/news/protocols/:union" element={<SubProtocol />} />
 
