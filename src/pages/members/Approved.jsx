@@ -26,9 +26,6 @@ const Approved = () => {
           },
         });
         setData(response.data.data);
-
-        console.log(response.data.data);
-        console.log(data);
         setLoading(false);
       } catch (err) {
         console.log(err);
@@ -46,7 +43,7 @@ const Approved = () => {
   }
 
   return (
-    <div className="container mx-auto min-h-screen mt-28 md:mt-40 mb-10 px-4">
+    <div className="container mx-auto h-full mt-28 md:mt-40 mb-10 px-4">
       {path === "member" ? (
         <h1 className="text-4xl font-bold text-blue-400 text-center mb-8">
           {t("members.member")}
@@ -56,21 +53,23 @@ const Approved = () => {
           {t("members.consultantsCon")}
         </h1>
       )}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4  gap-y-10 md:gap-16">
         {data.map((item, index) => (
           <div
             key={index}
-            className="bg-gray-300 rounded-lg flex flex-col items-center cursor-pointer hover:-translate-y-3 duration-700 ease-in-out"
+            className="bg-gray-100  rounded-lg flex flex-col items-center cursor-pointer hover:-translate-y-3 duration-700 ease-in-out"
           >
             <img
               src={item.image}
               alt={item.name}
-              className="w-full h-28 object-cover rounded-t-lg"
+              className="w-full h-48  rounded-t-lg"
             />
-            <h2 className="text-2xl text-blue-700 font-semibold mt-6 mb-2 ">
-              {item.name}
-            </h2>
-            <p className="text-gray-600 text-lg pb-4">{item.description}</p>
+            <div className="p-4 text-center">
+              <h2 className="text-xl text-blue-700 font-semibold px-2 mb-2 ">
+                {item.name}
+              </h2>
+              <p className="text-gray-600 text-lg">{item.description}</p>
+            </div>
           </div>
         ))}
       </div>

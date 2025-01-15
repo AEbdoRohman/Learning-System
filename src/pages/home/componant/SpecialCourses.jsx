@@ -16,7 +16,6 @@ const SpecialCourses = () => {
         const response = await axios.get(`${baseurl}/course/isSpecial`, {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer 5|1Q8vzifRZTUdzM51sJkxIOuQ0uCqoAcR31EaiC9Ea452fb53`,
             lang: i18n.language,
           },
         });
@@ -43,23 +42,26 @@ const SpecialCourses = () => {
             <div key={item.id} className="bg-blue-gray-100 rounded-lg">
               <img
                 src={item.image}
-                className="w-full max-h-52 rounded-t-md"
+                className="w-full h-44 md:h-52 rounded-t-md"
                 alt="imageCourse"
               />
 
               <div>
                 <div className="flex items-center">
-                  <h1 className="text-2xl font-bold m-4">{item.name}</h1>
-                  <p className="text-yellow-800 mt-2 rounded-lg w-fit  ">
+                  <h1 className="text-2xl font-bold mx-4 my-2 md:my-4">
+                    {item.name}
+                  </h1>
+                  <p className="text-yellow-800 mt-2 rounded-lg w-fit ">
                     {item.is_special ? <FaStar size={26} /> : ""}
                   </p>
                 </div>
                 <div className="w-[90%] h-[1px] bg-gray-300 mx-auto"></div>
-                <div className="flex flex-col gap-4 my-4">
+                <div className="flex flex-col gap-4 my-2 md:my-4">
                   <p className="mx-2">
                     <span className="font-bold mx-2">{t("home.cood")}:</span>{" "}
                     {item.code}
                   </p>
+
                   <p className="mx-2">
                     <span className="font-bold mx-2">{t("home.price")}:</span>
                     {item.credits}
@@ -67,7 +69,7 @@ const SpecialCourses = () => {
                   </p>
                   <Link
                     to={`/register/${item.id}`}
-                    className="bg-blue-600 text-white w-fit mx-auto px-4 py-2 rounded-lg font-bold"
+                    className="bg-blue-600 text-white w-fit mx-auto my-2 px-4 py-2 rounded-lg font-bold"
                   >
                     {t("enroll")}
                   </Link>

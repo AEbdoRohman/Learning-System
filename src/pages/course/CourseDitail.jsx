@@ -57,20 +57,22 @@ const CourseDetail = () => {
               <div className="overflow-hidden group ">
                 <img
                   src={item.image}
-                  className="w-full h-52 rounded-t-md group:hover:scale-110 duration-300 ease-in-out"
+                  className="w-full h-44 md:h-52 rounded-t-md group:hover:scale-110 duration-300 ease-in-out"
                   alt="imageCourse"
                 />
               </div>
 
               <div>
                 <div className="flex items-center">
-                  <h1 className="text-2xl font-bold m-4">{item.name}</h1>
+                  <h1 className="text-2xl font-bold mx-4 my-2 md:my-4">
+                    {item.name}
+                  </h1>
                   <p className="text-yellow-800 mt-2 rounded-lg w-fit  ">
                     {item.is_special ? <FaStar size={26} /> : ""}
                   </p>
                 </div>
                 <div className="w-[90%] h-[1px] bg-gray-300 mx-auto"></div>
-                <div className="flex flex-col gap-4 my-4">
+                <div className="flex flex-col gap-4 mb-4 mt-2 md:mt-4">
                   <p className="mx-2">
                     <span className="font-bold mx-2">{t("home.cood")}:</span>{" "}
                     {item.code}
