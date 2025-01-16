@@ -43,23 +43,22 @@ const Contact = () => {
       <h1 className="text-4xl font-bold text-blue-400 text-center mb-8">
         {t("registration.contact")}
       </h1>
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+      <div className="grid gap-8 md:grid-cols-3 lg:grid-cols-3">
         {/* Card Section */}
         {contacts.map((contact, index) => (
           <div
             key={index}
             className="bg-gray-200 shadow-lg rounded-lg px-8 py-6"
           >
-            <h2 className="text-2xl font-semibold text-rose-800 mb-1">
-              {contact.name}
-            </h2>
-            <p className="text-gray-600 mx-4 mb-2">{contact.description}</p>
-            <div>
-              <p className="text-lg md:text-xl font-bold">
-                {t("registration.phone")}:
+            <div className="text-center">
+              <p className="text-blue-800 font-bold text-xl mx-4 mt-2">
+                {contact.phone[0]}
               </p>
-              <p className="text-gray-800 mx-4 mt-2">{contact.phone[0]}</p>
-              <p className="text-gray-800 mx-4 mt-2">{contact.phone[1]}</p>
+            </div>
+            <div className=" text-center">
+              <p className="text-blue-800 font-bold text-xl mx-4 mt-2">
+                {contact.phone[1]}
+              </p>
             </div>
           </div>
         ))}
