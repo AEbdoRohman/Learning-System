@@ -1,1 +1,1 @@
-export const baseurl = "https://cia-cd.native-digitalsolutions.com/api";
+export const baseurl = "https://cia-cd-backend.native-digitalsolutions.com/api";
