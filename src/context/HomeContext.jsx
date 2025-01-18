@@ -2,6 +2,7 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { baseurl } from "../api/api";
 
 const HomeContext = createContext();
 
@@ -23,10 +24,7 @@ export const HomeProvider = ({ children }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const baseurl = "https://cia-cd.native-digitalsolutions.com/api";
-        // const token = "5|1Q8vzifRZTUdzM51sJkxIOuQ0uCqoAcR31EaiC9Ea452fb53";
         const lang = i18n.language;
-
         const headers = {
           "Content-Type": "application/json",
           // Authorization: `Bearer ${token}`,

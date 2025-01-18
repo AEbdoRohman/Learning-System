@@ -5,11 +5,14 @@ import axios from "axios";
 import { baseurl } from "../../api/api";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import Cookies from "universal-cookie";
 
 const Register = () => {
   const { id } = useParams();
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
+  const cookies = new Cookies();
+  const token = cookies.get("authToken");
   const [formdata, setFormdata] = useState({
     name: {
       nameAr: "",
@@ -134,8 +137,7 @@ const Register = () => {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization:
-              "Bearer " + "7|2Ht6CFZ4SrHd5D61YUdGMxyvZNY2DDofAWXBcAxFf136b392",
+            Authorization: `Bearer ${token}`,
             lang: i18n.language,
           },
         }

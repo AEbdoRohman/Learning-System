@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { baseurl } from "../../api/api";
 import axios from "axios";
@@ -44,6 +44,9 @@ const Inquiries = () => {
       toast.error(t("error"));
     }
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="container mx-auto mt-28 md:mt-32 mb-10">

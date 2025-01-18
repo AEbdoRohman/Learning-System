@@ -57,10 +57,10 @@ const BLogHome = () => {
             )}
           </p>
         </div>
-        <div className="mt-10 mr-4 md:mx-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-4 ">
+        <div className="mt-10 mr-4 md:mx-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-8 md:gap-4 shadow-lg py-2 bg-gray-100">
           {displayedBlogs.map((item) => (
             <Link
-              to={`/news/${item.id}`}
+              to={`/news/academic/${item.id}`}
               key={item.id}
               className="rounded-md cursor-pointer w-full relative transition-all duration-1000 group overflow-hidden"
             >
