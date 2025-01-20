@@ -39,28 +39,6 @@ const Footer = () => {
           <p className="text-lg font-bold mt-4">{t("footer.desc")}</p>
         </div>
 
-        {/* <div>
-          <h1 className="font-bold text-2xl text-hoverColor mb-4">
-            {t("footer.title3")}
-          </h1>
-          <div className="px-4 md:px-0">
-            <Link className="flex items-center gap-2 font-semibold hover:text-hoverColor transition-all duration-200">
-              <FaPhoneAlt className="text-sm" />
-              132123132
-            </Link>
-
-            <Link className="flex items-center gap-2 my-3 font-semibold hover:text-hoverColor transition-all duration-200">
-              <FaWhatsappSquare className="text-sm" />
-              132123132
-            </Link>
-
-            <Link className="flex items-center gap-2 font-semibold hover:text-hoverColor transition-all duration-200">
-              <IoMail className="text-sm" />
-              info@iac.com
-            </Link>
-          </div>
-        </div> */}
-
         <div>
           <h1 className="font-bold text-2xl text-hoverColor mb-4">
             {t("footer.title2")}

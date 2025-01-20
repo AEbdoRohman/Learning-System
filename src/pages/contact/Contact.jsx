@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { baseurl } from "../../api/api";
 import Loading from "../../layouts/Loading";
+import { FaFacebookF, FaSquareXTwitter, FaYoutube } from "react-icons/fa6";
 
 const Contact = () => {
   const { t, i18n } = useTranslation();
   const [contacts, setContacts] = useState([]);
+  const [social, setSocial] = useState({});
 
   const [loading, setLoading] = useState(false);
 
@@ -28,8 +30,24 @@ const Contact = () => {
         setLoading(false);
       }
     };
+    const feathSitting = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(`${baseurl}/show/media-logo/user`, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        setSocial(response.data.data);
+        setLoading(false);
+      } catch (err) {
+        console.log(err);
+        setLoading(false);
+      }
+    };
 
     feathdata();
+    feathSitting();
 
     window.scrollTo(0, 0);
   }, [i18n.language]);
@@ -65,11 +83,33 @@ const Contact = () => {
       </div>
 
       {/* Email Section */}
-      <div className="flex items-center justify-center gap-6  md:gap-8 mt-8 bg-gray-100 rounded-lg p-2 md:p-6 text-center">
-        <h2 className="text-2xl font-semibold text-rose-800">
+      <div className="flex items-center justify-center gap-8  md:gap-12 mt-8 bg-gray-100 rounded-lg p-2 md:p-6 text-center">
+        <div className="text-2xl font-semibold text-rose-800">
           {t("registration.email")}:
-        </h2>
-        <p className="text-red-600 text-lg font-bold">Info@cia-cd.com</p>
+          <span className="text-red-600 text-lg font-bold mx-4">
+            {social.email}
+          </span>
+        </div>
+        <div className="text-2xl font-semibold text-rose-800">
+          {t("registration.whatapp")}:
+          <span className="text-red-600 text-lg font-bold mx-4">
+            {social.whatsapp}
+          </span>
+        </div>
+      </div>
+
+      <div>
+        <div className="mt-4 flex items-center justify-center gap-4">
+          <a href={social.facebook} target="_blank" rel="noopener noreferrer">
+            <FaFacebookF className="text-2xl text-hoverColor hover:text-blue-400 transition-all duration-500 cursor-pointer" />
+          </a>
+          <a href={social.twitter} target="_blank" rel="noopener noreferrer">
+            <FaSquareXTwitter className="text-2xl text-hoverColor hover:text-blue-400 transition-all duration-500 cursor-pointer" />
+          </a>
+          <a href={social.youtube} target="_blank" rel="noopener noreferrer">
+            <FaYoutube className="text-2xl text-hoverColor hover:text-blue-400 transition-all duration-500 cursor-pointer" />
+          </a>
+        </div>
       </div>
     </div>
   );
