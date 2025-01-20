@@ -33,8 +33,8 @@ const Footer = () => {
         {/* logo */}
 
         <div className="flex flex-col items-center   w-full md:w-[20%]">
-          <Link className="flex justify-center items-center tex-center">
-            <img src="/images/Artboard.png" alt="logo" className="w-2/3" />
+          <Link to="/" className="flex justify-center items-center tex-center">
+            <img src={social.logo} alt="logo" className="w-2/3" />
           </Link>
           <p className="text-lg font-bold mt-4">{t("footer.desc")}</p>
         </div>

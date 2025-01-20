@@ -4,12 +4,33 @@ import LanguageSwitcher from "../../components/language/LanguageSwitcher";
 import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
 import Cookies from "universal-cookie";
+import axios from "axios";
+import { baseurl } from "../../api/api";
 
 const Header = () => {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const cookies = new Cookies();
   const token = cookies.get("authToken");
+
+  const [social, setSocial] = useState({});
+
+  useEffect(() => {
+    const fetchSocial = async () => {
+      try {
+        const response = await axios.get(`${baseurl}/show/media-logo/user`, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        setSocial(response.data.data);
+        console.log(social.logo);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchSocial();
+  }, []);
 
   const closeMenu = () => {
     setIsMenuOpen(false);
@@ -34,9 +55,9 @@ const Header = () => {
     <nav className="fixed top-0 left-0 right-0 z-40 bg-white shadow-md py-2">
       <div className="flex items-center justify-between mx-1 md:mx-2">
         <div className="flex items-center gap-1 md:gap-2">
-          <div className="w-32 md:w-52">
-            <img src="/images/Artboard.png" alt="Logo" />
-          </div>
+          <Link to="/" className="w-32 md:w-52">
+            <img src={social.logo} alt="Logo" />
+          </Link>
 
           {/* Show Login if no token, Show Calendar if token exists */}
           {token ? (
