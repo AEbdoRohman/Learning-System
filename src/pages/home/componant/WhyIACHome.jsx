@@ -9,19 +9,19 @@ const WhyIACHome = ({ privacyData }) => {
   const items = [
     {
       id: 1,
-      image: "/logo.jpeg",
+      image: "/logo.png",
       textKey: t("why.why"),
       link: "/about-us",
     },
     {
       id: 2,
-      image: "/logo.jpeg",
+      image: "/logo.png",
       textKey: t("why.who"),
       link: "/why-us",
     },
     {
       id: 3,
-      image: "/logo.jpeg",
+      image: "/logo.png",
       textKey: t("why.word-saly"),
       link: "/dr-saly-words",
     },
@@ -38,11 +38,11 @@ const WhyIACHome = ({ privacyData }) => {
             key={index}
             className="flex flex-col items-center text-center  border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out"
           >
-            <div className="w-full h-auto group overflow-hidden cursor-pointer rounded-t-lg">
+            <div className="w-full h-48 group overflow-hidden cursor-pointer rounded-t-lg">
               <img
                 src={item.image}
                 alt={t(item.textKey)}
-                className="w-full h-auto  object-cover rounded-t-lg group-[:hover]:scale-110 group-[:hover]:rotate-3 transition-transform duration-700 ease-in-out"
+                className="w-full h-full  object-cover rounded-t-lg group-[:hover]:scale-110 group-[:hover]:rotate-3 transition-transform duration-700 ease-in-out"
               />
             </div>
             <p className="my-4 px-4 text-lg font-semibold text-gray-800">

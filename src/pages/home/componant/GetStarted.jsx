@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 
 const GetStarted = ({ workingData, ebdaExpert }) => {
   const { t } = useTranslation();
-  console.log(workingData);
 
   return (
     <section className=" ">

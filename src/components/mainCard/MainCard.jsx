@@ -8,18 +8,18 @@ const MainCard = ({ data }) => {
         <Link
           to={`${item.link}`}
           key={item.id}
-          className="bg-blue-gray-100 rounded-lg group"
+          className="shadow-lg rounded-lg group"
         >
-          <div className="overflow-hidden rounded-t-lg ">
+          <div className="overflow-hidden h-48 rounded-t-lg ">
             <img
-              src="/logo.jpeg"
-              className="w-full h-auto rounded-t-md group-hover:scale-105 duration-300 ease-in-out"
+              src="/logo.png"
+              className="w-full h-48 rounded-t-md group-hover:scale-105 duration-300 ease-in-out"
               alt="image"
             />
           </div>
 
-          <div className="flex items-center justify-center py-2">
-            <h1 className="text-2xl font-bold m-4">{item.name}</h1>
+          <div className="flex items-center justify-center py-4">
+            <h1 className="text-2xl font-bold mx-4 my-2">{item.name}</h1>
           </div>
         </Link>
       ))}

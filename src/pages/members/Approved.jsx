@@ -57,7 +57,7 @@ const Approved = () => {
         {data.map((item, index) => (
           <div
             key={index}
-            className="bg-gray-100  rounded-lg flex flex-col items-center cursor-pointer hover:-translate-y-3 duration-700 ease-in-out"
+            className=" rounded-lg flex flex-col items-center cursor-pointer hover:-translate-y-3 duration-700 ease-in-out"
           >
             <img
               src={item.image}

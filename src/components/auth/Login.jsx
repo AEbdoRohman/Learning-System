@@ -49,7 +49,7 @@ const Login = () => {
       if (response.status === 200) {
         const user = response.data.user.name;
         const token = response.data.token;
-        console.log("Token:", token);
+
         cookies.set("authToken", token);
         cookies.set("authUser", user);
         navigate("/calender");

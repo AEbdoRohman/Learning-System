@@ -48,18 +48,18 @@ const Academic = () => {
             <Link
               to={`${item.id}`}
               key={item.id}
-              className="bg-blue-gray-100 rounded-lg group pb-4"
+              className="shadow-lg rounded-lg group pb-4"
             >
               <div className="overflow-hidden rounded-t-lg ">
                 <img
-                  src="/logo.jpeg"
-                  className="w-full h-auto rounded-t-md group-hover:scale-105 duration-300 ease-in-out"
+                  src="/logo.png"
+                  className="w-full h-48 rounded-t-md group-hover:scale-105 duration-300 ease-in-out"
                   alt="image"
                 />
               </div>
 
-              <div className="flex flex-col py-2">
-                <h1 className="text-2xl font-bold text-center m-4">
+              <div className="flex flex-col p-4">
+                <h1 className="text-2xl font-bold text-center my-2">
                   {item.title}
                 </h1>
                 {/* <p

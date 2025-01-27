@@ -57,16 +57,16 @@ const BLogHome = () => {
             )}
           </p>
         </div>
-        <div className="mt-10 mr-4 md:mx-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-8 md:gap-4 shadow-lg py-2 bg-gray-100">
+        <div className="mt-10 mr-4 md:mx-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-8 md:gap-4  py-2">
           {displayedBlogs.map((item) => (
             <Link
               to={`/news/academic/${item.id}`}
               key={item.id}
-              className="rounded-md cursor-pointer w-full relative transition-all duration-1000 group overflow-hidden"
+              className="rounded-md cursor-pointer w-full relative transition-all duration-1000 group overflow-hidden shadow-lg"
             >
               <img
-                src="/logo.jpeg"
-                className="rounded-md w-full transform transition-transform duration-1000 group-hover:scale-110 group-hover:rotate-3"
+                src="/logo.png"
+                className="rounded-md w-full h-48 transform transition-transform duration-1000 group-hover:scale-110 group-hover:rotate-3"
                 alt=""
               />
               <div className="absolute bg-black bg-opacity-50 w-full h-full top-0 left-0 rounded-md flex items-center justify-center text-center p-3 opacity-0 transform transition-all duration-700 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0">

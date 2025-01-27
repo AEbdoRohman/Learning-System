@@ -81,7 +81,7 @@ const Cia = () => {
               <img
                 src={data.image}
                 alt="Why Us"
-                className="w-full h-32 object-cover rounded-lg mt-4"
+                className="w-full h-80 object-contain rounded-lg mt-4"
               />
             )}
             <p
