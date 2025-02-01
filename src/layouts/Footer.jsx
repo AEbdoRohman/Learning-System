@@ -1,7 +1,4 @@
 import { Link } from "react-router-dom";
-// import { FaWhatsappSquare } from "react-icons/fa";
-// import { IoMail } from "react-icons/io5";
-// import { FaPhoneAlt } from "react-icons/fa";
 import { FaFacebookF, FaSquareXTwitter, FaYoutube } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
@@ -32,9 +29,9 @@ const Footer = () => {
       <div className="flex flex-col justify-center  md:flex-row flex-wrap md:items-start md:justify-around gap-4  mx-12 px-4 md:px-0 md:mx-0">
         {/* logo */}
 
-        <div className="flex flex-col items-center   w-full md:w-[20%]">
-          <Link to="/" className="flex justify-center items-center tex-center">
-            <img src={social.logo} alt="logo" className="w-2/3" />
+        <div className="flex flex-col    w-full md:w-[20%]">
+          <Link to="/" className="flex  items-center tex-center">
+            <img src={social.logo} alt="logo" className="w-20" />
           </Link>
           <p className="text-lg font-bold mt-4">{t("footer.desc")}</p>
         </div>
